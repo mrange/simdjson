@@ -375,7 +375,7 @@ public:
    * @return A `string_view` into the string, or:
    *         - UNEXPECTED_TYPE error if the JSON element is not a string
    */
-  const element_result<const std::string_view> as_string() const noexcept;
+  const element_result<std::string_view> as_string() const noexcept;
 
   /**
    * Read this element as an unsigned integer.
@@ -447,7 +447,7 @@ public:
    * @return The string value.
    * @exception invalid_json(UNEXPECTED_TYPE) if the JSON element is not a string.
    */
-  operator const std::string_view() const noexcept(false);
+  operator std::string_view() const noexcept(false);
 
   /**
    * Read this element as an unsigned integer.
@@ -628,7 +628,7 @@ public:
   /** Convert json `true` or `false` */
   operator bool() const noexcept(false);
   operator const char*() const noexcept(false);
-  operator const std::string_view() const noexcept(false);
+  operator std::string_view() const noexcept(false);
   operator uint64_t() const noexcept(false);
   operator int64_t() const noexcept(false);
   operator double() const noexcept(false);

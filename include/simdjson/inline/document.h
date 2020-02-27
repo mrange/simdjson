@@ -32,7 +32,7 @@ inline document::element_result<const char *>::operator const char *() const noe
   return value;
 }
 template<>
-inline document::element_result<const std::string_view>::operator const std::string_view() const noexcept(false) {
+inline document::element_result<std::string_view>::operator std::string_view() const noexcept(false) {
   if (error) { throw invalid_json(error); }
   return value;
 }
@@ -86,7 +86,7 @@ inline document::element_result<document::element>::operator const char *() cons
   return value.as_c_str();
 }
 template<>
-inline document::element_result<document::element>::operator const std::string_view() const noexcept(false) {
+inline document::element_result<document::element>::operator std::string_view() const noexcept(false) {
   if (error) { throw invalid_json(error); }
   return value.as_string();
 }
@@ -482,7 +482,7 @@ really_inline bool document::element::is_object() const noexcept {
 }
 inline document::element::operator bool() const noexcept(false) { return as_bool(); }
 inline document::element::operator const char*() const noexcept(false) { return as_c_str(); }
-inline document::element::operator const std::string_view() const noexcept(false) { return as_string(); }
+inline document::element::operator std::string_view() const noexcept(false) { return as_string(); }
 inline document::element::operator uint64_t() const noexcept(false) { return as_uint64(); }
 inline document::element::operator int64_t() const noexcept(false) { return as_int64(); }
 inline document::element::operator double() const noexcept(false) { return as_double(); }
@@ -508,7 +508,7 @@ inline const document::element_result<const char *> document::element::as_c_str(
       return INCORRECT_TYPE;
   }
 }
-inline const document::element_result<const std::string_view> document::element::as_string() const noexcept {
+inline const document::element_result<std::string_view> document::element::as_string() const noexcept {
   switch (type()) {
     case tape_type::STRING: {
       size_t string_buf_index = tape_value();
