@@ -178,7 +178,7 @@ inline bool document::parser::dump_raw_tape(std::ostream &os) const noexcept {
   return is_valid() ? doc.dump_raw_tape(os) : false;
 }
 inline const document &document::parser::get_document() const noexcept(false) {
-  if (error) {
+  if (!is_valid()) {
     throw invalid_json(error);
   }
   return doc;
