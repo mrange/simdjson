@@ -304,11 +304,11 @@ really_inline bool document::parser::on_end_array(uint32_t depth) noexcept {
 }
 
 really_inline bool document::parser::on_true_atom() noexcept {
-  write_tape(0, tape_type::TRUE);
+  write_tape(0, tape_type::TRUE_VALUE);
   return true;
 }
 really_inline bool document::parser::on_false_atom() noexcept {
-  write_tape(0, tape_type::FALSE);
+  write_tape(0, tape_type::FALSE_VALUE);
   return true;
 }
 really_inline bool document::parser::on_null_atom() noexcept {
@@ -463,7 +463,7 @@ really_inline bool document::element::is_null() const noexcept {
   return type() == tape_type::NULL_VALUE;
 }
 really_inline bool document::element::is_bool() const noexcept {
-  return type() == tape_type::TRUE || type() == tape_type::FALSE;
+  return type() == tape_type::TRUE_VALUE || type() == tape_type::FALSE_VALUE;
 }
 really_inline bool document::element::is_number() const noexcept {
   return type() == tape_type::UINT64 || type() == tape_type::INT64 || type() == tape_type::DOUBLE;
@@ -490,9 +490,9 @@ inline document::element::operator const document::array() const noexcept(false)
 inline document::element::operator const document::object() const noexcept(false) { return as_object(); }
 inline const document::element_result<bool> document::element::as_bool() const noexcept {
   switch (type()) {
-    case tape_type::TRUE:
+    case tape_type::TRUE_VALUE:
       return true;
-    case tape_type::FALSE:
+    case tape_type::FALSE_VALUE:
       return false;
     default:
       return INCORRECT_TYPE;

@@ -298,8 +298,8 @@ enum class document::tape_type {
   INT64 = 'l',
   UINT64 = 'u',
   DOUBLE = 'd',
-  TRUE = 't',
-  FALSE = 'f',
+  TRUE_VALUE = 't',
+  FALSE_VALUE = 'f',
   NULL_VALUE = 'n'
 };
 
