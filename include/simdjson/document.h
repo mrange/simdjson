@@ -62,30 +62,62 @@ public:
   using iterator = document_iterator<DEFAULT_MAX_DEPTH>;
 
   /**
-   * Get the root element of this document.
+   * Get the root element of this document as a JSON array.
    */
-  const element_result<element> root() const noexcept;
-
+  element root() const noexcept;
+  /**
+   * Get the root element of this document as a JSON array.
+   */
+  element_result<array> as_array() const noexcept;
+  /**
+   * Get the root element of this document as a JSON object.
+   */
+  element_result<object> as_object() const noexcept;
   /**
    * Get the root element of this document.
    */
-  operator const element() const noexcept(false);
-
+  operator element() const noexcept;
   /**
    * Read the root element of this document as a JSON array.
    *
    * @return The JSON array.
    * @exception invalid_json(UNEXPECTED_TYPE) if the JSON element is not an array
    */
-  operator const array() const noexcept(false);
-
+  operator array() const noexcept(false);
   /**
    * Read this element as a JSON object (key/value pairs).
    *
    * @return The JSON object.
    * @exception invalid_json(UNEXPECTED_TYPE) if the JSON element is not an object
    */
-  operator const object() const noexcept(false);
+  operator object() const noexcept(false);
+
+  /**
+   * Get the value associated with the given key.
+   *
+   * The key will be matched against **unescaped** JSON:
+   *
+   *   document::parse(R"({ "a\n": 1 })")["a\n"].as_uint64_t().value == 1
+   *   document::parse(R"({ "a\n": 1 })")["a\\n"].as_uint64_t().error == NO_SUCH_FIELD
+   *
+   * @return The value associated with the given key, or:
+   *         - NO_SUCH_FIELD if the field does not exist in the object
+   *         - UNEXPECTED_TYPE if the document is not an object
+   */
+  element_result<element> operator[](const std::string_view &s) const noexcept;
+  /**
+   * Get the value associated with the given key.
+   *
+   * The key will be matched against **unescaped** JSON:
+   *
+   *   document::parse(R"({ "a\n": 1 })")["a\n"].as_uint64_t().value == 1
+   *   document::parse(R"({ "a\n": 1 })")["a\\n"].as_uint64_t().error == NO_SUCH_FIELD
+   *
+   * @return The value associated with this field, or:
+   *         - NO_SUCH_FIELD if the field does not exist in the object
+   *         - UNEXPECTED_TYPE if the document is not an object
+   */
+  element_result<element> operator[](const char *s) const noexcept;
 
   /**
    * Print this JSON to a std::ostream.
@@ -308,7 +340,8 @@ enum class document::tape_type {
  */
 class document::tape_ref {
 protected:
-  tape_ref(const document &_doc, size_t _json_index) noexcept;
+  tape_ref() noexcept;
+  tape_ref(const document *_doc, size_t _json_index) noexcept;
   size_t after_element() const noexcept;
   tape_type type() const noexcept;
   uint64_t tape_value() const noexcept;
@@ -316,7 +349,7 @@ protected:
   T next_tape_value() const noexcept;
 
   /** The document this element references. */
-  const document &doc;
+  const document *doc;
 
   /** The index of this element on `doc.tape[]` */
   size_t json_index;
@@ -330,7 +363,7 @@ protected:
  * References an element in a JSON document, representing a JSON null, boolean, string, number,
  * array or object.
  */
-class document::element : document::tape_ref {
+class document::element : protected document::tape_ref {
 public:
   /** Whether this element is a json `null`. */
   bool is_null() const noexcept;
@@ -353,7 +386,7 @@ public:
    * @return The boolean value, or:
    *         - UNEXPECTED_TYPE error if the JSON element is not a boolean
    */
-  const element_result<bool> as_bool() const noexcept;
+  element_result<bool> as_bool() const noexcept;
 
   /**
    * Read this element as a null-terminated string.
@@ -364,7 +397,7 @@ public:
    * @return A `string_view` into the string, or:
    *         - UNEXPECTED_TYPE error if the JSON element is not a string
    */
-  const element_result<const char *> as_c_str() const noexcept;
+  element_result<const char *> as_c_str() const noexcept;
 
   /**
    * Read this element as a C++ string_view (string with length).
@@ -375,7 +408,7 @@ public:
    * @return A `string_view` into the string, or:
    *         - UNEXPECTED_TYPE error if the JSON element is not a string
    */
-  const element_result<std::string_view> as_string() const noexcept;
+  element_result<std::string_view> as_string() const noexcept;
 
   /**
    * Read this element as an unsigned integer.
@@ -384,7 +417,7 @@ public:
    *         - UNEXPECTED_TYPE if the JSON element is not an integer
    *         - NUMBER_OUT_OF_RANGE if the integer doesn't fit in 64 bits or is negative
    */
-  const element_result<uint64_t> as_uint64() const noexcept;
+  element_result<uint64_t> as_uint64_t() const noexcept;
 
   /**
    * Read this element as a signed integer.
@@ -393,7 +426,7 @@ public:
    *         - UNEXPECTED_TYPE if the JSON element is not an integer
    *         - NUMBER_OUT_OF_RANGE if the integer doesn't fit in 64 bits
    */
-  const element_result<int64_t> as_int64() const noexcept;
+  element_result<int64_t> as_int64_t() const noexcept;
 
   /**
    * Read this element as a floating point value.
@@ -401,7 +434,7 @@ public:
    * @return The double value, or:
    *         - UNEXPECTED_TYPE if the JSON element is not a number
    */
-  const element_result<double> as_double() const noexcept;
+  element_result<double> as_double() const noexcept;
 
   /**
    * Read this element as a JSON array.
@@ -409,7 +442,7 @@ public:
    * @return The array value, or:
    *         - UNEXPECTED_TYPE if the JSON element is not an array
    */
-  const element_result<document::array> as_array() const noexcept;
+  element_result<document::array> as_array() const noexcept;
 
   /**
    * Read this element as a JSON object (key/value pairs).
@@ -417,7 +450,7 @@ public:
    * @return The object value, or:
    *         - UNEXPECTED_TYPE if the JSON element is not an object
    */
-  const element_result<document::object> as_object() const noexcept;
+  element_result<document::object> as_object() const noexcept;
 
   /**
    * Read this element as a boolean.
@@ -479,31 +512,61 @@ public:
    * @return The JSON array.
    * @exception invalid_json(UNEXPECTED_TYPE) if the JSON element is not an array
    */
-  operator const document::array() const noexcept(false);
+  operator document::array() const noexcept(false);
   /**
    * Read this element as a JSON object (key/value pairs).
    *
    * @return The JSON object.
    * @exception invalid_json(UNEXPECTED_TYPE) if the JSON element is not an object
    */
-  operator const document::object() const noexcept(false);
+  operator document::object() const noexcept(false);
+
+  /**
+   * Get the value associated with the given key.
+   *
+   * The key will be matched against **unescaped** JSON:
+   *
+   *   document::parse(R"({ "a\n": 1 })")["a\n"].as_uint64_t().value == 1
+   *   document::parse(R"({ "a\n": 1 })")["a\\n"].as_uint64_t().error == NO_SUCH_FIELD
+   *
+   * @return The value associated with this field, or:
+   *         - NO_SUCH_FIELD if the field does not exist in the object
+   *         - UNEXPECTED_TYPE if the document is not an object
+   */
+  element_result<element> operator[](const std::string_view &s) const noexcept;
+  /**
+   * Get the value associated with the given key.
+   *
+   * Note: The key will be matched against **unescaped** JSON:
+   *
+   *   document::parse(R"({ "a\n": 1 })")["a\n"].as_uint64_t().value == 1
+   *   document::parse(R"({ "a\n": 1 })")["a\\n"].as_uint64_t().error == NO_SUCH_FIELD
+   *
+   * @return The value associated with this field, or:
+   *         - NO_SUCH_FIELD if the field does not exist in the object
+   *         - UNEXPECTED_TYPE if the document is not an object
+   */
+  element_result<element> operator[](const char *s) const noexcept;
 
 private:
+  element() noexcept;
+  element(const document *_doc, size_t _json_index) noexcept;
   friend class document;
-  element(const document &_doc, size_t _json_index) noexcept;
+  template<typename T>
+  friend class document::element_result;
 };
 
 /**
  * Represents a JSON array.
  */
-class document::array : document::tape_ref {
+class document::array : protected document::tape_ref {
 public:
   class iterator : tape_ref {
   public:
     /**
      * Get the actual value
      */
-    const element operator*() const noexcept;
+    element operator*() const noexcept;
     /**
      * Get the next value.
      *
@@ -511,13 +574,13 @@ public:
      */
     void operator++() noexcept;
     /**
-    * Check if these values come from the same place in the JSON.
-    *
-    * Part of the std::iterator interface.
-    */
+     * Check if these values come from the same place in the JSON.
+     *
+     * Part of the std::iterator interface.
+     */
     bool operator!=(const iterator& other) const noexcept;
   private:
-    iterator(const document &_doc, size_t _json_index) noexcept;
+    iterator(const document *_doc, size_t _json_index) noexcept;
     friend class array;
   };
 
@@ -535,16 +598,19 @@ public:
   iterator end() const noexcept;
 
 private:
-  array(const document &_doc, size_t _json_index) noexcept;
+  array() noexcept;
+  array(const document *_doc, size_t _json_index) noexcept;
   friend class document::element;
+  template<typename T>
+  friend class document::element_result;
 };
 
 /**
  * Represents a JSON object.
  */
-class document::object : document::tape_ref {
+class document::object : protected document::tape_ref {
 public:
-  class iterator : document::tape_ref {
+  class iterator : protected document::tape_ref {
   public:
     /**
      * Get the actual key/value pair
@@ -557,13 +623,25 @@ public:
      */
     void operator++() noexcept;
     /**
-    * Check if these key value pairs come from the same place in the JSON.
-    *
-    * Part of the std::iterator interface.
-    */
+     * Check if these key value pairs come from the same place in the JSON.
+     *
+     * Part of the std::iterator interface.
+     */
     bool operator!=(const iterator& other) const noexcept;
+    /**
+     * Get the key of this key/value pair.
+     */
+    std::string_view key() const noexcept;
+    /**
+     * Get the key of this key/value pair.
+     */
+    const char *key_c_str() const noexcept;
+    /**
+     * Get the value of this key/value pair.
+     */
+    element value() const noexcept;
   private:
-    iterator(const document &_doc, size_t _json_index) noexcept;
+    iterator(const document *_doc, size_t _json_index) noexcept;
     friend class document::object;
   };
 
@@ -580,9 +658,37 @@ public:
    */
   iterator end() const noexcept;
 
+  /**
+   * Get the value associated with the given key.
+   *
+   * The key will be matched against **unescaped** JSON:
+   *
+   *   document::parse(R"({ "a\n": 1 })")["a\n"].as_uint64_t().value == 1
+   *   document::parse(R"({ "a\n": 1 })")["a\\n"].as_uint64_t().error == NO_SUCH_FIELD
+   *
+   * @return The value associated with this field, or:
+   *         - NO_SUCH_FIELD if the field does not exist in the object
+   */
+  element_result<element> operator[](const std::string_view &s) const noexcept;
+  /**
+   * Get the value associated with the given key.
+   *
+   * Note: The key will be matched against **unescaped** JSON:
+   *
+   *   document::parse(R"({ "a\n": 1 })")["a\n"].as_uint64_t().value == 1
+   *   document::parse(R"({ "a\n": 1 })")["a\\n"].as_uint64_t().error == NO_SUCH_FIELD
+   *
+   * @return The value associated with this field, or:
+   *         - NO_SUCH_FIELD if the field does not exist in the object
+   */
+  element_result<element> operator[](const char *s) const noexcept;
+
 private:
-  object(const document &_doc, size_t _json_index) noexcept;
+  object() noexcept;
+  object(const document *_doc, size_t _json_index) noexcept;
   friend class document::element;
+  template<typename T>
+  friend class document::element_result;
 };
 
 /**
@@ -594,7 +700,7 @@ public:
   document::element value;
 
 private:
-  key_value_pair(const document::tape_ref &_tape) noexcept;
+  key_value_pair(std::string_view _key, document::element _value) noexcept;
   friend class document::object;
 };
 
@@ -624,24 +730,59 @@ public:
   error_code error;
 
   /** Whether this is a JSON `null` */
-  bool is_null() const noexcept(false);
-  /** Convert json `true` or `false` */
+  element_result<bool> is_null() const noexcept;
+
+  element_result<bool> as_bool() const noexcept;
+  element_result<std::string_view> as_string() const noexcept;
+  element_result<const char *> as_c_str() const noexcept;
+  element_result<uint64_t> as_uint64_t() const noexcept;
+  element_result<int64_t> as_int64_t() const noexcept;
+  element_result<double> as_double() const noexcept;
+  element_result<array> as_array() const noexcept;
+  element_result<object> as_object() const noexcept;
+
   operator bool() const noexcept(false);
   operator const char*() const noexcept(false);
   operator std::string_view() const noexcept(false);
   operator uint64_t() const noexcept(false);
   operator int64_t() const noexcept(false);
   operator double() const noexcept(false);
-  operator const document::element() const noexcept(false);
-  operator const document::array() const noexcept(false);
-  operator const document::object() const noexcept(false);
+  operator element() const noexcept(false);
+  operator array() const noexcept(false);
+  operator object() const noexcept(false);
+
+  /**
+   * Get the value associated with the given key.
+   *
+   * The key will be matched against **unescaped** JSON:
+   *
+   *   document::parse(R"({ "a\n": 1 })")["a\n"].as_uint64_t().value == 1
+   *   document::parse(R"({ "a\n": 1 })")["a\\n"].as_uint64_t().error == NO_SUCH_FIELD
+   *
+   * @return The value associated with this field, or:
+   *         - NO_SUCH_FIELD if the field does not exist in the object
+   *         - UNEXPECTED_TYPE if the document is not an object
+   */
+  element_result<element> operator[](const std::string_view &s) const noexcept;
+  /**
+   * Get the value associated with the given key.
+   *
+   * Note: The key will be matched against **unescaped** JSON:
+   *
+   *   document::parse(R"({ "a\n": 1 })")["a\n"].as_uint64_t().value == 1
+   *   document::parse(R"({ "a\n": 1 })")["a\\n"].as_uint64_t().error == NO_SUCH_FIELD
+   *
+   * @return The value associated with this field, or:
+   *         - NO_SUCH_FIELD if the field does not exist in the object
+   *         - UNEXPECTED_TYPE if the document is not an object
+   */
+  element_result<element> operator[](const char *s) const noexcept;
 
 private:
-  element_result(T _value, error_code _error) noexcept;
   element_result(T value) noexcept;
   element_result(error_code _error) noexcept;
   friend class document;
-  friend class document::element;
+  friend class element;
 };
 
 /**

@@ -5,6 +5,8 @@ using namespace std;
 using namespace simdjson;
 
 void document_parse_error_code() {
+  cout << __func__ << endl;
+
   string json("[ 1, 2, 3 ]");
   auto [doc, error] = document::parse(json);
   if (error) { cerr << "Error: " << error_message(error) << endl; exit(1); }
@@ -13,6 +15,8 @@ void document_parse_error_code() {
 }
 
 void document_parse_exception() {
+  cout << __func__ << endl;
+
   string json("[ 1, 2, 3 ]");
   document doc = document::parse(json);
   doc.print_json(cout);
@@ -20,6 +24,8 @@ void document_parse_exception() {
 }
 
 void document_parse_padded_string() {
+  cout << __func__ << endl;
+
   padded_string json(string("[ 1, 2, 3 ]"));
   document doc = document::parse(json);
   doc.print_json(cout);
@@ -27,6 +33,8 @@ void document_parse_padded_string() {
 }
 
 void document_parse_get_corpus() {
+  cout << __func__ << endl;
+
   padded_string json(get_corpus("jsonexamples/small/demo.json"));
   document doc = document::parse(json);
   doc.print_json(cout);
@@ -34,6 +42,8 @@ void document_parse_get_corpus() {
 }
 
 void parser_parse() {
+  cout << __func__ << endl;
+
   // Allocate a parser big enough for all files
   document::parser parser;
   if (!parser.allocate_capacity(1024*1024)) { exit(1); }
@@ -49,6 +59,8 @@ void parser_parse() {
 }
 
 void object_iterator() {
+  cout << __func__ << endl;
+
   string json(R"({ "a": 1, "b": 2, "c": 3 })");
   const char* expected_key[] = { "a", "b", "c" };
   uint64_t expected_value[] = { 1, 2, 3 };
@@ -63,6 +75,8 @@ void object_iterator() {
 }
 
 void array_iterator() {
+  cout << __func__ << endl;
+
   string json(R"([ 1, 10, 100 ])");
   uint64_t expected_value[] = { 1, 10, 100 };
   int i=0;
@@ -76,6 +90,8 @@ void array_iterator() {
 }
 
 void object_iterator_empty() {
+  cout << __func__ << endl;
+
   string json(R"({})");
   uint64_t expected_value[] = {};
   int i = 0;
@@ -89,6 +105,8 @@ void object_iterator_empty() {
 }
 
 void array_iterator_empty() {
+  cout << __func__ << endl;
+
   string json(R"([])");
   uint64_t expected_value[] = {};
   int i=0;
@@ -102,6 +120,8 @@ void array_iterator_empty() {
 }
 
 void string_value() {
+  cout << __func__ << endl;
+
   string json(R"([ "hi", "has backslash\\" ])");
   document doc = document::parse(json);
   auto val = document::array(doc).begin();
@@ -113,6 +133,8 @@ void string_value() {
 }
 
 void numeric_values() {
+  cout << __func__ << endl;
+
   string json(R"([ 0, 1, -1, 1.1 ])");
   document doc = document::parse(json);
   auto val = document::array(doc).begin();
@@ -131,6 +153,8 @@ void numeric_values() {
 }
 
 void boolean_values() {
+  cout << __func__ << endl;
+
   string json(R"([ true, false ])");
   document doc = document::parse(json);
   auto val = document::array(doc).begin();
@@ -140,10 +164,48 @@ void boolean_values() {
 }
 
 void null_value() {
+  cout << __func__ << endl;
+
   string json(R"([ null ])");
   document doc = document::parse(json);
   auto val = document::array(doc).begin();
   if (!(*val).is_null()) { cerr << "Expected null to be null!" << endl; exit(1); }
+}
+
+void document_object_index() {
+  cout << __func__ << endl;
+
+  string json(R"({ "a": 1, "b": 2, "c": 3})");
+  document doc = document::parse(json);
+  if (uint64_t(doc["a"]) != 1) { cerr << "Expected uint64_t(doc[\"a\"]) to be 1, was " << uint64_t(doc["a"]) << endl; exit(1); }
+  if (uint64_t(doc["b"]) != 2) { cerr << "Expected uint64_t(doc[\"b\"]) to be 2, was " << uint64_t(doc["b"]) << endl; exit(1); }
+  if (uint64_t(doc["c"]) != 3) { cerr << "Expected uint64_t(doc[\"c\"]) to be 3, was " << uint64_t(doc["c"]) << endl; exit(1); }
+  // Check all three again in backwards order, to ensure we can go backwards
+  if (uint64_t(doc["c"]) != 3) { cerr << "Expected uint64_t(doc[\"c\"]) to be 3, was " << uint64_t(doc["c"]) << endl; exit(1); }
+  if (uint64_t(doc["b"]) != 2) { cerr << "Expected uint64_t(doc[\"b\"]) to be 2, was " << uint64_t(doc["b"]) << endl; exit(1); }
+  if (uint64_t(doc["a"]) != 1) { cerr << "Expected uint64_t(doc[\"a\"]) to be 1, was " << uint64_t(doc["a"]) << endl; exit(1); }
+
+  auto [val, error] = doc["d"];
+  if (error != simdjson::NO_SUCH_FIELD) { cerr << "Expected NO_SUCH_FIELD error for uint64_t(doc[\"d\"]), got " << error_message(error) << endl; exit(1); }
+}
+
+void object_index() {
+  cout << __func__ << endl;
+
+  string json(R"({ "obj": { "a": 1, "b": 2, "c": 3 } })");
+  document doc = document::parse(json);
+  if (uint64_t(doc["obj"]["a"]) != 1) { cerr << "Expected uint64_t(doc[\"obj\"][\"a\"]) to be 1, was " << uint64_t(doc["obj"]["a"]) << endl; exit(1); }
+  document::object obj = doc["obj"];
+  if (uint64_t(obj["a"]) != 1) { cerr << "Expected uint64_t(obj[\"a\"]) to be 1, was " << uint64_t(obj["a"]) << endl; exit(1); }
+  if (uint64_t(obj["b"]) != 2) { cerr << "Expected uint64_t(obj[\"b\"]) to be 2, was " << uint64_t(obj["b"]) << endl; exit(1); }
+  if (uint64_t(obj["c"]) != 3) { cerr << "Expected uint64_t(obj[\"c\"]) to be 3, was " << uint64_t(obj["c"]) << endl; exit(1); }
+  // Check all three again in backwards order, to ensure we can go backwards
+  if (uint64_t(obj["c"]) != 3) { cerr << "Expected uint64_t(obj[\"c\"]) to be 3, was " << uint64_t(obj["c"]) << endl; exit(1); }
+  if (uint64_t(obj["b"]) != 2) { cerr << "Expected uint64_t(obj[\"b\"]) to be 2, was " << uint64_t(obj["b"]) << endl; exit(1); }
+  if (uint64_t(obj["a"]) != 1) { cerr << "Expected uint64_t(obj[\"a\"]) to be 1, was " << uint64_t(obj["a"]) << endl; exit(1); }
+
+  auto [val, error] = obj["d"];
+  if (error != simdjson::NO_SUCH_FIELD) { cerr << "Expected NO_SUCH_FIELD error for uint64_t(obj[\"d\"]), got " << error_message(error) << endl; exit(1); }
 }
 
 
@@ -162,6 +224,8 @@ int main() {
   numeric_values();
   boolean_values();
   null_value();
+  document_object_index();
+  object_index();
   cout << "Ran to completion!" << endl;
   return 0;
 }
