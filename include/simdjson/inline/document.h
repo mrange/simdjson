@@ -540,7 +540,8 @@ inline const document::element_result<int64_t> document::element::as_int64() con
   switch (type()) {
     case tape_type::UINT64: {
       uint64_t result = next_tape_value<uint64_t>();
-      if (result > std::numeric_limits<uint64_t>::max()) {
+      // Wrapping max in parens to handle Windows issue: https://stackoverflow.com/questions/11544073/how-do-i-deal-with-the-max-macro-in-windows-h-colliding-with-max-in-std
+      if (result > (std::numeric_limits<uint64_t>::max)()) {
         return NUMBER_OUT_OF_RANGE;
       }
       return static_cast<int64_t>(result);
