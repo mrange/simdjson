@@ -20,10 +20,6 @@ template<typename T>
 inline document::element_result<T>::element_result(T _value) noexcept : value(_value), error{SUCCESS} {}
 template<typename T>
 inline document::element_result<T>::element_result(error_code _error) noexcept : value(), error{_error} {}
-
-//
-// document::element_result<concrete type> inline implementation
-//
 template<>
 inline document::element_result<std::string_view>::operator std::string_view() const noexcept(false) {
   if (error) { throw invalid_json(error); }
@@ -54,119 +50,121 @@ inline document::element_result<double>::operator double() const noexcept(false)
   if (error) { throw invalid_json(error); }
   return value;
 }
-template<>
+
+//
+// document::element_result<document::array> inline implementation
+//
+inline document::element_result<document::array>::element_result(document::array _value) noexcept : value(_value), error{SUCCESS} {}
+inline document::element_result<document::array>::element_result(error_code _error) noexcept : value(), error{_error} {}
 inline document::element_result<document::array>::operator document::array() const noexcept(false) {
   if (error) { throw invalid_json(error); }
   return value;
 }
-template<>
+inline document::array::iterator document::element_result<document::array>::begin() const noexcept(false) {
+  if (error) { throw invalid_json(error); }
+  return value.begin();
+}
+inline document::array::iterator document::element_result<document::array>::end() const noexcept(false) {
+  if (error) { throw invalid_json(error); }
+  return value.end();
+}
+
+//
+// document::element_result<document::object> inline implementation
+//
+inline document::element_result<document::object>::element_result(document::object _value) noexcept : value(_value), error{SUCCESS} {}
+inline document::element_result<document::object>::element_result(error_code _error) noexcept : value(), error{_error} {}
 inline document::element_result<document::object>::operator document::object() const noexcept(false) {
   if (error) { throw invalid_json(error); }
   return value;
 }
-template<>
 inline document::element_result<document::element> document::element_result<document::object>::operator[](const std::string_view &key) const noexcept {
   if (error) { return error; }
   return value[key];
 }
-template<>
 inline document::element_result<document::element> document::element_result<document::object>::operator[](const char *key) const noexcept {
   if (error) { return error; }
   return value[key];
+}
+inline document::object::iterator document::element_result<document::object>::begin() const noexcept(false) {
+  if (error) { throw invalid_json(error); }
+  return value.begin();
+}
+inline document::object::iterator document::element_result<document::object>::end() const noexcept(false) {
+  if (error) { throw invalid_json(error); }
+  return value.end();
 }
 
 //
 // document::element_result<document::element> inline implementation
 //
-template<>
+inline document::element_result<document::element>::element_result(document::element _value) noexcept : value(_value), error{SUCCESS} {}
+inline document::element_result<document::element>::element_result(error_code _error) noexcept : value(), error{_error} {}
 inline document::element_result<bool> document::element_result<document::element>::is_null() const noexcept {
   if (error) { return error; }
   return value.is_null();
 }
-template<>
 inline document::element_result<bool> document::element_result<document::element>::as_bool() const noexcept {
   if (error) { return error; }
   return value.as_bool();
 }
-template<>
 inline document::element_result<const char*> document::element_result<document::element>::as_c_str() const noexcept {
   if (error) { return error; }
   return value.as_c_str();
 }
-template<>
 inline document::element_result<std::string_view> document::element_result<document::element>::as_string() const noexcept {
   if (error) { return error; }
   return value.as_string();
 }
-template<>
 inline document::element_result<uint64_t> document::element_result<document::element>::as_uint64_t() const noexcept {
   if (error) { return error; }
   return value.as_uint64_t();
 }
-template<>
 inline document::element_result<int64_t> document::element_result<document::element>::as_int64_t() const noexcept {
   if (error) { return error; }
   return value.as_int64_t();
 }
-template<>
 inline document::element_result<double> document::element_result<document::element>::as_double() const noexcept {
   if (error) { return error; }
   return value.as_double();
 }
-template<>
 inline document::element_result<document::array> document::element_result<document::element>::as_array() const noexcept {
   if (error) { return error; }
   return value.as_array();
 }
-template<>
 inline document::element_result<document::object> document::element_result<document::element>::as_object() const noexcept {
   if (error) { return error; }
   return value.as_object();
 }
 
-template<>
 inline document::element_result<document::element>::operator bool() const noexcept(false) {
   return as_bool();
 }
-template<>
 inline document::element_result<document::element>::operator const char *() const noexcept(false) {
   return as_c_str();
 }
-template<>
 inline document::element_result<document::element>::operator std::string_view() const noexcept(false) {
   return as_string();
 }
-template<>
 inline document::element_result<document::element>::operator uint64_t() const noexcept(false) {
   return as_uint64_t();
 }
-template<>
 inline document::element_result<document::element>::operator int64_t() const noexcept(false) {
   return as_int64_t();
 }
-template<>
 inline document::element_result<document::element>::operator double() const noexcept(false) {
   return as_double();
 }
-template<>
-inline document::element_result<document::element>::operator document::element() const noexcept(false) {
-  if (error) { throw invalid_json(error); }
-  return value;
-}
-template<>
 inline document::element_result<document::element>::operator document::array() const noexcept(false) {
   return as_array();
 }
-template<>
 inline document::element_result<document::element>::operator document::object() const noexcept(false) {
   return as_object();
 }
-template<>
 inline document::element_result<document::element> document::element_result<document::element>::operator[](const std::string_view &key) const noexcept {
   if (error) { return *this; }
   return value[key];
 }
-template<>
 inline document::element_result<document::element> document::element_result<document::element>::operator[](const char *key) const noexcept {
   if (error) { return *this; }
   return value[key];

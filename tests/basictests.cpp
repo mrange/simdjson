@@ -595,7 +595,7 @@ namespace dom_api {
     int i=0;
 
     document doc = document::parse(json);
-    for (uint64_t value : document::array(doc)) {
+    for (uint64_t value : doc.as_array()) {
       if (value != expected_value[i]) { cerr << "Expected " << expected_value[i] << ", got " << value << endl; return false; }
       i++;
     }
@@ -609,7 +609,7 @@ namespace dom_api {
     int i = 0;
 
     document doc = document::parse(json);
-    for (auto [key, value] : document::object(doc)) {
+    for (auto [key, value] : doc.as_object()) {
       cout << "Unexpected " << key << " = " << uint64_t(value) << endl;
       i++;
     }
@@ -623,7 +623,7 @@ namespace dom_api {
     int i=0;
 
     document doc = document::parse(json);
-    for (uint64_t value : document::array(doc)) {
+    for (uint64_t value : doc.as_array()) {
       cout << "Unexpected value " << value << endl;
       i++;
     }
@@ -726,7 +726,7 @@ namespace dom_api {
     // Print users with a default profile.
     set<string_view> default_users;
     document doc = document::parse(get_corpus("jsonexamples/twitter.json"));
-    for (document::object tweet : document::array(doc["statuses"])) {
+    for (document::object tweet : doc["statuses"].as_array()) {
       document::object user = tweet["user"];
       if (user["default_profile"]) {
         default_users.insert(user["screen_name"]);
@@ -740,11 +740,11 @@ namespace dom_api {
     // Print image names and sizes
     set<tuple<uint64_t, uint64_t>> image_sizes;
     document doc = document::parse(get_corpus("jsonexamples/twitter.json"));
-    for (document::object tweet : document::array(doc["statuses"])) {
+    for (document::object tweet : doc["statuses"].as_array()) {
       auto [media, not_found] = tweet["entities"]["media"];
       if (!not_found) {
-        for (document::object image : document::array(media)) {
-          for (auto [key, size] : document::object(image["sizes"])) {
+        for (document::object image : media.as_array()) {
+          for (auto [key, size] : image["sizes"].as_object()) {
             image_sizes.insert({ size["w"], size["h"] });
           }
         }
