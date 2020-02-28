@@ -14,6 +14,10 @@
 #include "simdjson/jsonstream.h"
 #include "simdjson/document.h"
 
+#ifndef JSON_TEST_PATH
+#define JSON_TEST_PATH "jsonexamples/twitter.json"
+#endif
+
 // ulp distance
 // Marc B. Reynolds, 2016-2019
 // Public Domain under http://unlicense.org, see link for details.
@@ -716,7 +720,9 @@ namespace dom_api {
 
   bool twitter_count() {
     // Prints the number of results in twitter.json
-    document doc = document::parse(get_corpus("jsonexamples/twitter.json"));
+    printf(JSON_TEST_PATH);
+    printf("\n");
+    document doc = document::parse(get_corpus(JSON_TEST_PATH));
     uint64_t result_count = doc["search_metadata"]["count"];
     if (result_count != 100) { cerr << "Expected twitter.json[metadata_count][count] = 100, got " << result_count << endl; return false; }
     return true;
@@ -725,7 +731,7 @@ namespace dom_api {
   bool twitter_default_profile() {
     // Print users with a default profile.
     set<string_view> default_users;
-    document doc = document::parse(get_corpus("jsonexamples/twitter.json"));
+    document doc = document::parse(get_corpus(JSON_TEST_PATH));
     for (document::object tweet : doc["statuses"].as_array()) {
       document::object user = tweet["user"];
       if (user["default_profile"]) {
@@ -739,7 +745,7 @@ namespace dom_api {
   bool twitter_image_sizes() {
     // Print image names and sizes
     set<tuple<uint64_t, uint64_t>> image_sizes;
-    document doc = document::parse(get_corpus("jsonexamples/twitter.json"));
+    document doc = document::parse(get_corpus(JSON_TEST_PATH));
     for (document::object tweet : doc["statuses"].as_array()) {
       auto [media, not_found] = tweet["entities"]["media"];
       if (!not_found) {
