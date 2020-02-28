@@ -7,6 +7,8 @@
 #include <string>
 #include <vector>
 #include <cmath>
+#include <set>
+#include <string_view>
 
 #include "simdjson/jsonparser.h"
 #include "simdjson/jsonstream.h"
@@ -712,6 +714,46 @@ namespace dom_api {
     return true;
   }
 
+  bool twitter_count() {
+    // Prints the number of results in twitter.json
+    document doc = document::parse(get_corpus("jsonexamples/twitter.json"));
+    uint64_t result_count = doc["search_metadata"]["count"];
+    if (result_count != 100) { cerr << "Expected twitter.json[metadata_count][count] = 100, got " << result_count << endl; return false; }
+    return true;
+  }
+
+  bool twitter_default_profile() {
+    // Print users with a default profile.
+    set<string_view> default_users;
+    document doc = document::parse(get_corpus("jsonexamples/twitter.json"));
+    for (document::object tweet : document::array(doc["statuses"])) {
+      document::object user = tweet["user"];
+      if (user["default_profile"]) {
+        default_users.insert(user["screen_name"]);
+      }
+    }
+    if (default_users.size() != 86) { cerr << "Expected twitter.json[statuses][user] to contain 86 default_profile users, got " << default_users.size() << endl; return false; }
+    return true;
+  }
+
+  bool twitter_image_sizes() {
+    // Print image names and sizes
+    set<tuple<uint64_t, uint64_t>> image_sizes;
+    document doc = document::parse(get_corpus("jsonexamples/twitter.json"));
+    for (document::object tweet : document::array(doc["statuses"])) {
+      auto [media, not_found] = tweet["entities"]["media"];
+      if (!not_found) {
+        for (document::object image : document::array(media)) {
+          for (auto [key, size] : document::object(image["sizes"])) {
+            image_sizes.insert({ size["w"], size["h"] });
+          }
+        }
+      }
+    }
+    if (image_sizes.size() != 15) { cerr << "Expected twitter.json[statuses][entities][media][sizes] to contain 15 different sizes, got " << image_sizes.size() << endl; return false; }
+    return true;
+  }
+
   bool run_tests() {
     if (!object_iterator()) { return false; }
     if (!array_iterator()) { return false; }
@@ -723,6 +765,9 @@ namespace dom_api {
     if (!null_value()) { return false; }
     if (!document_object_index()) { return false; }
     if (!object_index()) { return false; }
+    if (!twitter_count()) { return false; }
+    if (!twitter_default_profile()) { return false; }
+    if (!twitter_image_sizes()) { return false; }
     return true;
   }
 }
