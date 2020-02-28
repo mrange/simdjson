@@ -469,7 +469,7 @@ public:
    * @return The string value.
    * @exception invalid_json(UNEXPECTED_TYPE) if the JSON element is not a string.
    */
-  operator const char*() const noexcept(false);
+  explicit operator const char*() const noexcept(false);
 
   /**
    * Read this element as a null-terminated string.
@@ -759,7 +759,7 @@ public:
   element_result<object> as_object() const noexcept;
 
   operator bool() const noexcept(false);
-  operator const char*() const noexcept(false);
+  explicit operator const char*() const noexcept(false);
   operator std::string_view() const noexcept(false);
   operator uint64_t() const noexcept(false);
   operator int64_t() const noexcept(false);
