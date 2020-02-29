@@ -21,6 +21,17 @@ static void twitter_count(State& state) {
 }
 BENCHMARK(twitter_count);
 
+static void error_code_twitter_count(State& state) noexcept {
+  // Prints the number of results in twitter.json
+  document doc = document::parse(get_corpus(JSON_TEST_PATH));
+  for (auto _ : state) {
+    auto [value, error] = doc["search_metadata"]["count"];
+    if (error) { return; }
+    if (uint64_t(value) != 100) { return; }
+  }
+}
+BENCHMARK(error_code_twitter_count);
+
 static void iterator_twitter_count(State& state) {
   // Prints the number of results in twitter.json
   document doc = document::parse(get_corpus(JSON_TEST_PATH));
@@ -52,6 +63,31 @@ static void twitter_default_profile(State& state) {
   }
 }
 BENCHMARK(twitter_default_profile);
+
+static void error_code_twitter_default_profile(State& state) noexcept {
+  // Count unique users with a default profile.
+  document doc = document::parse(get_corpus(JSON_TEST_PATH));
+  for (auto _ : state) {
+    set<string_view> default_users;
+
+    auto [tweets, error] = doc["statuses"].as_array();
+    if (error) { return; }
+    for (document::element tweet : tweets) {
+      auto [user, error2] = tweet["user"].as_object();
+      if (error2) { return; }
+      auto [default_profile, error3] = user["default_profile"].as_bool();
+      if (error3) { return; }
+      if (default_profile) {
+        auto [screen_name, error4] = user["screen_name"].as_string();
+        if (error4) { return; }
+        default_users.insert(screen_name);
+      }
+    }
+
+    if (default_users.size() != 86) { return; }
+  }
+}
+BENCHMARK(error_code_twitter_default_profile);
 
 static void iterator_twitter_default_profile(State& state) {
   // Count unique users with a default profile.
@@ -109,6 +145,33 @@ static void twitter_image_sizes(State& state) {
   }
 }
 BENCHMARK(twitter_image_sizes);
+
+static void error_code_twitter_image_sizes(State& state) noexcept {
+  // Count unique image sizes
+  document doc = document::parse(get_corpus(JSON_TEST_PATH));
+  for (auto _ : state) {
+    set<tuple<uint64_t, uint64_t>> image_sizes;
+    auto [statuses, error] = doc["statuses"].as_array();
+    if (error) { return; }
+    for (document::element tweet : statuses) {
+      auto [images, not_found] = tweet["entities"]["media"].as_array();
+      if (!not_found) {
+        for (document::element image : images) {
+          auto [sizes, error2] = image["sizes"].as_object();
+          if (error2) { return; }
+          for (auto [key, size] : sizes) {
+            auto [width, error3] = size["w"].as_uint64_t();
+            auto [height, error4] = size["h"].as_uint64_t();
+            if (error3 || error4) { return; }
+            image_sizes.insert({ width, height });
+          }
+        }
+      }
+    }
+    if (image_sizes.size() != 15) { return; };
+  }
+}
+BENCHMARK(error_code_twitter_image_sizes);
 
 static void iterator_twitter_image_sizes(State& state) {
   // Count unique image sizes
