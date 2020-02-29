@@ -529,9 +529,12 @@ inline void document::object::iterator::operator++() noexcept {
   json_index = after_element();
 }
 inline std::string_view document::object::iterator::key() const noexcept {
+  size_t string_buf_index = tape_value();
+  uint32_t len;
+  memcpy(&len, &doc->string_buf[string_buf_index], sizeof(len));
   return std::string_view(
-    reinterpret_cast<const char *>(&doc->string_buf[tape_value() + sizeof(uint32_t)]),
-    *reinterpret_cast<const uint32_t*>(&doc->string_buf[tape_value()])
+    reinterpret_cast<const char *>(&doc->string_buf[string_buf_index + sizeof(uint32_t)]),
+    len
   );
 }
 inline const char* document::object::iterator::key_c_str() const noexcept {
@@ -605,9 +608,11 @@ inline document::element_result<std::string_view> document::element::as_string()
   switch (type()) {
     case tape_type::STRING: {
       size_t string_buf_index = tape_value();
+      uint32_t len;
+      memcpy(&len, &doc->string_buf[string_buf_index], sizeof(len));
       return std::string_view(
         reinterpret_cast<const char *>(&doc->string_buf[string_buf_index + sizeof(uint32_t)]),
-        *reinterpret_cast<const uint32_t*>(&doc->string_buf[string_buf_index])
+        len
       );
     }
     default:
