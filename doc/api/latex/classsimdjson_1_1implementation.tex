@@ -1,0 +1,218 @@
+\hypertarget{classsimdjson_1_1implementation}{}\section{simdjson\+:\+:implementation Class Reference}
+\label{classsimdjson_1_1implementation}\index{simdjson\+::implementation@{simdjson\+::implementation}}
+
+
+An implementation of simdjson for a particular C\+PU architecture.  
+
+
+
+
+{\ttfamily \#include $<$implementation.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual const std\+::string \& \hyperlink{classsimdjson_1_1implementation_a404c32ec6187ac0fb5b2ec6b5aea4abd}{name} () const
+\begin{DoxyCompactList}\small\item\em The name of this implementation. \end{DoxyCompactList}\item 
+virtual const std\+::string \& \hyperlink{classsimdjson_1_1implementation_a4f41daefefc573e20fccd591b158e063}{description} () const
+\begin{DoxyCompactList}\small\item\em The description of this implementation. \end{DoxyCompactList}\item 
+virtual uint32\+\_\+t \hyperlink{classsimdjson_1_1implementation_a64a43c16f8dfcec3c20c05c17b43b753}{required\+\_\+instruction\+\_\+sets} () const
+\begin{DoxyCompactList}\small\item\em The instruction sets this implementation is compiled against. \end{DoxyCompactList}\item 
+virtual W\+A\+R\+N\+\_\+\+U\+N\+U\+S\+ED \hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code} \hyperlink{classsimdjson_1_1implementation_ab91b208c5104e565702cfeb9797533bf}{parse} (const uint8\+\_\+t $\ast$buf, size\+\_\+t len, \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&parser) const noexcept=0
+\begin{DoxyCompactList}\small\item\em Run a full document parse (init\+\_\+parse, stage1 and stage2). \end{DoxyCompactList}\item 
+virtual W\+A\+R\+N\+\_\+\+U\+N\+U\+S\+ED \hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code} \hyperlink{classsimdjson_1_1implementation_acecce36fb2291be439f03116e19426e7}{stage1} (const uint8\+\_\+t $\ast$buf, size\+\_\+t len, \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&parser, bool streaming) const noexcept=0
+\begin{DoxyCompactList}\small\item\em Stage 1 of the document parser. \end{DoxyCompactList}\item 
+virtual W\+A\+R\+N\+\_\+\+U\+N\+U\+S\+ED \hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code} \hyperlink{classsimdjson_1_1implementation_a1fcedef10b246c08be2655765a179e64}{stage2} (const uint8\+\_\+t $\ast$buf, size\+\_\+t len, \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&parser) const noexcept=0
+\begin{DoxyCompactList}\small\item\em Stage 2 of the document parser. \end{DoxyCompactList}\item 
+virtual W\+A\+R\+N\+\_\+\+U\+N\+U\+S\+ED \hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code} \hyperlink{classsimdjson_1_1implementation_ad58e8c39c7562adcc0a3c55de12e9c4f}{stage2} (const uint8\+\_\+t $\ast$buf, size\+\_\+t len, \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&parser, size\+\_\+t \&next\+\_\+json) const noexcept=0
+\begin{DoxyCompactList}\small\item\em Stage 2 of the document parser for \hyperlink{classsimdjson_1_1_json_stream}{Json\+Stream}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1implementation_ad7348eee7a285356a7a06fee316b9122}\label{classsimdjson_1_1implementation_ad7348eee7a285356a7a06fee316b9122}} 
+really\+\_\+inline {\bfseries implementation} (const std\+::string \&\hyperlink{classsimdjson_1_1implementation_a404c32ec6187ac0fb5b2ec6b5aea4abd}{name}, const std\+::string \&\hyperlink{classsimdjson_1_1implementation_a4f41daefefc573e20fccd591b158e063}{description}, uint32\+\_\+t \hyperlink{classsimdjson_1_1implementation_a64a43c16f8dfcec3c20c05c17b43b753}{required\+\_\+instruction\+\_\+sets})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An implementation of simdjson for a particular C\+PU architecture. 
+
+Also used to maintain the currently active implementation. The active implementation is automatically initialized on first use to the most advanced implementation supported by the host. 
+
+Definition at line 24 of file implementation.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classsimdjson_1_1implementation_a4f41daefefc573e20fccd591b158e063}\label{classsimdjson_1_1implementation_a4f41daefefc573e20fccd591b158e063}} 
+\index{simdjson\+::implementation@{simdjson\+::implementation}!description@{description}}
+\index{description@{description}!simdjson\+::implementation@{simdjson\+::implementation}}
+\subsubsection{\texorpdfstring{description()}{description()}}
+{\footnotesize\ttfamily virtual const std\+::string\& simdjson\+::implementation\+::description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+The description of this implementation. 
+
+const implementation $\ast$impl = \hyperlink{namespacesimdjson_a9ed6efb6da2dda95f75256aaf1d0b9b4}{simdjson\+::active\+\_\+implementation}; cout $<$$<$ \char`\"{}simdjson is optimized for \char`\"{} $<$$<$ impl-\/$>$\hyperlink{classsimdjson_1_1implementation_a404c32ec6187ac0fb5b2ec6b5aea4abd}{name()} $<$$<$ \char`\"{}(\char`\"{} $<$$<$ impl-\/$>$\hyperlink{classsimdjson_1_1implementation_a4f41daefefc573e20fccd591b158e063}{description()} $<$$<$ \char`\"{})\char`\"{} $<$$<$ endl;
+
+\begin{DoxyReturn}{Returns}
+the name of the implementation, e.\+g. \char`\"{}haswell\char`\"{}, \char`\"{}westmere\char`\"{}, \char`\"{}arm64\char`\"{} 
+\end{DoxyReturn}
+
+
+Definition at line 44 of file implementation.\+h.
+
+
+\begin{DoxyCode}
+44 \{ \textcolor{keywordflow}{return} \_description; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1implementation_a404c32ec6187ac0fb5b2ec6b5aea4abd}\label{classsimdjson_1_1implementation_a404c32ec6187ac0fb5b2ec6b5aea4abd}} 
+\index{simdjson\+::implementation@{simdjson\+::implementation}!name@{name}}
+\index{name@{name}!simdjson\+::implementation@{simdjson\+::implementation}}
+\subsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily virtual const std\+::string\& simdjson\+::implementation\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+The name of this implementation. 
+
+const implementation $\ast$impl = \hyperlink{namespacesimdjson_a9ed6efb6da2dda95f75256aaf1d0b9b4}{simdjson\+::active\+\_\+implementation}; cout $<$$<$ \char`\"{}simdjson is optimized for \char`\"{} $<$$<$ impl-\/$>$\hyperlink{classsimdjson_1_1implementation_a404c32ec6187ac0fb5b2ec6b5aea4abd}{name()} $<$$<$ \char`\"{}(\char`\"{} $<$$<$ impl-\/$>$\hyperlink{classsimdjson_1_1implementation_a4f41daefefc573e20fccd591b158e063}{description()} $<$$<$ \char`\"{})\char`\"{} $<$$<$ endl;
+
+\begin{DoxyReturn}{Returns}
+the name of the implementation, e.\+g. \char`\"{}haswell\char`\"{}, \char`\"{}westmere\char`\"{}, \char`\"{}arm64\char`\"{} 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file implementation.\+h.
+
+
+\begin{DoxyCode}
+34 \{ \textcolor{keywordflow}{return} \_name; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1implementation_ab91b208c5104e565702cfeb9797533bf}\label{classsimdjson_1_1implementation_ab91b208c5104e565702cfeb9797533bf}} 
+\index{simdjson\+::implementation@{simdjson\+::implementation}!parse@{parse}}
+\index{parse@{parse}!simdjson\+::implementation@{simdjson\+::implementation}}
+\subsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily virtual W\+A\+R\+N\+\_\+\+U\+N\+U\+S\+ED \hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code} simdjson\+::implementation\+::parse (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{buf,  }\item[{size\+\_\+t}]{len,  }\item[{\hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&}]{parser }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Run a full document parse (init\+\_\+parse, stage1 and stage2). 
+
+Overridden by each implementation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & the json document to parse. {\itshape M\+U\+ST} be allocated up to len + S\+I\+M\+D\+J\+S\+O\+N\+\_\+\+P\+A\+D\+D\+I\+NG bytes. \\
+\hline
+{\em len} & the length of the json document. \\
+\hline
+{\em parser} & the parser with the buffers to use. {\itshape M\+U\+ST} have allocated up to at least len capacity. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the error code, or S\+U\+C\+C\+E\+SS if there was no error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsimdjson_1_1implementation_a64a43c16f8dfcec3c20c05c17b43b753}\label{classsimdjson_1_1implementation_a64a43c16f8dfcec3c20c05c17b43b753}} 
+\index{simdjson\+::implementation@{simdjson\+::implementation}!required\+\_\+instruction\+\_\+sets@{required\+\_\+instruction\+\_\+sets}}
+\index{required\+\_\+instruction\+\_\+sets@{required\+\_\+instruction\+\_\+sets}!simdjson\+::implementation@{simdjson\+::implementation}}
+\subsubsection{\texorpdfstring{required\+\_\+instruction\+\_\+sets()}{required\_instruction\_sets()}}
+{\footnotesize\ttfamily virtual uint32\+\_\+t simdjson\+::implementation\+::required\+\_\+instruction\+\_\+sets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+The instruction sets this implementation is compiled against. 
+
+\begin{DoxyReturn}{Returns}
+a mask of all required {\ttfamily instruction\+\_\+set} values 
+\end{DoxyReturn}
+
+
+Definition at line 51 of file implementation.\+h.
+
+
+\begin{DoxyCode}
+51 \{ \textcolor{keywordflow}{return} \_required\_instruction\_sets; \};
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1implementation_acecce36fb2291be439f03116e19426e7}\label{classsimdjson_1_1implementation_acecce36fb2291be439f03116e19426e7}} 
+\index{simdjson\+::implementation@{simdjson\+::implementation}!stage1@{stage1}}
+\index{stage1@{stage1}!simdjson\+::implementation@{simdjson\+::implementation}}
+\subsubsection{\texorpdfstring{stage1()}{stage1()}}
+{\footnotesize\ttfamily virtual W\+A\+R\+N\+\_\+\+U\+N\+U\+S\+ED \hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code} simdjson\+::implementation\+::stage1 (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{buf,  }\item[{size\+\_\+t}]{len,  }\item[{\hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&}]{parser,  }\item[{bool}]{streaming }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Stage 1 of the document parser. 
+
+Overridden by each implementation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & the json document to parse. {\itshape M\+U\+ST} be allocated up to len + S\+I\+M\+D\+J\+S\+O\+N\+\_\+\+P\+A\+D\+D\+I\+NG bytes. \\
+\hline
+{\em len} & the length of the json document. \\
+\hline
+{\em parser} & the parser with the buffers to use. {\itshape M\+U\+ST} have allocated up to at least len capacity. \\
+\hline
+{\em streaming} & whether this is being called by a \hyperlink{classsimdjson_1_1_json_stream}{Json\+Stream} parser. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the error code, or S\+U\+C\+C\+E\+SS if there was no error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsimdjson_1_1implementation_a1fcedef10b246c08be2655765a179e64}\label{classsimdjson_1_1implementation_a1fcedef10b246c08be2655765a179e64}} 
+\index{simdjson\+::implementation@{simdjson\+::implementation}!stage2@{stage2}}
+\index{stage2@{stage2}!simdjson\+::implementation@{simdjson\+::implementation}}
+\subsubsection{\texorpdfstring{stage2()}{stage2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual W\+A\+R\+N\+\_\+\+U\+N\+U\+S\+ED \hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code} simdjson\+::implementation\+::stage2 (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{buf,  }\item[{size\+\_\+t}]{len,  }\item[{\hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&}]{parser }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Stage 2 of the document parser. 
+
+Overridden by each implementation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & the json document to parse. {\itshape M\+U\+ST} be allocated up to len + S\+I\+M\+D\+J\+S\+O\+N\+\_\+\+P\+A\+D\+D\+I\+NG bytes. \\
+\hline
+{\em len} & the length of the json document. \\
+\hline
+{\em parser} & the parser with the buffers to use. {\itshape M\+U\+ST} have allocated up to at least len capacity. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the error code, or S\+U\+C\+C\+E\+SS if there was no error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsimdjson_1_1implementation_ad58e8c39c7562adcc0a3c55de12e9c4f}\label{classsimdjson_1_1implementation_ad58e8c39c7562adcc0a3c55de12e9c4f}} 
+\index{simdjson\+::implementation@{simdjson\+::implementation}!stage2@{stage2}}
+\index{stage2@{stage2}!simdjson\+::implementation@{simdjson\+::implementation}}
+\subsubsection{\texorpdfstring{stage2()}{stage2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual W\+A\+R\+N\+\_\+\+U\+N\+U\+S\+ED \hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code} simdjson\+::implementation\+::stage2 (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{buf,  }\item[{size\+\_\+t}]{len,  }\item[{\hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&}]{parser,  }\item[{size\+\_\+t \&}]{next\+\_\+json }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Stage 2 of the document parser for \hyperlink{classsimdjson_1_1_json_stream}{Json\+Stream}. 
+
+Overridden by each implementation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & the json document to parse. {\itshape M\+U\+ST} be allocated up to len + S\+I\+M\+D\+J\+S\+O\+N\+\_\+\+P\+A\+D\+D\+I\+NG bytes. \\
+\hline
+{\em len} & the length of the json document. \\
+\hline
+{\em parser} & the parser with the buffers to use. {\itshape M\+U\+ST} have allocated up to at least len capacity. \\
+\hline
+{\em next\+\_\+json} & the next structural index. Start this at 0 the first time, and it will be updated to the next value to pass each time. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the error code, S\+U\+C\+C\+E\+SS if there was no error, or S\+U\+C\+C\+E\+S\+S\+\_\+\+A\+N\+D\+\_\+\+H\+A\+S\+\_\+\+M\+O\+RE if there was no error and stage2 can be called again. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/simdjson/implementation.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,787 @@
+\hypertarget{classsimdjson_1_1document_1_1element}{}\section{simdjson\+:\+:document\+:\+:element Class Reference}
+\label{classsimdjson_1_1document_1_1element}\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+
+
+A J\+S\+ON element.  
+
+
+
+
+{\ttfamily \#include $<$document.\+h$>$}
+
+
+
+Inherits simdjson\+::document\+::tape\+\_\+ref.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classsimdjson_1_1document_1_1element_a3ba0d5f3bc4427ff01d3a7f9af410188}{is\+\_\+null} () const noexcept
+\begin{DoxyCompactList}\small\item\em Whether this element is a json {\ttfamily null}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_a6fe1123a9465729ac3def2317253301e}\label{classsimdjson_1_1document_1_1element_a6fe1123a9465729ac3def2317253301e}} 
+bool \hyperlink{classsimdjson_1_1document_1_1element_a6fe1123a9465729ac3def2317253301e}{is\+\_\+bool} () const noexcept
+\begin{DoxyCompactList}\small\item\em Whether this is a J\+S\+ON {\ttfamily true} or {\ttfamily false} \end{DoxyCompactList}\item 
+bool \hyperlink{classsimdjson_1_1document_1_1element_a228b17e13e1a303052a8d6e758c84dde}{is\+\_\+number} () const noexcept
+\begin{DoxyCompactList}\small\item\em Whether this is a J\+S\+ON number (e.\+g. \end{DoxyCompactList}\item 
+bool \hyperlink{classsimdjson_1_1document_1_1element_ab022f58390a1553a581d9c6668eb53ba}{is\+\_\+integer} () const noexcept
+\begin{DoxyCompactList}\small\item\em Whether this is a J\+S\+ON integer (e.\+g. \end{DoxyCompactList}\item 
+bool \hyperlink{classsimdjson_1_1document_1_1element_ab50f025cf9a300e77d06c9bacd04c62a}{is\+\_\+string} () const noexcept
+\begin{DoxyCompactList}\small\item\em Whether this is a J\+S\+ON string (e.\+g. \end{DoxyCompactList}\item 
+bool \hyperlink{classsimdjson_1_1document_1_1element_a65800f96c37e88e89ab36d3bb3202f27}{is\+\_\+array} () const noexcept
+\begin{DoxyCompactList}\small\item\em Whether this is a J\+S\+ON array (e.\+g. \end{DoxyCompactList}\item 
+bool \hyperlink{classsimdjson_1_1document_1_1element_abd705b50a8571a6e36fe53c83133cd2b}{is\+\_\+object} () const noexcept
+\begin{DoxyCompactList}\small\item\em Whether this is a J\+S\+ON array (e.\+g. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element__result}{element\+\_\+result}$<$ bool $>$ \hyperlink{classsimdjson_1_1document_1_1element_a6df6ba7eee788af715ffd494edfa860e}{as\+\_\+bool} () const noexcept
+\begin{DoxyCompactList}\small\item\em Read this element as a boolean (json {\ttfamily true} or {\ttfamily false}). \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element__result}{element\+\_\+result}$<$ const char $\ast$ $>$ \hyperlink{classsimdjson_1_1document_1_1element_ae3df9bdbad4492c1c19b11c66c5e61be}{as\+\_\+c\+\_\+str} () const noexcept
+\begin{DoxyCompactList}\small\item\em Read this element as a null-\/terminated string. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element__result}{element\+\_\+result}$<$ std\+::string\+\_\+view $>$ \hyperlink{classsimdjson_1_1document_1_1element_a2467d0f9e039451767947dab82622331}{as\+\_\+string} () const noexcept
+\begin{DoxyCompactList}\small\item\em Read this element as a C++ string\+\_\+view (string with length). \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element__result}{element\+\_\+result}$<$ uint64\+\_\+t $>$ \hyperlink{classsimdjson_1_1document_1_1element_ab89d449ae4c78aced06643d7323cbdfb}{as\+\_\+uint64\+\_\+t} () const noexcept
+\begin{DoxyCompactList}\small\item\em Read this element as an unsigned integer. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element__result}{element\+\_\+result}$<$ int64\+\_\+t $>$ \hyperlink{classsimdjson_1_1document_1_1element_ad02cc5dbfb8ae3d5309f8456759120e7}{as\+\_\+int64\+\_\+t} () const noexcept
+\begin{DoxyCompactList}\small\item\em Read this element as a signed integer. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element__result}{element\+\_\+result}$<$ double $>$ \hyperlink{classsimdjson_1_1document_1_1element_a1d6014890ca8f9fddbd97ab8c81a711c}{as\+\_\+double} () const noexcept
+\begin{DoxyCompactList}\small\item\em Read this element as a floating point value. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element__result}{element\+\_\+result}$<$ \hyperlink{classsimdjson_1_1document_1_1array}{document\+::array} $>$ \hyperlink{classsimdjson_1_1document_1_1element_afbd5b1b6a674a2e38ba5267c6999579c}{as\+\_\+array} () const noexcept
+\begin{DoxyCompactList}\small\item\em Read this element as a J\+S\+ON array. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element__result}{element\+\_\+result}$<$ \hyperlink{classsimdjson_1_1document_1_1object}{document\+::object} $>$ \hyperlink{classsimdjson_1_1document_1_1element_a1fe44151506bca67f318f9f4aeb02fc6}{as\+\_\+object} () const noexcept
+\begin{DoxyCompactList}\small\item\em Read this element as a J\+S\+ON object (key/value pairs). \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element_a1157c9af47ff2049e8f9fd1e19003596}{operator bool} () const noexcept(false)
+\begin{DoxyCompactList}\small\item\em Read this element as a boolean. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element_a3c96e921fdff1894188d714446847857}{operator const char $\ast$} () const noexcept(false)
+\begin{DoxyCompactList}\small\item\em Read this element as a null-\/terminated string. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element_ad907f21076cc2a2f1352234fe18c8f94}{operator std\+::string\+\_\+view} () const noexcept(false)
+\begin{DoxyCompactList}\small\item\em Read this element as a null-\/terminated string. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element_aeeef4b2e6eec31f6eb5a87930ce4f859}{operator uint64\+\_\+t} () const noexcept(false)
+\begin{DoxyCompactList}\small\item\em Read this element as an unsigned integer. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element_a89305767fe78b8ad76fadf0f2f5e2836}{operator int64\+\_\+t} () const noexcept(false)
+\begin{DoxyCompactList}\small\item\em Read this element as an signed integer. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element_a063b979cbc6960b4370d074b76455e7a}{operator double} () const noexcept(false)
+\begin{DoxyCompactList}\small\item\em Read this element as an double. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element_ac217a7d104132a849a4c63820af91da8}{operator document\+::array} () const noexcept(false)
+\begin{DoxyCompactList}\small\item\em Read this element as a J\+S\+ON array. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element_ac9f7dd43808385b7ec89ea667a6cddc2}{operator document\+::object} () const noexcept(false)
+\begin{DoxyCompactList}\small\item\em Read this element as a J\+S\+ON object (key/value pairs). \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element__result}{element\+\_\+result}$<$ \hyperlink{classsimdjson_1_1document_1_1element}{element} $>$ \hyperlink{classsimdjson_1_1document_1_1element_ae7c594595c73a015d9a8bce46e52f46f}{operator\mbox{[}$\,$\mbox{]}} (const std\+::string\+\_\+view \&s) const noexcept
+\begin{DoxyCompactList}\small\item\em Get the value associated with the given key. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element__result}{element\+\_\+result}$<$ \hyperlink{classsimdjson_1_1document_1_1element}{element} $>$ \hyperlink{classsimdjson_1_1document_1_1element_a1e7407d751420bcd130d90d838034492}{operator\mbox{[}$\,$\mbox{]}} (const char $\ast$s) const noexcept
+\begin{DoxyCompactList}\small\item\em Get the value associated with the given key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A J\+S\+ON element. 
+
+References an element in a J\+S\+ON document, representing a J\+S\+ON null, boolean, string, number, array or object. 
+
+Definition at line 373 of file document.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_afbd5b1b6a674a2e38ba5267c6999579c}\label{classsimdjson_1_1document_1_1element_afbd5b1b6a674a2e38ba5267c6999579c}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!as\+\_\+array@{as\+\_\+array}}
+\index{as\+\_\+array@{as\+\_\+array}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{as\+\_\+array()}{as\_array()}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1element__result}{document\+::element\+\_\+result}$<$ \hyperlink{classsimdjson_1_1document_1_1array}{document\+::array} $>$ simdjson\+::document\+::element\+::as\+\_\+array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Read this element as a J\+S\+ON array. 
+
+\begin{DoxyReturn}{Returns}
+The array value, or\+:
+\begin{DoxyItemize}
+\item U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+PE if the J\+S\+ON element is not an array 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 672 of file document.\+h.
+
+
+\begin{DoxyCode}
+672                                                                                       \{
+673   \textcolor{keywordflow}{switch} (type()) \{
+674     \textcolor{keywordflow}{case} tape\_type::START\_ARRAY:
+675       \textcolor{keywordflow}{return} array(doc, json\_index);
+676     \textcolor{keywordflow}{default}:
+677       \textcolor{keywordflow}{return} INCORRECT\_TYPE;
+678   \}
+679 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_a6df6ba7eee788af715ffd494edfa860e}\label{classsimdjson_1_1document_1_1element_a6df6ba7eee788af715ffd494edfa860e}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!as\+\_\+bool@{as\+\_\+bool}}
+\index{as\+\_\+bool@{as\+\_\+bool}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{as\+\_\+bool()}{as\_bool()}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1element__result}{document\+::element\+\_\+result}$<$ bool $>$ simdjson\+::document\+::element\+::as\+\_\+bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Read this element as a boolean (json {\ttfamily true} or {\ttfamily false}). 
+
+\begin{DoxyReturn}{Returns}
+The boolean value, or\+:
+\begin{DoxyItemize}
+\item U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+PE error if the J\+S\+ON element is not a boolean 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 587 of file document.\+h.
+
+
+\begin{DoxyCode}
+587                                                                             \{
+588   \textcolor{keywordflow}{switch} (type()) \{
+589     \textcolor{keywordflow}{case} tape\_type::TRUE\_VALUE:
+590       \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+591     \textcolor{keywordflow}{case} tape\_type::FALSE\_VALUE:
+592       \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+593     \textcolor{keywordflow}{default}:
+594       \textcolor{keywordflow}{return} INCORRECT\_TYPE;
+595   \}
+596 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_ae3df9bdbad4492c1c19b11c66c5e61be}\label{classsimdjson_1_1document_1_1element_ae3df9bdbad4492c1c19b11c66c5e61be}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!as\+\_\+c\+\_\+str@{as\+\_\+c\+\_\+str}}
+\index{as\+\_\+c\+\_\+str@{as\+\_\+c\+\_\+str}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{as\+\_\+c\+\_\+str()}{as\_c\_str()}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1element__result}{document\+::element\+\_\+result}$<$ const char $\ast$ $>$ simdjson\+::document\+::element\+::as\+\_\+c\+\_\+str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Read this element as a null-\/terminated string. 
+
+Does {\itshape not} convert other types to a string; requires that the J\+S\+ON type of the element was an actual string.
+
+\begin{DoxyReturn}{Returns}
+A {\ttfamily string\+\_\+view} into the string, or\+:
+\begin{DoxyItemize}
+\item U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+PE error if the J\+S\+ON element is not a string 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 597 of file document.\+h.
+
+
+\begin{DoxyCode}
+597                                                                                      \{
+598   \textcolor{keywordflow}{switch} (type()) \{
+599     \textcolor{keywordflow}{case} tape\_type::STRING: \{
+600       \textcolor{keywordtype}{size\_t} string\_buf\_index = tape\_value();
+601       \textcolor{keywordflow}{return} \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\textcolor{keywordtype}{char} *\textcolor{keyword}{>}(&doc->string\_buf[string\_buf\_index + \textcolor{keyword}{sizeof}(uint32\_t)]);
+602     \}
+603     \textcolor{keywordflow}{default}:
+604       \textcolor{keywordflow}{return} INCORRECT\_TYPE;
+605   \}
+606 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_a1d6014890ca8f9fddbd97ab8c81a711c}\label{classsimdjson_1_1document_1_1element_a1d6014890ca8f9fddbd97ab8c81a711c}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!as\+\_\+double@{as\+\_\+double}}
+\index{as\+\_\+double@{as\+\_\+double}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{as\+\_\+double()}{as\_double()}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1element__result}{document\+::element\+\_\+result}$<$ double $>$ simdjson\+::document\+::element\+::as\+\_\+double (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Read this element as a floating point value. 
+
+\begin{DoxyReturn}{Returns}
+The double value, or\+:
+\begin{DoxyItemize}
+\item U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+PE if the J\+S\+ON element is not a number 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 654 of file document.\+h.
+
+
+\begin{DoxyCode}
+654                                                                                 \{
+655   \textcolor{keywordflow}{switch} (type()) \{
+656     \textcolor{keywordflow}{case} tape\_type::UINT64:
+657       \textcolor{keywordflow}{return} next\_tape\_value<uint64\_t>();
+658     \textcolor{keywordflow}{case} tape\_type::INT64: \{
+659       \textcolor{keywordflow}{return} next\_tape\_value<int64\_t>();
+660       int64\_t result = tape\_value();
+661       \textcolor{keywordflow}{if} (result < 0) \{
+662         \textcolor{keywordflow}{return} NUMBER\_OUT\_OF\_RANGE;
+663       \}
+664       \textcolor{keywordflow}{return} result;
+665     \}
+666     \textcolor{keywordflow}{case} tape\_type::DOUBLE:
+667       \textcolor{keywordflow}{return} next\_tape\_value<double>();
+668     \textcolor{keywordflow}{default}:
+669       \textcolor{keywordflow}{return} INCORRECT\_TYPE;
+670   \}
+671 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_ad02cc5dbfb8ae3d5309f8456759120e7}\label{classsimdjson_1_1document_1_1element_ad02cc5dbfb8ae3d5309f8456759120e7}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!as\+\_\+int64\+\_\+t@{as\+\_\+int64\+\_\+t}}
+\index{as\+\_\+int64\+\_\+t@{as\+\_\+int64\+\_\+t}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{as\+\_\+int64\+\_\+t()}{as\_int64\_t()}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1element__result}{document\+::element\+\_\+result}$<$ int64\+\_\+t $>$ simdjson\+::document\+::element\+::as\+\_\+int64\+\_\+t (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Read this element as a signed integer. 
+
+\begin{DoxyReturn}{Returns}
+The integer value, or\+:
+\begin{DoxyItemize}
+\item U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+PE if the J\+S\+ON element is not an integer
+\item N\+U\+M\+B\+E\+R\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+GE if the integer doesn\textquotesingle{}t fit in 64 bits 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 637 of file document.\+h.
+
+
+\begin{DoxyCode}
+637                                                                                   \{
+638   \textcolor{keywordflow}{switch} (type()) \{
+639     \textcolor{keywordflow}{case} tape\_type::UINT64: \{
+640       uint64\_t result = next\_tape\_value<uint64\_t>();
+641       \textcolor{comment}{// Wrapping max in parens to handle Windows issue:
+       https://stackoverflow.com/questions/11544073/how-do-i-deal-with-the-max-macro-in-windows-h-colliding-with-max-in-std}
+642       \textcolor{keywordflow}{if} (result > (std::numeric\_limits<uint64\_t>::max)()) \{
+643         \textcolor{keywordflow}{return} NUMBER\_OUT\_OF\_RANGE;
+644       \}
+645       \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(result);
+646     \}
+647     \textcolor{keywordflow}{case} tape\_type::INT64:
+648       \textcolor{keywordflow}{return} next\_tape\_value<int64\_t>();
+649     \textcolor{keywordflow}{default}:
+650     std::cout << \textcolor{stringliteral}{"Incorrect "} << json\_index << \textcolor{stringliteral}{" = "} << char(type()) << std::endl;
+651       \textcolor{keywordflow}{return} INCORRECT\_TYPE;
+652   \}
+653 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_a1fe44151506bca67f318f9f4aeb02fc6}\label{classsimdjson_1_1document_1_1element_a1fe44151506bca67f318f9f4aeb02fc6}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!as\+\_\+object@{as\+\_\+object}}
+\index{as\+\_\+object@{as\+\_\+object}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{as\+\_\+object()}{as\_object()}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1element__result}{document\+::element\+\_\+result}$<$ \hyperlink{classsimdjson_1_1document_1_1object}{document\+::object} $>$ simdjson\+::document\+::element\+::as\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Read this element as a J\+S\+ON object (key/value pairs). 
+
+\begin{DoxyReturn}{Returns}
+The object value, or\+:
+\begin{DoxyItemize}
+\item U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+PE if the J\+S\+ON element is not an object 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 680 of file document.\+h.
+
+
+\begin{DoxyCode}
+680                                                                                         \{
+681   \textcolor{keywordflow}{switch} (type()) \{
+682     \textcolor{keywordflow}{case} tape\_type::START\_OBJECT:
+683       \textcolor{keywordflow}{return} object(doc, json\_index);
+684     \textcolor{keywordflow}{default}:
+685       \textcolor{keywordflow}{return} INCORRECT\_TYPE;
+686   \}
+687 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_a2467d0f9e039451767947dab82622331}\label{classsimdjson_1_1document_1_1element_a2467d0f9e039451767947dab82622331}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!as\+\_\+string@{as\+\_\+string}}
+\index{as\+\_\+string@{as\+\_\+string}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{as\+\_\+string()}{as\_string()}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1element__result}{document\+::element\+\_\+result}$<$ std\+::string\+\_\+view $>$ simdjson\+::document\+::element\+::as\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Read this element as a C++ string\+\_\+view (string with length). 
+
+Does {\itshape not} convert other types to a string; requires that the J\+S\+ON type of the element was an actual string.
+
+\begin{DoxyReturn}{Returns}
+A {\ttfamily string\+\_\+view} into the string, or\+:
+\begin{DoxyItemize}
+\item U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+PE error if the J\+S\+ON element is not a string 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 607 of file document.\+h.
+
+
+\begin{DoxyCode}
+607                                                                                         \{
+608   \textcolor{keywordflow}{switch} (type()) \{
+609     \textcolor{keywordflow}{case} tape\_type::STRING: \{
+610       \textcolor{keywordtype}{size\_t} string\_buf\_index = tape\_value();
+611       uint32\_t len;
+612       memcpy(&len, &doc->string\_buf[string\_buf\_index], \textcolor{keyword}{sizeof}(len));
+613       \textcolor{keywordflow}{return} std::string\_view(
+614         reinterpret\_cast<const char *>(&doc->string\_buf[string\_buf\_index + \textcolor{keyword}{sizeof}(uint32\_t)]),
+615         len
+616       );
+617     \}
+618     \textcolor{keywordflow}{default}:
+619       \textcolor{keywordflow}{return} INCORRECT\_TYPE;
+620   \}
+621 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_ab89d449ae4c78aced06643d7323cbdfb}\label{classsimdjson_1_1document_1_1element_ab89d449ae4c78aced06643d7323cbdfb}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!as\+\_\+uint64\+\_\+t@{as\+\_\+uint64\+\_\+t}}
+\index{as\+\_\+uint64\+\_\+t@{as\+\_\+uint64\+\_\+t}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{as\+\_\+uint64\+\_\+t()}{as\_uint64\_t()}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1element__result}{document\+::element\+\_\+result}$<$ uint64\+\_\+t $>$ simdjson\+::document\+::element\+::as\+\_\+uint64\+\_\+t (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Read this element as an unsigned integer. 
+
+\begin{DoxyReturn}{Returns}
+The uninteger value, or\+:
+\begin{DoxyItemize}
+\item U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+PE if the J\+S\+ON element is not an integer
+\item N\+U\+M\+B\+E\+R\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+GE if the integer doesn\textquotesingle{}t fit in 64 bits or is negative 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 622 of file document.\+h.
+
+
+\begin{DoxyCode}
+622                                                                                     \{
+623   \textcolor{keywordflow}{switch} (type()) \{
+624     \textcolor{keywordflow}{case} tape\_type::UINT64:
+625       \textcolor{keywordflow}{return} next\_tape\_value<uint64\_t>();
+626     \textcolor{keywordflow}{case} tape\_type::INT64: \{
+627       int64\_t result = next\_tape\_value<int64\_t>();
+628       \textcolor{keywordflow}{if} (result < 0) \{
+629         \textcolor{keywordflow}{return} NUMBER\_OUT\_OF\_RANGE;
+630       \}
+631       \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}uint64\_t\textcolor{keyword}{>}(result);
+632     \}
+633     \textcolor{keywordflow}{default}:
+634       \textcolor{keywordflow}{return} INCORRECT\_TYPE;
+635   \}
+636 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_a65800f96c37e88e89ab36d3bb3202f27}\label{classsimdjson_1_1document_1_1element_a65800f96c37e88e89ab36d3bb3202f27}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!is\+\_\+array@{is\+\_\+array}}
+\index{is\+\_\+array@{is\+\_\+array}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{is\+\_\+array()}{is\_array()}}
+{\footnotesize\ttfamily really\+\_\+inline bool simdjson\+::document\+::element\+::is\+\_\+array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Whether this is a J\+S\+ON array (e.\+g. 
+
+\mbox{[}\mbox{]}) 
+
+Definition at line 573 of file document.\+h.
+
+
+\begin{DoxyCode}
+573                                                             \{
+574   \textcolor{keywordflow}{return} type() == tape\_type::START\_ARRAY;
+575 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_ab022f58390a1553a581d9c6668eb53ba}\label{classsimdjson_1_1document_1_1element_ab022f58390a1553a581d9c6668eb53ba}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!is\+\_\+integer@{is\+\_\+integer}}
+\index{is\+\_\+integer@{is\+\_\+integer}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{is\+\_\+integer()}{is\_integer()}}
+{\footnotesize\ttfamily really\+\_\+inline bool simdjson\+::document\+::element\+::is\+\_\+integer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Whether this is a J\+S\+ON integer (e.\+g. 
+
+1 or -\/1, but {\itshape not} 1.\+0 or 1e2) 
+
+Definition at line 567 of file document.\+h.
+
+
+\begin{DoxyCode}
+567                                                               \{
+568   \textcolor{keywordflow}{return} type() == tape\_type::UINT64 || type() == tape\_type::INT64;
+569 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_a3ba0d5f3bc4427ff01d3a7f9af410188}\label{classsimdjson_1_1document_1_1element_a3ba0d5f3bc4427ff01d3a7f9af410188}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!is\+\_\+null@{is\+\_\+null}}
+\index{is\+\_\+null@{is\+\_\+null}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{is\+\_\+null()}{is\_null()}}
+{\footnotesize\ttfamily really\+\_\+inline bool simdjson\+::document\+::element\+::is\+\_\+null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Whether this element is a json {\ttfamily null}. 
+
+
+
+Definition at line 558 of file document.\+h.
+
+
+\begin{DoxyCode}
+558                                                            \{
+559   \textcolor{keywordflow}{return} type() == tape\_type::NULL\_VALUE;
+560 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_a228b17e13e1a303052a8d6e758c84dde}\label{classsimdjson_1_1document_1_1element_a228b17e13e1a303052a8d6e758c84dde}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!is\+\_\+number@{is\+\_\+number}}
+\index{is\+\_\+number@{is\+\_\+number}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{is\+\_\+number()}{is\_number()}}
+{\footnotesize\ttfamily really\+\_\+inline bool simdjson\+::document\+::element\+::is\+\_\+number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Whether this is a J\+S\+ON number (e.\+g. 
+
+1, 1.\+0 or 1e2) 
+
+Definition at line 564 of file document.\+h.
+
+
+\begin{DoxyCode}
+564                                                              \{
+565   \textcolor{keywordflow}{return} type() == tape\_type::UINT64 || type() == tape\_type::INT64 || type() == tape\_type::DOUBLE;
+566 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_abd705b50a8571a6e36fe53c83133cd2b}\label{classsimdjson_1_1document_1_1element_abd705b50a8571a6e36fe53c83133cd2b}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!is\+\_\+object@{is\+\_\+object}}
+\index{is\+\_\+object@{is\+\_\+object}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{is\+\_\+object()}{is\_object()}}
+{\footnotesize\ttfamily really\+\_\+inline bool simdjson\+::document\+::element\+::is\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Whether this is a J\+S\+ON array (e.\+g. 
+
+\mbox{[}\mbox{]}) 
+
+Definition at line 576 of file document.\+h.
+
+
+\begin{DoxyCode}
+576                                                              \{
+577   \textcolor{keywordflow}{return} type() == tape\_type::START\_OBJECT;
+578 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_ab50f025cf9a300e77d06c9bacd04c62a}\label{classsimdjson_1_1document_1_1element_ab50f025cf9a300e77d06c9bacd04c62a}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!is\+\_\+string@{is\+\_\+string}}
+\index{is\+\_\+string@{is\+\_\+string}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{is\+\_\+string()}{is\_string()}}
+{\footnotesize\ttfamily really\+\_\+inline bool simdjson\+::document\+::element\+::is\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Whether this is a J\+S\+ON string (e.\+g. 
+
+\char`\"{}abc\char`\"{}) 
+
+Definition at line 570 of file document.\+h.
+
+
+\begin{DoxyCode}
+570                                                              \{
+571   \textcolor{keywordflow}{return} type() == tape\_type::STRING;
+572 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_a1157c9af47ff2049e8f9fd1e19003596}\label{classsimdjson_1_1document_1_1element_a1157c9af47ff2049e8f9fd1e19003596}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily simdjson\+::document\+::element\+::operator bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Read this element as a boolean. 
+
+\begin{DoxyReturn}{Returns}
+The boolean value 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+json(\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+P\+E)} & if the J\+S\+ON element is not a boolean. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 579 of file document.\+h.
+
+
+\begin{DoxyCode}
+579 \{ \textcolor{keywordflow}{return} \hyperlink{classsimdjson_1_1document_1_1element_a6df6ba7eee788af715ffd494edfa860e}{as\_bool}(); \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_a3c96e921fdff1894188d714446847857}\label{classsimdjson_1_1document_1_1element_a3c96e921fdff1894188d714446847857}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!operator const char $\ast$@{operator const char $\ast$}}
+\index{operator const char $\ast$@{operator const char $\ast$}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{operator const char $\ast$()}{operator const char *()}}
+{\footnotesize\ttfamily simdjson\+::document\+::element\+::operator const char $\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+
+
+Read this element as a null-\/terminated string. 
+
+Does {\itshape not} convert other types to a string; requires that the J\+S\+ON type of the element was an actual string.
+
+\begin{DoxyReturn}{Returns}
+The string value. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+json(\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+P\+E)} & if the J\+S\+ON element is not a string. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 580 of file document.\+h.
+
+
+\begin{DoxyCode}
+580 \{ \textcolor{keywordflow}{return} \hyperlink{classsimdjson_1_1document_1_1element_ae3df9bdbad4492c1c19b11c66c5e61be}{as\_c\_str}(); \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_ac217a7d104132a849a4c63820af91da8}\label{classsimdjson_1_1document_1_1element_ac217a7d104132a849a4c63820af91da8}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!operator document\+::array@{operator document\+::array}}
+\index{operator document\+::array@{operator document\+::array}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{operator document\+::array()}{operator document::array()}}
+{\footnotesize\ttfamily simdjson\+::document\+::element\+::operator \hyperlink{classsimdjson_1_1document_1_1array}{document\+::array} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Read this element as a J\+S\+ON array. 
+
+\begin{DoxyReturn}{Returns}
+The J\+S\+ON array. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+json(\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+P\+E)} & if the J\+S\+ON element is not an array \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 585 of file document.\+h.
+
+
+\begin{DoxyCode}
+585 \{ \textcolor{keywordflow}{return} \hyperlink{classsimdjson_1_1document_1_1element_afbd5b1b6a674a2e38ba5267c6999579c}{as\_array}(); \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_ac9f7dd43808385b7ec89ea667a6cddc2}\label{classsimdjson_1_1document_1_1element_ac9f7dd43808385b7ec89ea667a6cddc2}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!operator document\+::object@{operator document\+::object}}
+\index{operator document\+::object@{operator document\+::object}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{operator document\+::object()}{operator document::object()}}
+{\footnotesize\ttfamily simdjson\+::document\+::element\+::operator \hyperlink{classsimdjson_1_1document_1_1object}{document\+::object} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Read this element as a J\+S\+ON object (key/value pairs). 
+
+\begin{DoxyReturn}{Returns}
+The J\+S\+ON object. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+json(\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+P\+E)} & if the J\+S\+ON element is not an object \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 586 of file document.\+h.
+
+
+\begin{DoxyCode}
+586 \{ \textcolor{keywordflow}{return} \hyperlink{classsimdjson_1_1document_1_1element_a1fe44151506bca67f318f9f4aeb02fc6}{as\_object}(); \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_a063b979cbc6960b4370d074b76455e7a}\label{classsimdjson_1_1document_1_1element_a063b979cbc6960b4370d074b76455e7a}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!operator double@{operator double}}
+\index{operator double@{operator double}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{operator double()}{operator double()}}
+{\footnotesize\ttfamily simdjson\+::document\+::element\+::operator double (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Read this element as an double. 
+
+\begin{DoxyReturn}{Returns}
+The double value. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+json(\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+P\+E)} & if the J\+S\+ON element is not a number \\
+\hline
+{\em invalid\+\_\+json(\+N\+U\+M\+B\+E\+R\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+G\+E)} & if the integer doesn\textquotesingle{}t fit in 64 bits or is negative \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 584 of file document.\+h.
+
+
+\begin{DoxyCode}
+584 \{ \textcolor{keywordflow}{return} \hyperlink{classsimdjson_1_1document_1_1element_a1d6014890ca8f9fddbd97ab8c81a711c}{as\_double}(); \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_a89305767fe78b8ad76fadf0f2f5e2836}\label{classsimdjson_1_1document_1_1element_a89305767fe78b8ad76fadf0f2f5e2836}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!operator int64\+\_\+t@{operator int64\+\_\+t}}
+\index{operator int64\+\_\+t@{operator int64\+\_\+t}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{operator int64\+\_\+t()}{operator int64\_t()}}
+{\footnotesize\ttfamily simdjson\+::document\+::element\+::operator int64\+\_\+t (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Read this element as an signed integer. 
+
+\begin{DoxyReturn}{Returns}
+The integer value. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+json(\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+P\+E)} & if the J\+S\+ON element is not an integer \\
+\hline
+{\em invalid\+\_\+json(\+N\+U\+M\+B\+E\+R\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+G\+E)} & if the integer doesn\textquotesingle{}t fit in 64 bits \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 583 of file document.\+h.
+
+
+\begin{DoxyCode}
+583 \{ \textcolor{keywordflow}{return} \hyperlink{classsimdjson_1_1document_1_1element_ad02cc5dbfb8ae3d5309f8456759120e7}{as\_int64\_t}(); \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_ad907f21076cc2a2f1352234fe18c8f94}\label{classsimdjson_1_1document_1_1element_ad907f21076cc2a2f1352234fe18c8f94}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!operator std\+::string\+\_\+view@{operator std\+::string\+\_\+view}}
+\index{operator std\+::string\+\_\+view@{operator std\+::string\+\_\+view}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{operator std\+::string\+\_\+view()}{operator std::string\_view()}}
+{\footnotesize\ttfamily simdjson\+::document\+::element\+::operator std\+::string\+\_\+view (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Read this element as a null-\/terminated string. 
+
+Does {\itshape not} convert other types to a string; requires that the J\+S\+ON type of the element was an actual string.
+
+\begin{DoxyReturn}{Returns}
+The string value. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+json(\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+P\+E)} & if the J\+S\+ON element is not a string. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 581 of file document.\+h.
+
+
+\begin{DoxyCode}
+581 \{ \textcolor{keywordflow}{return} \hyperlink{classsimdjson_1_1document_1_1element_a2467d0f9e039451767947dab82622331}{as\_string}(); \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_aeeef4b2e6eec31f6eb5a87930ce4f859}\label{classsimdjson_1_1document_1_1element_aeeef4b2e6eec31f6eb5a87930ce4f859}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!operator uint64\+\_\+t@{operator uint64\+\_\+t}}
+\index{operator uint64\+\_\+t@{operator uint64\+\_\+t}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{operator uint64\+\_\+t()}{operator uint64\_t()}}
+{\footnotesize\ttfamily simdjson\+::document\+::element\+::operator uint64\+\_\+t (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Read this element as an unsigned integer. 
+
+\begin{DoxyReturn}{Returns}
+The integer value. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+json(\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+P\+E)} & if the J\+S\+ON element is not an integer \\
+\hline
+{\em invalid\+\_\+json(\+N\+U\+M\+B\+E\+R\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+G\+E)} & if the integer doesn\textquotesingle{}t fit in 64 bits or is negative \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 582 of file document.\+h.
+
+
+\begin{DoxyCode}
+582 \{ \textcolor{keywordflow}{return} \hyperlink{classsimdjson_1_1document_1_1element_ab89d449ae4c78aced06643d7323cbdfb}{as\_uint64\_t}(); \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_ae7c594595c73a015d9a8bce46e52f46f}\label{classsimdjson_1_1document_1_1element_ae7c594595c73a015d9a8bce46e52f46f}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1element__result}{document\+::element\+\_\+result}$<$ \hyperlink{classsimdjson_1_1document_1_1element}{document\+::element} $>$ simdjson\+::document\+::element\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Get the value associated with the given key. 
+
+The key will be matched against {\bfseries unescaped} J\+S\+ON\+:
+
+\hyperlink{classsimdjson_1_1document_a6f11cda7c4a06fffdc00fdc97d98ae2b}{document\+::parse}(R\char`\"{}(\{ \char`\"{}a~\newline
+\char`\"{}\+: 1 \})\char`\"{})\mbox{[}\char`\"{}a\textbackslash{}n\char`\"{}\mbox{]}.\hyperlink{classsimdjson_1_1document_1_1element_ab89d449ae4c78aced06643d7323cbdfb}{as\+\_\+uint64\+\_\+t()}.value == 1 \hyperlink{classsimdjson_1_1document_a6f11cda7c4a06fffdc00fdc97d98ae2b}{document\+::parse}(R\char`\"{}(\{ \char`\"{}a~\newline
+\char`\"{}\+: 1 \})\char`\"{})\mbox{[}\char`\"{}a\textbackslash{}\textbackslash{}n\char`\"{}\mbox{]}.\hyperlink{classsimdjson_1_1document_1_1element_ab89d449ae4c78aced06643d7323cbdfb}{as\+\_\+uint64\+\_\+t()}.error == N\+O\+\_\+\+S\+U\+C\+H\+\_\+\+F\+I\+E\+LD
+
+\begin{DoxyReturn}{Returns}
+The value associated with this field, or\+:
+\begin{DoxyItemize}
+\item N\+O\+\_\+\+S\+U\+C\+H\+\_\+\+F\+I\+E\+LD if the field does not exist in the object
+\item U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+PE if the document is not an object 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 688 of file document.\+h.
+
+
+\begin{DoxyCode}
+688                                                                                                            
+              \{
+689   \textcolor{keyword}{auto} [obj, error] = \hyperlink{classsimdjson_1_1document_1_1element_a1fe44151506bca67f318f9f4aeb02fc6}{as\_object}();
+690   \textcolor{keywordflow}{if} (error) \{ \textcolor{keywordflow}{return} error; \}
+691   \textcolor{keywordflow}{return} obj[key];
+692 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element_a1e7407d751420bcd130d90d838034492}\label{classsimdjson_1_1document_1_1element_a1e7407d751420bcd130d90d838034492}} 
+\index{simdjson\+::document\+::element@{simdjson\+::document\+::element}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!simdjson\+::document\+::element@{simdjson\+::document\+::element}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1element__result}{document\+::element\+\_\+result}$<$ \hyperlink{classsimdjson_1_1document_1_1element}{document\+::element} $>$ simdjson\+::document\+::element\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Get the value associated with the given key. 
+
+Note\+: The key will be matched against {\bfseries unescaped} J\+S\+ON\+:
+
+\hyperlink{classsimdjson_1_1document_a6f11cda7c4a06fffdc00fdc97d98ae2b}{document\+::parse}(R\char`\"{}(\{ \char`\"{}a~\newline
+\char`\"{}\+: 1 \})\char`\"{})\mbox{[}\char`\"{}a\textbackslash{}n\char`\"{}\mbox{]}.\hyperlink{classsimdjson_1_1document_1_1element_ab89d449ae4c78aced06643d7323cbdfb}{as\+\_\+uint64\+\_\+t()}.value == 1 \hyperlink{classsimdjson_1_1document_a6f11cda7c4a06fffdc00fdc97d98ae2b}{document\+::parse}(R\char`\"{}(\{ \char`\"{}a~\newline
+\char`\"{}\+: 1 \})\char`\"{})\mbox{[}\char`\"{}a\textbackslash{}\textbackslash{}n\char`\"{}\mbox{]}.\hyperlink{classsimdjson_1_1document_1_1element_ab89d449ae4c78aced06643d7323cbdfb}{as\+\_\+uint64\+\_\+t()}.error == N\+O\+\_\+\+S\+U\+C\+H\+\_\+\+F\+I\+E\+LD
+
+\begin{DoxyReturn}{Returns}
+The value associated with this field, or\+:
+\begin{DoxyItemize}
+\item N\+O\+\_\+\+S\+U\+C\+H\+\_\+\+F\+I\+E\+LD if the field does not exist in the object
+\item U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+PE if the document is not an object 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 693 of file document.\+h.
+
+
+\begin{DoxyCode}
+693                                                                                                          \{
+694   \textcolor{keyword}{auto} [obj, error] = \hyperlink{classsimdjson_1_1document_1_1element_a1fe44151506bca67f318f9f4aeb02fc6}{as\_object}();
+695   \textcolor{keywordflow}{if} (error) \{ \textcolor{keywordflow}{return} error; \}
+696   \textcolor{keywordflow}{return} obj[key];
+697 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/simdjson/document.\+h\end{DoxyCompactItemize}

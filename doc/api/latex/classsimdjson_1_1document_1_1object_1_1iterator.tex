@@ -1,0 +1,81 @@
+\hypertarget{classsimdjson_1_1document_1_1object_1_1iterator}{}\section{simdjson\+:\+:document\+:\+:object\+:\+:iterator Class Reference}
+\label{classsimdjson_1_1document_1_1object_1_1iterator}\index{simdjson\+::document\+::object\+::iterator@{simdjson\+::document\+::object\+::iterator}}
+
+
+Inherits simdjson\+::document\+::tape\+\_\+ref.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1object_1_1iterator_a79de34f122872f0075c9d27cd7a820c5}\label{classsimdjson_1_1document_1_1object_1_1iterator_a79de34f122872f0075c9d27cd7a820c5}} 
+const \hyperlink{classsimdjson_1_1document_1_1key__value__pair}{document\+::key\+\_\+value\+\_\+pair} \hyperlink{classsimdjson_1_1document_1_1object_1_1iterator_a79de34f122872f0075c9d27cd7a820c5}{operator$\ast$} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get the actual key/value pair. \end{DoxyCompactList}\item 
+void \hyperlink{classsimdjson_1_1document_1_1object_1_1iterator_a1a97b083023759d347a0bf103a6c0d10}{operator++} () noexcept
+\begin{DoxyCompactList}\small\item\em Get the next key/value pair. \end{DoxyCompactList}\item 
+bool \hyperlink{classsimdjson_1_1document_1_1object_1_1iterator_ad6cbc90bf14e9d0258cea88666f8e649}{operator!=} (const \hyperlink{classsimdjson_1_1document_1_1object_1_1iterator}{iterator} \&other) const noexcept
+\begin{DoxyCompactList}\small\item\em Check if these key value pairs come from the same place in the J\+S\+ON. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1object_1_1iterator_a7a012a54e058dd30fc53488f4efb0a13}\label{classsimdjson_1_1document_1_1object_1_1iterator_a7a012a54e058dd30fc53488f4efb0a13}} 
+std\+::string\+\_\+view \hyperlink{classsimdjson_1_1document_1_1object_1_1iterator_a7a012a54e058dd30fc53488f4efb0a13}{key} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get the key of this key/value pair. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1object_1_1iterator_a8c8e43efcc7b589f9d6e73e338617257}\label{classsimdjson_1_1document_1_1object_1_1iterator_a8c8e43efcc7b589f9d6e73e338617257}} 
+const char $\ast$ \hyperlink{classsimdjson_1_1document_1_1object_1_1iterator_a8c8e43efcc7b589f9d6e73e338617257}{key\+\_\+c\+\_\+str} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get the key of this key/value pair. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1object_1_1iterator_a267ad9db1110a62ad19e8031c88f31de}\label{classsimdjson_1_1document_1_1object_1_1iterator_a267ad9db1110a62ad19e8031c88f31de}} 
+\hyperlink{classsimdjson_1_1document_1_1element}{element} \hyperlink{classsimdjson_1_1document_1_1object_1_1iterator_a267ad9db1110a62ad19e8031c88f31de}{value} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get the value of this key/value pair. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 620 of file document.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1object_1_1iterator_ad6cbc90bf14e9d0258cea88666f8e649}\label{classsimdjson_1_1document_1_1object_1_1iterator_ad6cbc90bf14e9d0258cea88666f8e649}} 
+\index{simdjson\+::document\+::object\+::iterator@{simdjson\+::document\+::object\+::iterator}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!simdjson\+::document\+::object\+::iterator@{simdjson\+::document\+::object\+::iterator}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool simdjson\+::document\+::object\+::iterator\+::operator!= (\begin{DoxyParamCaption}\item[{const \hyperlink{classsimdjson_1_1document_1_1object_1_1iterator}{iterator} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Check if these key value pairs come from the same place in the J\+S\+ON. 
+
+Part of the std\+::iterator interface. 
+
+Definition at line 524 of file document.\+h.
+
+
+\begin{DoxyCode}
+524                                                                                                  \{
+525   \textcolor{keywordflow}{return} json\_index != other.json\_index;
+526 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1object_1_1iterator_a1a97b083023759d347a0bf103a6c0d10}\label{classsimdjson_1_1document_1_1object_1_1iterator_a1a97b083023759d347a0bf103a6c0d10}} 
+\index{simdjson\+::document\+::object\+::iterator@{simdjson\+::document\+::object\+::iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!simdjson\+::document\+::object\+::iterator@{simdjson\+::document\+::object\+::iterator}}
+\subsubsection{\texorpdfstring{operator++()}{operator++()}}
+{\footnotesize\ttfamily void simdjson\+::document\+::object\+::iterator\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Get the next key/value pair. 
+
+Part of the std\+::iterator interface. 
+
+Definition at line 527 of file document.\+h.
+
+
+\begin{DoxyCode}
+527                                                         \{
+528   json\_index++;
+529   json\_index = after\_element();
+530 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/simdjson/document.\+h\end{DoxyCompactItemize}

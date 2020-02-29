@@ -1,0 +1,71 @@
+\hypertarget{classsimdjson_1_1document_1_1element__result}{}\section{simdjson\+:\+:document\+:\+:element\+\_\+result$<$ T $>$ Class Template Reference}
+\label{classsimdjson_1_1document_1_1element__result}\index{simdjson\+::document\+::element\+\_\+result$<$ T $>$@{simdjson\+::document\+::element\+\_\+result$<$ T $>$}}
+
+
+The result of a J\+S\+ON navigation or conversion, or an error (if the navigation or conversion failed).  
+
+
+
+
+{\ttfamily \#include $<$document.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element__result_aeff0c243e042a78e41e9e85bca759084}\label{classsimdjson_1_1document_1_1element__result_aeff0c243e042a78e41e9e85bca759084}} 
+{\bfseries operator T} () const noexcept(false)
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element__result_a3fb4a3635266f0151a5b4092e0babf35}\label{classsimdjson_1_1document_1_1element__result_a3fb4a3635266f0151a5b4092e0babf35}} 
+{\footnotesize template$<$$>$ }\\{\bfseries operator std\+::string\+\_\+view} () const noexcept(false)
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element__result_a1a858810981e7dfa7701e5651e934d57}\label{classsimdjson_1_1document_1_1element__result_a1a858810981e7dfa7701e5651e934d57}} 
+{\footnotesize template$<$$>$ }\\{\bfseries operator const char $\ast$} () const noexcept(false)
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element__result_aa173ed15285853e98ff5fcacfa28153d}\label{classsimdjson_1_1document_1_1element__result_aa173ed15285853e98ff5fcacfa28153d}} 
+{\footnotesize template$<$$>$ }\\{\bfseries operator bool} () const noexcept(false)
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element__result_ae3e112497de80c13e96700c96b8ab49d}\label{classsimdjson_1_1document_1_1element__result_ae3e112497de80c13e96700c96b8ab49d}} 
+{\footnotesize template$<$$>$ }\\{\bfseries operator uint64\+\_\+t} () const noexcept(false)
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element__result_a607e277a1345ae62aa8054317d3c1a79}\label{classsimdjson_1_1document_1_1element__result_a607e277a1345ae62aa8054317d3c1a79}} 
+{\footnotesize template$<$$>$ }\\{\bfseries operator int64\+\_\+t} () const noexcept(false)
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element__result_a7d340ea0e84633858fc0140d79df4d47}\label{classsimdjson_1_1document_1_1element__result_a7d340ea0e84633858fc0140d79df4d47}} 
+{\footnotesize template$<$$>$ }\\{\bfseries operator double} () const noexcept(false)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element__result_a94226d9047322a2a469742b8953ceac5}\label{classsimdjson_1_1document_1_1element__result_a94226d9047322a2a469742b8953ceac5}} 
+T \hyperlink{classsimdjson_1_1document_1_1element__result_a94226d9047322a2a469742b8953ceac5}{value}
+\begin{DoxyCompactList}\small\item\em The value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element__result_a4a4b9dfade427211439815fa0940e529}\label{classsimdjson_1_1document_1_1element__result_a4a4b9dfade427211439815fa0940e529}} 
+\hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code} \hyperlink{classsimdjson_1_1document_1_1element__result_a4a4b9dfade427211439815fa0940e529}{error}
+\begin{DoxyCompactList}\small\item\em The error code (or 0 if there is no error) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class simdjson\+::document\+::element\+\_\+result$<$ T $>$}
+
+The result of a J\+S\+ON navigation or conversion, or an error (if the navigation or conversion failed). 
+
+Allows the user to pick whether to use exceptions or not.
+
+Use like this to avoid exceptions\+: \begin{DoxyVerb}auto [str, error] = document::parse(json).root().as_string();
+if (error) { exit(1); }
+cout << str;
+\end{DoxyVerb}
+
+
+Use like this if you\textquotesingle{}d prefer to use exceptions\+: \begin{DoxyVerb}string str = document::parse(json).root();
+cout << str;\end{DoxyVerb}
+ 
+
+Definition at line 59 of file document.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/simdjson/document.\+h\end{DoxyCompactItemize}

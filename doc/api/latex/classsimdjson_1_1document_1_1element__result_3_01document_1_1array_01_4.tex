@@ -1,0 +1,126 @@
+\hypertarget{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4}{}\section{simdjson\+:\+:document\+:\+:element\+\_\+result$<$ document\+:\+:array $>$ Class Template Reference}
+\label{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4}\index{simdjson\+::document\+::element\+\_\+result$<$ document\+::array $>$@{simdjson\+::document\+::element\+\_\+result$<$ document\+::array $>$}}
+
+
+The result of a J\+S\+ON navigation or conversion, or an error (if the navigation or conversion failed).  
+
+
+
+
+{\ttfamily \#include $<$document.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_a427bcc2cd2ca7bf233e10418d62c6082}{operator array} () const noexcept(false)
+\begin{DoxyCompactList}\small\item\em Convert to an array. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1array_1_1iterator}{array\+::iterator} \hyperlink{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_a3a97675726baee86118f283d5e2d4941}{begin} () const noexcept(false)
+\begin{DoxyCompactList}\small\item\em An iterator at the first element of the array. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1array_1_1iterator}{array\+::iterator} \hyperlink{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_a2a75b9c1ab622bbf3e9d5ee063a6c018}{end} () const noexcept(false)
+\begin{DoxyCompactList}\small\item\em An iterator just past the end of the array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_a2b9e99aedf1d1c2760aefee088144e61}\label{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_a2b9e99aedf1d1c2760aefee088144e61}} 
+\hyperlink{classsimdjson_1_1document_1_1array}{array} \hyperlink{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_a2b9e99aedf1d1c2760aefee088144e61}{value}
+\begin{DoxyCompactList}\small\item\em The value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_aa36a7760b8ba8a522969cf0e87eba4c9}\label{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_aa36a7760b8ba8a522969cf0e87eba4c9}} 
+\hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code} \hyperlink{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_aa36a7760b8ba8a522969cf0e87eba4c9}{error}
+\begin{DoxyCompactList}\small\item\em The error code (or 0 if there is no error) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$$>$\newline
+class simdjson\+::document\+::element\+\_\+result$<$ document\+::array $>$}
+
+The result of a J\+S\+ON navigation or conversion, or an error (if the navigation or conversion failed). 
+
+Allows the user to pick whether to use exceptions or not.
+
+Use like this to avoid exceptions\+: \begin{DoxyVerb}auto [str, error] = document::parse(json).root().as_string();
+if (error) { exit(1); }
+cout << str;
+\end{DoxyVerb}
+
+
+Use like this if you\textquotesingle{}d prefer to use exceptions\+: \begin{DoxyVerb}string str = document::parse(json).root();
+cout << str;\end{DoxyVerb}
+ 
+
+Definition at line 819 of file document.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_a3a97675726baee86118f283d5e2d4941}\label{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_a3a97675726baee86118f283d5e2d4941}} 
+\index{simdjson\+::document\+::element\+\_\+result$<$ document\+::array $>$@{simdjson\+::document\+::element\+\_\+result$<$ document\+::array $>$}!begin@{begin}}
+\index{begin@{begin}!simdjson\+::document\+::element\+\_\+result$<$ document\+::array $>$@{simdjson\+::document\+::element\+\_\+result$<$ document\+::array $>$}}
+\subsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1array_1_1iterator}{document\+::array\+::iterator} \hyperlink{classsimdjson_1_1document_1_1element__result}{simdjson\+::document\+::element\+\_\+result}$<$ \hyperlink{classsimdjson_1_1document_1_1array}{document\+::array} $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+An iterator at the first element of the array. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+json(\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+P\+E)} & if the value was not an array. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 63 of file document.\+h.
+
+
+\begin{DoxyCode}
+63                                                                                                 \{
+64   \textcolor{keywordflow}{if} (\hyperlink{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_aa36a7760b8ba8a522969cf0e87eba4c9}{error}) \{ \textcolor{keywordflow}{throw} invalid\_json(\hyperlink{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_aa36a7760b8ba8a522969cf0e87eba4c9}{error}); \}
+65   \textcolor{keywordflow}{return} \hyperlink{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_a2b9e99aedf1d1c2760aefee088144e61}{value}.\hyperlink{classsimdjson_1_1document_1_1array_ad5c3c380c55098b2266a311369819b8c}{begin}();
+66 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_a2a75b9c1ab622bbf3e9d5ee063a6c018}\label{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_a2a75b9c1ab622bbf3e9d5ee063a6c018}} 
+\index{simdjson\+::document\+::element\+\_\+result$<$ document\+::array $>$@{simdjson\+::document\+::element\+\_\+result$<$ document\+::array $>$}!end@{end}}
+\index{end@{end}!simdjson\+::document\+::element\+\_\+result$<$ document\+::array $>$@{simdjson\+::document\+::element\+\_\+result$<$ document\+::array $>$}}
+\subsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1array_1_1iterator}{document\+::array\+::iterator} \hyperlink{classsimdjson_1_1document_1_1element__result}{simdjson\+::document\+::element\+\_\+result}$<$ \hyperlink{classsimdjson_1_1document_1_1array}{document\+::array} $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+An iterator just past the end of the array. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+json(\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+P\+E)} & if the value was not an array. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 67 of file document.\+h.
+
+
+\begin{DoxyCode}
+67                                                                                               \{
+68   \textcolor{keywordflow}{if} (\hyperlink{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_aa36a7760b8ba8a522969cf0e87eba4c9}{error}) \{ \textcolor{keywordflow}{throw} invalid\_json(\hyperlink{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_aa36a7760b8ba8a522969cf0e87eba4c9}{error}); \}
+69   \textcolor{keywordflow}{return} \hyperlink{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_a2b9e99aedf1d1c2760aefee088144e61}{value}.\hyperlink{classsimdjson_1_1document_1_1array_ab63f33e3cf8283595472fe6e1325ced8}{end}();
+70 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_a427bcc2cd2ca7bf233e10418d62c6082}\label{classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4_a427bcc2cd2ca7bf233e10418d62c6082}} 
+\index{simdjson\+::document\+::element\+\_\+result$<$ document\+::array $>$@{simdjson\+::document\+::element\+\_\+result$<$ document\+::array $>$}!operator array@{operator array}}
+\index{operator array@{operator array}!simdjson\+::document\+::element\+\_\+result$<$ document\+::array $>$@{simdjson\+::document\+::element\+\_\+result$<$ document\+::array $>$}}
+\subsubsection{\texorpdfstring{operator array()}{operator array()}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1element__result}{simdjson\+::document\+::element\+\_\+result}$<$ \hyperlink{classsimdjson_1_1document_1_1array}{document\+::array} $>$\+::operator \hyperlink{classsimdjson_1_1document_1_1array}{array} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Convert to an array. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+json(\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+T\+Y\+P\+E)} & if the value was not an array. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/simdjson/document.\+h\end{DoxyCompactItemize}

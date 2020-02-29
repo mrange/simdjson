@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['begin',['begin',['../classsimdjson_1_1document_1_1array.html#ad5c3c380c55098b2266a311369819b8c',1,'simdjson::document::array::begin()'],['../classsimdjson_1_1document_1_1object.html#a88e638207141099532b524a8814540e0',1,'simdjson::document::object::begin()'],['../classsimdjson_1_1document_1_1element__result_3_01document_1_1array_01_4.html#a3a97675726baee86118f283d5e2d4941',1,'simdjson::document::element_result&lt; document::array &gt;::begin()'],['../classsimdjson_1_1document_1_1element__result_3_01document_1_1object_01_4.html#a56c21003eac07e4134fd13d0c7c753e5',1,'simdjson::document::element_result&lt; document::object &gt;::begin()']]],
+  ['build_5fparsed_5fjson',['build_parsed_json',['../namespacesimdjson.html#a810c6c6639fd9b8d7f886b2e2529b7e5',1,'simdjson::build_parsed_json(const char *buf, size_t len, bool realloc_if_needed=true) noexcept'],['../namespacesimdjson.html#a2a86299a7e61f1c5ee295e8f99752653',1,'simdjson::build_parsed_json(const std::string &amp;s, bool realloc_if_needed=true) noexcept'],['../namespacesimdjson.html#addad9710b2a92f3ecd76bf4e9955fb9d',1,'simdjson::build_parsed_json(const padded_string &amp;s) noexcept']]]
+];

@@ -1,0 +1,155 @@
+\hypertarget{classsimdjson_1_1document__iterator}{}\section{simdjson\+:\+:document\+\_\+iterator$<$ max\+\_\+depth $>$ Class Template Reference}
+\label{classsimdjson_1_1document__iterator}\index{simdjson\+::document\+\_\+iterator$<$ max\+\_\+depth $>$@{simdjson\+::document\+\_\+iterator$<$ max\+\_\+depth $>$}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structsimdjson_1_1document__iterator_1_1scopeindex__t}{scopeindex\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a88e9151c03b0d467023ebc680fd55147}\label{classsimdjson_1_1document__iterator_a88e9151c03b0d467023ebc680fd55147}} 
+{\bfseries document\+\_\+iterator} (const \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&parser)
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_acb57a4c424c18e6872555bb3c9ec4f4c}\label{classsimdjson_1_1document__iterator_acb57a4c424c18e6872555bb3c9ec4f4c}} 
+{\bfseries document\+\_\+iterator} (const \hyperlink{classsimdjson_1_1document}{document} \&doc) noexcept
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a99a96d1780b31f717c21b8ed38a85894}\label{classsimdjson_1_1document__iterator_a99a96d1780b31f717c21b8ed38a85894}} 
+{\bfseries document\+\_\+iterator} (const \hyperlink{classsimdjson_1_1document__iterator}{document\+\_\+iterator} \&o) noexcept
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a924a2edb8eb555c621299afd589c5513}\label{classsimdjson_1_1document__iterator_a924a2edb8eb555c621299afd589c5513}} 
+\hyperlink{classsimdjson_1_1document__iterator}{document\+\_\+iterator} \& {\bfseries operator=} (const \hyperlink{classsimdjson_1_1document__iterator}{document\+\_\+iterator} \&o) noexcept
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a3c24419511bbdbc9c244b14ef4f1c866}\label{classsimdjson_1_1document__iterator_a3c24419511bbdbc9c244b14ef4f1c866}} 
+bool {\bfseries is\+\_\+ok} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a407f8f13c37a14ff2c2d924f880af4f2}\label{classsimdjson_1_1document__iterator_a407f8f13c37a14ff2c2d924f880af4f2}} 
+size\+\_\+t {\bfseries get\+\_\+tape\+\_\+location} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a1e2e1edbef244d211d2aaf05cbc921cd}\label{classsimdjson_1_1document__iterator_a1e2e1edbef244d211d2aaf05cbc921cd}} 
+size\+\_\+t {\bfseries get\+\_\+tape\+\_\+length} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a0bc75c8e01fe9745b2f7688ae0b4f9a2}\label{classsimdjson_1_1document__iterator_a0bc75c8e01fe9745b2f7688ae0b4f9a2}} 
+size\+\_\+t {\bfseries get\+\_\+depth} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a99821f4be156dbe6d8f8e348c17c2f9f}\label{classsimdjson_1_1document__iterator_a99821f4be156dbe6d8f8e348c17c2f9f}} 
+uint8\+\_\+t {\bfseries get\+\_\+scope\+\_\+type} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_aac4b0ca26f980dcbfa75ba8ddfb7c076}\label{classsimdjson_1_1document__iterator_aac4b0ca26f980dcbfa75ba8ddfb7c076}} 
+bool {\bfseries move\+\_\+forward} ()
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a7a4fd900fba2522ce9c8c87136accdd2}\label{classsimdjson_1_1document__iterator_a7a4fd900fba2522ce9c8c87136accdd2}} 
+uint8\+\_\+t {\bfseries get\+\_\+type} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a3a40a0ae3b3b979445dd145f98c30b41}\label{classsimdjson_1_1document__iterator_a3a40a0ae3b3b979445dd145f98c30b41}} 
+int64\+\_\+t {\bfseries get\+\_\+integer} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a08059b6b4b5ff953f9d9c92823d7f813}\label{classsimdjson_1_1document__iterator_a08059b6b4b5ff953f9d9c92823d7f813}} 
+uint64\+\_\+t {\bfseries get\+\_\+unsigned\+\_\+integer} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_aa5d7d6c26a3985a07ea2b05dd35850b9}\label{classsimdjson_1_1document__iterator_aa5d7d6c26a3985a07ea2b05dd35850b9}} 
+const char $\ast$ {\bfseries get\+\_\+string} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_af5d3e6f9a37c8257b12a26d28aff955e}\label{classsimdjson_1_1document__iterator_af5d3e6f9a37c8257b12a26d28aff955e}} 
+uint32\+\_\+t {\bfseries get\+\_\+string\+\_\+length} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a4bb746cde8e13310f41ff66ed9976f3d}\label{classsimdjson_1_1document__iterator_a4bb746cde8e13310f41ff66ed9976f3d}} 
+double {\bfseries get\+\_\+double} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a1ad09dd30662d6b81e9231b7f01d667e}\label{classsimdjson_1_1document__iterator_a1ad09dd30662d6b81e9231b7f01d667e}} 
+bool {\bfseries is\+\_\+object\+\_\+or\+\_\+array} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a7b40ad4e964fc53b2da82c948277d876}\label{classsimdjson_1_1document__iterator_a7b40ad4e964fc53b2da82c948277d876}} 
+bool {\bfseries is\+\_\+object} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a82a739baced495f25be3bb32c2648bcc}\label{classsimdjson_1_1document__iterator_a82a739baced495f25be3bb32c2648bcc}} 
+bool {\bfseries is\+\_\+array} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_abf762831a2c10bfaa8696aa0f3019c51}\label{classsimdjson_1_1document__iterator_abf762831a2c10bfaa8696aa0f3019c51}} 
+bool {\bfseries is\+\_\+string} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_af1d2c9862fab88f890aee8f8d6046d17}\label{classsimdjson_1_1document__iterator_af1d2c9862fab88f890aee8f8d6046d17}} 
+bool {\bfseries is\+\_\+integer} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_adfd26798ab6f71060c4dfa4689dc8415}\label{classsimdjson_1_1document__iterator_adfd26798ab6f71060c4dfa4689dc8415}} 
+bool {\bfseries is\+\_\+unsigned\+\_\+integer} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a5ed2e611dbc37487191b715e542df776}\label{classsimdjson_1_1document__iterator_a5ed2e611dbc37487191b715e542df776}} 
+bool {\bfseries is\+\_\+double} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a0073da533b302aceb1f32cf0a638a80f}\label{classsimdjson_1_1document__iterator_a0073da533b302aceb1f32cf0a638a80f}} 
+bool {\bfseries is\+\_\+number} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a1c395668ad5542d5d48b0a16edcc35f9}\label{classsimdjson_1_1document__iterator_a1c395668ad5542d5d48b0a16edcc35f9}} 
+bool {\bfseries is\+\_\+true} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a5f01463e8658f65ff7c6d790fe3e63f4}\label{classsimdjson_1_1document__iterator_a5f01463e8658f65ff7c6d790fe3e63f4}} 
+bool {\bfseries is\+\_\+false} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a8871a608e780939c620b740a23b6ade1}\label{classsimdjson_1_1document__iterator_a8871a608e780939c620b740a23b6ade1}} 
+bool {\bfseries is\+\_\+null} () const
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_affa22035f89ecf2b6989c6d63e2d6815}\label{classsimdjson_1_1document__iterator_affa22035f89ecf2b6989c6d63e2d6815}} 
+bool {\bfseries move\+\_\+to\+\_\+key} (const char $\ast$key)
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a544ad9979be889cb612aeb423502bcdc}\label{classsimdjson_1_1document__iterator_a544ad9979be889cb612aeb423502bcdc}} 
+bool {\bfseries move\+\_\+to\+\_\+key\+\_\+insensitive} (const char $\ast$key)
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_ad8f0202a3d72da2419cecd15ea8aa59a}\label{classsimdjson_1_1document__iterator_ad8f0202a3d72da2419cecd15ea8aa59a}} 
+bool {\bfseries move\+\_\+to\+\_\+key} (const char $\ast$key, uint32\+\_\+t length)
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a4b409a9148cca7212bf9a608a9db0914}\label{classsimdjson_1_1document__iterator_a4b409a9148cca7212bf9a608a9db0914}} 
+void {\bfseries move\+\_\+to\+\_\+value} ()
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a5bcdb5b4c4c32cc3093178c3769adfb9}\label{classsimdjson_1_1document__iterator_a5bcdb5b4c4c32cc3093178c3769adfb9}} 
+bool {\bfseries move\+\_\+to\+\_\+index} (uint32\+\_\+t index)
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a13a57ae44328150cef405809ff240dd8}\label{classsimdjson_1_1document__iterator_a13a57ae44328150cef405809ff240dd8}} 
+bool {\bfseries move\+\_\+to} (const char $\ast$pointer, uint32\+\_\+t length)
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_ab4b57184f36cab32302a113312694e6f}\label{classsimdjson_1_1document__iterator_ab4b57184f36cab32302a113312694e6f}} 
+bool {\bfseries move\+\_\+to} (const std\+::string \&pointer)
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_ac11f967e348145de949195d79123cec9}\label{classsimdjson_1_1document__iterator_ac11f967e348145de949195d79123cec9}} 
+bool {\bfseries next} ()
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a0ac569c2a5d79e9102767f18f8419ff8}\label{classsimdjson_1_1document__iterator_a0ac569c2a5d79e9102767f18f8419ff8}} 
+bool {\bfseries prev} ()
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a44236a2a135a640517f9655080f6cc07}\label{classsimdjson_1_1document__iterator_a44236a2a135a640517f9655080f6cc07}} 
+bool {\bfseries up} ()
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a77fecb081dd325843885a78fb375caef}\label{classsimdjson_1_1document__iterator_a77fecb081dd325843885a78fb375caef}} 
+bool {\bfseries down} ()
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a369e347c351a3adf4b41c4ecff2de564}\label{classsimdjson_1_1document__iterator_a369e347c351a3adf4b41c4ecff2de564}} 
+void {\bfseries to\+\_\+start\+\_\+scope} ()
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_aad93bb4396ac1a2286cc47c6be5288a6}\label{classsimdjson_1_1document__iterator_aad93bb4396ac1a2286cc47c6be5288a6}} 
+void {\bfseries rewind} ()
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a19140fa45583a78a6a108495861104a2}\label{classsimdjson_1_1document__iterator_a19140fa45583a78a6a108495861104a2}} 
+bool {\bfseries print} (std\+::ostream \&os, bool escape\+\_\+strings=true) const
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document__iterator_a31a57eaef5a0d7c2955b2a9f5a10a86c}\label{classsimdjson_1_1document__iterator_a31a57eaef5a0d7c2955b2a9f5a10a86c}} 
+static bool {\bfseries is\+\_\+object\+\_\+or\+\_\+array} (uint8\+\_\+t type)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$size\+\_\+t max\+\_\+depth$>$\newline
+class simdjson\+::document\+\_\+iterator$<$ max\+\_\+depth $>$}
+
+
+
+Definition at line 17 of file document.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/simdjson/document.\+h\item 
+include/simdjson/document\+\_\+iterator.\+h\end{DoxyCompactItemize}

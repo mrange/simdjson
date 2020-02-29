@@ -1,0 +1,163 @@
+\hypertarget{classsimdjson_1_1document_1_1object}{}\section{simdjson\+:\+:document\+:\+:object Class Reference}
+\label{classsimdjson_1_1document_1_1object}\index{simdjson\+::document\+::object@{simdjson\+::document\+::object}}
+
+
+Represents a J\+S\+ON object.  
+
+
+
+
+{\ttfamily \#include $<$document.\+h$>$}
+
+
+
+Inherits simdjson\+::document\+::tape\+\_\+ref.
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classsimdjson_1_1document_1_1object_1_1iterator}{iterator}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsimdjson_1_1document_1_1object_1_1iterator}{iterator} \hyperlink{classsimdjson_1_1document_1_1object_a88e638207141099532b524a8814540e0}{begin} () const noexcept
+\begin{DoxyCompactList}\small\item\em Return the first key/value pair. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1object_1_1iterator}{iterator} \hyperlink{classsimdjson_1_1document_1_1object_a38ab9979d9eecb0b70768dcde9d12864}{end} () const noexcept
+\begin{DoxyCompactList}\small\item\em One past the last key/value pair. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element__result}{element\+\_\+result}$<$ \hyperlink{classsimdjson_1_1document_1_1element}{element} $>$ \hyperlink{classsimdjson_1_1document_1_1object_a5b52e82f66a45fb9a669a643aabf60ae}{operator\mbox{[}$\,$\mbox{]}} (const std\+::string\+\_\+view \&s) const noexcept
+\begin{DoxyCompactList}\small\item\em Get the value associated with the given key. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1element__result}{element\+\_\+result}$<$ \hyperlink{classsimdjson_1_1document_1_1element}{element} $>$ \hyperlink{classsimdjson_1_1document_1_1object_a57e850feb7121e097754e5e82a5de2a4}{operator\mbox{[}$\,$\mbox{]}} (const char $\ast$s) const noexcept
+\begin{DoxyCompactList}\small\item\em Get the value associated with the given key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Represents a J\+S\+ON object. 
+
+Definition at line 618 of file document.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1object_a88e638207141099532b524a8814540e0}\label{classsimdjson_1_1document_1_1object_a88e638207141099532b524a8814540e0}} 
+\index{simdjson\+::document\+::object@{simdjson\+::document\+::object}!begin@{begin}}
+\index{begin@{begin}!simdjson\+::document\+::object@{simdjson\+::document\+::object}}
+\subsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1object_1_1iterator}{document\+::object\+::iterator} simdjson\+::document\+::object\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Return the first key/value pair. 
+
+Part of the std\+::iterable interface. 
+
+Definition at line 492 of file document.\+h.
+
+
+\begin{DoxyCode}
+492                                                                    \{
+493   \textcolor{keywordflow}{return} iterator(doc, json\_index + 1);
+494 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1object_a38ab9979d9eecb0b70768dcde9d12864}\label{classsimdjson_1_1document_1_1object_a38ab9979d9eecb0b70768dcde9d12864}} 
+\index{simdjson\+::document\+::object@{simdjson\+::document\+::object}!end@{end}}
+\index{end@{end}!simdjson\+::document\+::object@{simdjson\+::document\+::object}}
+\subsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1object_1_1iterator}{document\+::object\+::iterator} simdjson\+::document\+::object\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+One past the last key/value pair. 
+
+Part of the std\+::iterable interface. 
+
+Definition at line 495 of file document.\+h.
+
+
+\begin{DoxyCode}
+495                                                                  \{
+496   \textcolor{keywordflow}{return} iterator(doc, after\_element() - 1);
+497 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1object_a5b52e82f66a45fb9a669a643aabf60ae}\label{classsimdjson_1_1document_1_1object_a5b52e82f66a45fb9a669a643aabf60ae}} 
+\index{simdjson\+::document\+::object@{simdjson\+::document\+::object}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!simdjson\+::document\+::object@{simdjson\+::document\+::object}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1element__result}{document\+::element\+\_\+result}$<$ \hyperlink{classsimdjson_1_1document_1_1element}{document\+::element} $>$ simdjson\+::document\+::object\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::string\+\_\+view \&}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Get the value associated with the given key. 
+
+The key will be matched against {\bfseries unescaped} J\+S\+ON\+:
+
+\hyperlink{classsimdjson_1_1document_a6f11cda7c4a06fffdc00fdc97d98ae2b}{document\+::parse}(R\char`\"{}(\{ \char`\"{}a~\newline
+\char`\"{}\+: 1 \})\char`\"{})\mbox{[}\char`\"{}a\textbackslash{}n\char`\"{}\mbox{]}.as\+\_\+uint64\+\_\+t().value == 1 \hyperlink{classsimdjson_1_1document_a6f11cda7c4a06fffdc00fdc97d98ae2b}{document\+::parse}(R\char`\"{}(\{ \char`\"{}a~\newline
+\char`\"{}\+: 1 \})\char`\"{})\mbox{[}\char`\"{}a\textbackslash{}\textbackslash{}n\char`\"{}\mbox{]}.as\+\_\+uint64\+\_\+t().error == N\+O\+\_\+\+S\+U\+C\+H\+\_\+\+F\+I\+E\+LD
+
+\begin{DoxyReturn}{Returns}
+The value associated with this field, or\+:
+\begin{DoxyItemize}
+\item N\+O\+\_\+\+S\+U\+C\+H\+\_\+\+F\+I\+E\+LD if the field does not exist in the object 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 498 of file document.\+h.
+
+
+\begin{DoxyCode}
+498                                                                                                            
+             \{
+499   iterator end\_field = \hyperlink{classsimdjson_1_1document_1_1object_a38ab9979d9eecb0b70768dcde9d12864}{end}();
+500   \textcolor{keywordflow}{for} (iterator field = \hyperlink{classsimdjson_1_1document_1_1object_a88e638207141099532b524a8814540e0}{begin}(); field != end\_field; ++field) \{
+501     \textcolor{keywordflow}{if} (key == field.key()) \{
+502       \textcolor{keywordflow}{return} field.value();
+503     \}
+504   \}
+505   \textcolor{keywordflow}{return} NO\_SUCH\_FIELD;
+506 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1object_a57e850feb7121e097754e5e82a5de2a4}\label{classsimdjson_1_1document_1_1object_a57e850feb7121e097754e5e82a5de2a4}} 
+\index{simdjson\+::document\+::object@{simdjson\+::document\+::object}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!simdjson\+::document\+::object@{simdjson\+::document\+::object}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1element__result}{document\+::element\+\_\+result}$<$ \hyperlink{classsimdjson_1_1document_1_1element}{document\+::element} $>$ simdjson\+::document\+::object\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Get the value associated with the given key. 
+
+Note\+: The key will be matched against {\bfseries unescaped} J\+S\+ON\+:
+
+\hyperlink{classsimdjson_1_1document_a6f11cda7c4a06fffdc00fdc97d98ae2b}{document\+::parse}(R\char`\"{}(\{ \char`\"{}a~\newline
+\char`\"{}\+: 1 \})\char`\"{})\mbox{[}\char`\"{}a\textbackslash{}n\char`\"{}\mbox{]}.as\+\_\+uint64\+\_\+t().value == 1 \hyperlink{classsimdjson_1_1document_a6f11cda7c4a06fffdc00fdc97d98ae2b}{document\+::parse}(R\char`\"{}(\{ \char`\"{}a~\newline
+\char`\"{}\+: 1 \})\char`\"{})\mbox{[}\char`\"{}a\textbackslash{}\textbackslash{}n\char`\"{}\mbox{]}.as\+\_\+uint64\+\_\+t().error == N\+O\+\_\+\+S\+U\+C\+H\+\_\+\+F\+I\+E\+LD
+
+\begin{DoxyReturn}{Returns}
+The value associated with this field, or\+:
+\begin{DoxyItemize}
+\item N\+O\+\_\+\+S\+U\+C\+H\+\_\+\+F\+I\+E\+LD if the field does not exist in the object 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 507 of file document.\+h.
+
+
+\begin{DoxyCode}
+507                                                                                                         \{
+508   iterator end\_field = \hyperlink{classsimdjson_1_1document_1_1object_a38ab9979d9eecb0b70768dcde9d12864}{end}();
+509   \textcolor{keywordflow}{for} (iterator field = \hyperlink{classsimdjson_1_1document_1_1object_a88e638207141099532b524a8814540e0}{begin}(); field != end\_field; ++field) \{
+510     \textcolor{keywordflow}{if} (!strcmp(key, field.key\_c\_str())) \{
+511       \textcolor{keywordflow}{return} field.value();
+512     \}
+513   \}
+514   \textcolor{keywordflow}{return} NO\_SUCH\_FIELD;
+515 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/simdjson/document.\+h\end{DoxyCompactItemize}

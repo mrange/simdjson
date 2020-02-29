@@ -1,0 +1,110 @@
+\hypertarget{classsimdjson_1_1document_1_1doc__ref__result}{}\section{simdjson\+:\+:document\+:\+:doc\+\_\+ref\+\_\+result Class Reference}
+\label{classsimdjson_1_1document_1_1doc__ref__result}\index{simdjson\+::document\+::doc\+\_\+ref\+\_\+result@{simdjson\+::document\+::doc\+\_\+ref\+\_\+result}}
+
+
+A parsed document reference, or an error if the parse failed.  
+
+
+
+
+{\ttfamily \#include $<$document.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsimdjson_1_1document_1_1doc__ref__result_a6b32b150a42315944f4c73097f0eb700}{operator document \&} () noexcept(false)
+\begin{DoxyCompactList}\small\item\em A reference to the document, or throw an exception if it is invalid. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1doc__ref__result_ab1cab84bc5a466ac81475d8908f531a6}\label{classsimdjson_1_1document_1_1doc__ref__result_ab1cab84bc5a466ac81475d8908f531a6}} 
+const std\+::string \& \hyperlink{classsimdjson_1_1document_1_1doc__ref__result_ab1cab84bc5a466ac81475d8908f531a6}{get\+\_\+error\+\_\+message} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get the error message for the error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsimdjson_1_1document}{document} \& \hyperlink{classsimdjson_1_1document_1_1doc__ref__result_ad51d8d8caeded41e300bb9b4713a6f96}{doc}
+\begin{DoxyCompactList}\small\item\em The parsed document. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1doc__ref__result_a779ace3a575c5962a9819314d9cabfc9}\label{classsimdjson_1_1document_1_1doc__ref__result_a779ace3a575c5962a9819314d9cabfc9}} 
+\hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code} \hyperlink{classsimdjson_1_1document_1_1doc__ref__result_a779ace3a575c5962a9819314d9cabfc9}{error}
+\begin{DoxyCompactList}\small\item\em The error code, or S\+U\+C\+C\+E\+SS (0) if there is no error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A parsed document reference, or an error if the parse failed. 
+
+document \&doc = document\+::parse(json);
+
+The {\ttfamily document \&} refers to an internal document the parser reuses on each {\ttfamily \hyperlink{classsimdjson_1_1document_a6f11cda7c4a06fffdc00fdc97d98ae2b}{parse()}} call. It will become invalidated on the next {\ttfamily \hyperlink{classsimdjson_1_1document_a6f11cda7c4a06fffdc00fdc97d98ae2b}{parse()}}.
+
+This is more efficient for common cases where documents are parsed and used one at a time. If you need to keep the document around longer, you may {\itshape take} it from the parser by casting it\+: \begin{DoxyVerb}document doc = parser.parse(); // take ownership
+\end{DoxyVerb}
+
+
+If you do this, the parser will automatically allocate a new document on the next {\ttfamily \hyperlink{classsimdjson_1_1document_a6f11cda7c4a06fffdc00fdc97d98ae2b}{parse()}} call.
+
+This result type allows the user to pick whether to use exceptions or not.
+
+Use like this to avoid exceptions\+: \begin{DoxyVerb}auto [doc, error] = parser.parse(json);
+if (error) { exit(1); }
+\end{DoxyVerb}
+
+
+Use like this if you\textquotesingle{}d prefer to use exceptions\+: \begin{DoxyVerb}document &doc = document::parse(json);\end{DoxyVerb}
+ 
+
+Definition at line 296 of file document.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1doc__ref__result_a6b32b150a42315944f4c73097f0eb700}\label{classsimdjson_1_1document_1_1doc__ref__result_a6b32b150a42315944f4c73097f0eb700}} 
+\index{simdjson\+::document\+::doc\+\_\+ref\+\_\+result@{simdjson\+::document\+::doc\+\_\+ref\+\_\+result}!operator document \&@{operator document \&}}
+\index{operator document \&@{operator document \&}!simdjson\+::document\+::doc\+\_\+ref\+\_\+result@{simdjson\+::document\+::doc\+\_\+ref\+\_\+result}}
+\subsubsection{\texorpdfstring{operator document \&()}{operator document \&()}}
+{\footnotesize\ttfamily simdjson\+::document\+::doc\+\_\+ref\+\_\+result\+::operator \hyperlink{classsimdjson_1_1document}{document} \& (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+A reference to the document, or throw an exception if it is invalid. 
+
+\begin{DoxyReturn}{Returns}
+the document. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \hyperlink{structsimdjson_1_1invalid__json}{invalid\+\_\+json}} & if the document is invalid or there was an error parsing it. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 205 of file document.\+h.
+
+
+\begin{DoxyCode}
+205                                                                   \{
+206   \textcolor{keywordflow}{if} (\hyperlink{classsimdjson_1_1document_1_1doc__ref__result_a779ace3a575c5962a9819314d9cabfc9}{error}) \{
+207     \textcolor{keywordflow}{throw} invalid\_json(\hyperlink{classsimdjson_1_1document_1_1doc__ref__result_a779ace3a575c5962a9819314d9cabfc9}{error});
+208   \}
+209   \textcolor{keywordflow}{return} \hyperlink{classsimdjson_1_1document_1_1doc__ref__result_ad51d8d8caeded41e300bb9b4713a6f96}{doc};
+210 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1doc__ref__result_ad51d8d8caeded41e300bb9b4713a6f96}\label{classsimdjson_1_1document_1_1doc__ref__result_ad51d8d8caeded41e300bb9b4713a6f96}} 
+\index{simdjson\+::document\+::doc\+\_\+ref\+\_\+result@{simdjson\+::document\+::doc\+\_\+ref\+\_\+result}!doc@{doc}}
+\index{doc@{doc}!simdjson\+::document\+::doc\+\_\+ref\+\_\+result@{simdjson\+::document\+::doc\+\_\+ref\+\_\+result}}
+\subsubsection{\texorpdfstring{doc}{doc}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document}{document}\& simdjson\+::document\+::doc\+\_\+ref\+\_\+result\+::doc}
+
+
+
+The parsed document. 
+
+This is {\itshape invalid} if there is an error. 
+
+Definition at line 301 of file document.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/simdjson/document.\+h\end{DoxyCompactItemize}

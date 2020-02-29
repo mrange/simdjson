@@ -1,0 +1,78 @@
+\hypertarget{classsimdjson_1_1document_1_1tape__ref}{}\section{simdjson\+:\+:document\+:\+:tape\+\_\+ref Class Reference}
+\label{classsimdjson_1_1document_1_1tape__ref}\index{simdjson\+::document\+::tape\+\_\+ref@{simdjson\+::document\+::tape\+\_\+ref}}
+
+
+A reference to an element on the tape.  
+
+
+
+
+{\ttfamily \#include $<$document.\+h$>$}
+
+Inheritance diagram for simdjson\+:\+:document\+:\+:tape\+\_\+ref\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.046729cm]{classsimdjson_1_1document_1_1tape__ref}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1tape__ref_a2c5785933c8e5e97e4277a2cf5303896}\label{classsimdjson_1_1document_1_1tape__ref_a2c5785933c8e5e97e4277a2cf5303896}} 
+{\footnotesize template$<$typename T $>$ }\\really\+\_\+inline T {\bfseries next\+\_\+tape\+\_\+value} () const noexcept
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1tape__ref_a5fed38c847b4c6c5e293bc42ded4e274}\label{classsimdjson_1_1document_1_1tape__ref_a5fed38c847b4c6c5e293bc42ded4e274}} 
+{\bfseries tape\+\_\+ref} (const \hyperlink{classsimdjson_1_1document}{document} $\ast$\+\_\+doc, size\+\_\+t \+\_\+json\+\_\+index) noexcept
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1tape__ref_aec73115785f03f951d8d8791302875ac}\label{classsimdjson_1_1document_1_1tape__ref_aec73115785f03f951d8d8791302875ac}} 
+size\+\_\+t {\bfseries after\+\_\+element} () const noexcept
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1tape__ref_a79f677a9a88827ffb44d630952c43f5e}\label{classsimdjson_1_1document_1_1tape__ref_a79f677a9a88827ffb44d630952c43f5e}} 
+\hyperlink{classsimdjson_1_1document_aebad9f5f3b86bf3f87e37031335626a0}{tape\+\_\+type} {\bfseries type} () const noexcept
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1tape__ref_a4227d872e2c7aa506ec84ff0bdac8118}\label{classsimdjson_1_1document_1_1tape__ref_a4227d872e2c7aa506ec84ff0bdac8118}} 
+uint64\+\_\+t {\bfseries tape\+\_\+value} () const noexcept
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1tape__ref_a01e27e39aaba6ed5a944a8c43011a271}\label{classsimdjson_1_1document_1_1tape__ref_a01e27e39aaba6ed5a944a8c43011a271}} 
+{\footnotesize template$<$typename T $>$ }\\T {\bfseries next\+\_\+tape\+\_\+value} () const noexcept
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{classsimdjson_1_1document}{document} $\ast$ \hyperlink{classsimdjson_1_1document_1_1tape__ref_ab67f16e95e949825ef2e6badbf33e806}{doc}
+\begin{DoxyCompactList}\small\item\em The document this element references. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1tape__ref_a8dc0ecd1d79cf0b8807221145d05e388}\label{classsimdjson_1_1document_1_1tape__ref_a8dc0ecd1d79cf0b8807221145d05e388}} 
+size\+\_\+t \hyperlink{classsimdjson_1_1document_1_1tape__ref_a8dc0ecd1d79cf0b8807221145d05e388}{json\+\_\+index}
+\begin{DoxyCompactList}\small\item\em The index of this element on {\ttfamily doc.\+tape\mbox{[}\mbox{]}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1tape__ref_a4021f5daad7acc0e23662c0c4a4a7af1}\label{classsimdjson_1_1document_1_1tape__ref_a4021f5daad7acc0e23662c0c4a4a7af1}} 
+class {\bfseries document\+::key\+\_\+value\+\_\+pair}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A reference to an element on the tape. 
+
+Internal only. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1tape__ref_ab67f16e95e949825ef2e6badbf33e806}\label{classsimdjson_1_1document_1_1tape__ref_ab67f16e95e949825ef2e6badbf33e806}} 
+\index{simdjson\+::document\+::tape\+\_\+ref@{simdjson\+::document\+::tape\+\_\+ref}!doc@{doc}}
+\index{doc@{doc}!simdjson\+::document\+::tape\+\_\+ref@{simdjson\+::document\+::tape\+\_\+ref}}
+\subsubsection{\texorpdfstring{doc}{doc}}
+{\footnotesize\ttfamily const \hyperlink{classsimdjson_1_1document}{document}$\ast$ simdjson\+::document\+::tape\+\_\+ref\+::doc\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The document this element references. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/simdjson/document.\+h\end{DoxyCompactItemize}

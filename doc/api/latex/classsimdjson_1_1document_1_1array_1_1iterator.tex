@@ -1,0 +1,71 @@
+\hypertarget{classsimdjson_1_1document_1_1array_1_1iterator}{}\section{simdjson\+:\+:document\+:\+:array\+:\+:iterator Class Reference}
+\label{classsimdjson_1_1document_1_1array_1_1iterator}\index{simdjson\+::document\+::array\+::iterator@{simdjson\+::document\+::array\+::iterator}}
+
+
+Inherits simdjson\+::document\+::tape\+\_\+ref.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1array_1_1iterator_a42bad0e3e35ecd7d1fc0c96bf7263978}\label{classsimdjson_1_1document_1_1array_1_1iterator_a42bad0e3e35ecd7d1fc0c96bf7263978}} 
+\hyperlink{classsimdjson_1_1document_1_1element}{element} \hyperlink{classsimdjson_1_1document_1_1array_1_1iterator_a42bad0e3e35ecd7d1fc0c96bf7263978}{operator$\ast$} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get the actual value. \end{DoxyCompactList}\item 
+void \hyperlink{classsimdjson_1_1document_1_1array_1_1iterator_aa8458eb6195491a692a9fae5ca2508df}{operator++} () noexcept
+\begin{DoxyCompactList}\small\item\em Get the next value. \end{DoxyCompactList}\item 
+bool \hyperlink{classsimdjson_1_1document_1_1array_1_1iterator_a5cac863b65e9fc607d5ed7e5e2a2f35d}{operator!=} (const \hyperlink{classsimdjson_1_1document_1_1array_1_1iterator}{iterator} \&other) const noexcept
+\begin{DoxyCompactList}\small\item\em Check if these values come from the same place in the J\+S\+ON. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 571 of file document.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1array_1_1iterator_a5cac863b65e9fc607d5ed7e5e2a2f35d}\label{classsimdjson_1_1document_1_1array_1_1iterator_a5cac863b65e9fc607d5ed7e5e2a2f35d}} 
+\index{simdjson\+::document\+::array\+::iterator@{simdjson\+::document\+::array\+::iterator}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!simdjson\+::document\+::array\+::iterator@{simdjson\+::document\+::array\+::iterator}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool simdjson\+::document\+::array\+::iterator\+::operator!= (\begin{DoxyParamCaption}\item[{const \hyperlink{classsimdjson_1_1document_1_1array_1_1iterator}{iterator} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Check if these values come from the same place in the J\+S\+ON. 
+
+Part of the std\+::iterator interface. 
+
+Definition at line 480 of file document.\+h.
+
+
+\begin{DoxyCode}
+480                                                                                                \{
+481   \textcolor{keywordflow}{return} json\_index != other.json\_index;
+482 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1array_1_1iterator_aa8458eb6195491a692a9fae5ca2508df}\label{classsimdjson_1_1document_1_1array_1_1iterator_aa8458eb6195491a692a9fae5ca2508df}} 
+\index{simdjson\+::document\+::array\+::iterator@{simdjson\+::document\+::array\+::iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!simdjson\+::document\+::array\+::iterator@{simdjson\+::document\+::array\+::iterator}}
+\subsubsection{\texorpdfstring{operator++()}{operator++()}}
+{\footnotesize\ttfamily void simdjson\+::document\+::array\+::iterator\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Get the next value. 
+
+Part of the std\+::iterator interface. 
+
+Definition at line 483 of file document.\+h.
+
+
+\begin{DoxyCode}
+483                                                        \{
+484   json\_index = after\_element();
+485 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/simdjson/document.\+h\end{DoxyCompactItemize}

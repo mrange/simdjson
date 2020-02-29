@@ -1,0 +1,331 @@
+\hypertarget{namespacesimdjson}{}\section{simdjson Namespace Reference}
+\label{namespacesimdjson}\index{simdjson@{simdjson}}
+
+
+Implementation selection and architecture detection.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classsimdjson_1_1document}{document}
+\begin{DoxyCompactList}\small\item\em A parsed J\+S\+ON document. \end{DoxyCompactList}\item 
+class \hyperlink{classsimdjson_1_1document__iterator}{document\+\_\+iterator}
+\item 
+class \hyperlink{classsimdjson_1_1implementation}{implementation}
+\begin{DoxyCompactList}\small\item\em An implementation of simdjson for a particular C\+PU architecture. \end{DoxyCompactList}\item 
+struct \hyperlink{structsimdjson_1_1invalid__json}{invalid\+\_\+json}
+\begin{DoxyCompactList}\small\item\em An exception during simdjson execution. \end{DoxyCompactList}\item 
+class \hyperlink{classsimdjson_1_1_json_stream}{Json\+Stream}
+\begin{DoxyCompactList}\small\item\em The template parameter (string\+\_\+container) must support the data() and size() methods, returning a pointer to a char$\ast$ and to the number of bytes respectively. \end{DoxyCompactList}\item 
+struct \hyperlink{structsimdjson_1_1padded__string}{padded\+\_\+string}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{namespacesimdjson_a63b494af834917af13120dcd57719bdb}{Error\+Values} = \hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code}
+\item 
+using \hyperlink{namespacesimdjson_af6e1badb302f3bbaa7eb7465b556de3c}{Parsed\+Json} = \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}\label{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}} 
+enum \hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code} \{ \newline
+{\bfseries S\+U\+C\+C\+E\+SS} = 0, 
+{\bfseries S\+U\+C\+C\+E\+S\+S\+\_\+\+A\+N\+D\+\_\+\+H\+A\+S\+\_\+\+M\+O\+RE}, 
+{\bfseries C\+A\+P\+A\+C\+I\+TY}, 
+{\bfseries M\+E\+M\+A\+L\+L\+OC}, 
+\newline
+{\bfseries T\+A\+P\+E\+\_\+\+E\+R\+R\+OR}, 
+{\bfseries D\+E\+P\+T\+H\+\_\+\+E\+R\+R\+OR}, 
+{\bfseries S\+T\+R\+I\+N\+G\+\_\+\+E\+R\+R\+OR}, 
+{\bfseries T\+\_\+\+A\+T\+O\+M\+\_\+\+E\+R\+R\+OR}, 
+\newline
+{\bfseries F\+\_\+\+A\+T\+O\+M\+\_\+\+E\+R\+R\+OR}, 
+{\bfseries N\+\_\+\+A\+T\+O\+M\+\_\+\+E\+R\+R\+OR}, 
+{\bfseries N\+U\+M\+B\+E\+R\+\_\+\+E\+R\+R\+OR}, 
+{\bfseries U\+T\+F8\+\_\+\+E\+R\+R\+OR}, 
+\newline
+{\bfseries U\+N\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED}, 
+{\bfseries E\+M\+P\+TY}, 
+{\bfseries U\+N\+E\+S\+C\+A\+P\+E\+D\+\_\+\+C\+H\+A\+RS}, 
+{\bfseries U\+N\+C\+L\+O\+S\+E\+D\+\_\+\+S\+T\+R\+I\+NG}, 
+\newline
+{\bfseries U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+A\+R\+C\+H\+I\+T\+E\+C\+T\+U\+RE}, 
+{\bfseries I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+T\+Y\+PE}, 
+{\bfseries N\+U\+M\+B\+E\+R\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+GE}, 
+{\bfseries N\+O\+\_\+\+S\+U\+C\+H\+\_\+\+F\+I\+E\+LD}, 
+\newline
+{\bfseries U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+E\+R\+R\+OR}
+ \}\begin{DoxyCompactList}\small\item\em An error during simdjson execution. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{namespacesimdjson_a3dec9ca9f787d4ff401f5ecd193c8377}\label{namespacesimdjson_a3dec9ca9f787d4ff401f5ecd193c8377}} 
+enum {\bfseries instruction\+\_\+set} \{ \newline
+{\bfseries D\+E\+F\+A\+U\+LT} = 0x0, 
+{\bfseries N\+E\+ON} = 0x1, 
+{\bfseries A\+V\+X2} = 0x4, 
+{\bfseries S\+S\+E42} = 0x8, 
+\newline
+{\bfseries P\+C\+L\+M\+U\+L\+Q\+DQ} = 0x10, 
+{\bfseries B\+M\+I1} = 0x20, 
+{\bfseries B\+M\+I2} = 0x40
+ \}
+\item 
+\mbox{\Hypertarget{namespacesimdjson_aa58d4d431990fa658c5a1385ea1e641b}\label{namespacesimdjson_aa58d4d431990fa658c5a1385ea1e641b}} 
+enum \{ {\bfseries S\+I\+M\+D\+J\+S\+O\+N\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+M\+A\+J\+OR} = 0, 
+{\bfseries S\+I\+M\+D\+J\+S\+O\+N\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+M\+I\+N\+OR} = 2, 
+{\bfseries S\+I\+M\+D\+J\+S\+O\+N\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+R\+E\+V\+I\+S\+I\+ON} = 1
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::string \& \hyperlink{namespacesimdjson_a4872e460818b01f93d883d184cd0009e}{error\+\_\+message} (\hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code} error) noexcept
+\begin{DoxyCompactList}\small\item\em Get the error message for a given error code. \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{namespacesimdjson_a764fbe7ff17a26fd55bf10dcb5b925c8}{error\+\_\+message} (int error) noexcept
+\item 
+\mbox{\Hypertarget{namespacesimdjson_a422ccfb6c4e71081c2184087a2251deb}\label{namespacesimdjson_a422ccfb6c4e71081c2184087a2251deb}} 
+\hyperlink{structsimdjson_1_1padded__string}{padded\+\_\+string} {\bfseries get\+\_\+corpus} (const std\+::string \&filename)
+\item 
+\mbox{\Hypertarget{namespacesimdjson_a5243584cec695fd994c1c72edd1ab40d}\label{namespacesimdjson_a5243584cec695fd994c1c72edd1ab40d}} 
+size\+\_\+t {\bfseries json\+\_\+minify} (const uint8\+\_\+t $\ast$buf, size\+\_\+t len, uint8\+\_\+t $\ast$out)
+\item 
+int \hyperlink{namespacesimdjson_abda111a8c160cd422c8e5e6d2542f1eb}{json\+\_\+parse} (const uint8\+\_\+t $\ast$buf, size\+\_\+t len, \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&parser, bool realloc\+\_\+if\+\_\+needed=true) noexcept
+\item 
+int \hyperlink{namespacesimdjson_aaf12ce2bb0a7873455998e5bd8a2f207}{json\+\_\+parse} (const char $\ast$buf, size\+\_\+t len, \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&parser, bool realloc\+\_\+if\+\_\+needed=true) noexcept
+\item 
+int \hyperlink{namespacesimdjson_a318618417b19957567c953ffe43532cb}{json\+\_\+parse} (const std\+::string \&s, \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&parser, bool realloc\+\_\+if\+\_\+needed=true) noexcept
+\item 
+int \hyperlink{namespacesimdjson_aae2715d0a12bd296b6e743c0cb346e15}{json\+\_\+parse} (const \hyperlink{structsimdjson_1_1padded__string}{padded\+\_\+string} \&s, \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&parser) noexcept
+\item 
+W\+A\+R\+N\+\_\+\+U\+N\+U\+S\+ED \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \hyperlink{namespacesimdjson_a810c6c6639fd9b8d7f886b2e2529b7e5}{build\+\_\+parsed\+\_\+json} (const char $\ast$buf, size\+\_\+t len, bool realloc\+\_\+if\+\_\+needed=true) noexcept
+\item 
+W\+A\+R\+N\+\_\+\+U\+N\+U\+S\+ED \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \hyperlink{namespacesimdjson_a2a86299a7e61f1c5ee295e8f99752653}{build\+\_\+parsed\+\_\+json} (const std\+::string \&s, bool realloc\+\_\+if\+\_\+needed=true) noexcept
+\item 
+W\+A\+R\+N\+\_\+\+U\+N\+U\+S\+ED \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \hyperlink{namespacesimdjson_addad9710b2a92f3ecd76bf4e9955fb9d}{build\+\_\+parsed\+\_\+json} (const \hyperlink{structsimdjson_1_1padded__string}{padded\+\_\+string} \&s) noexcept
+\item 
+\mbox{\Hypertarget{namespacesimdjson_a811edb19533dc7a8e8d2ab06f6d299f9}\label{namespacesimdjson_a811edb19533dc7a8e8d2ab06f6d299f9}} 
+char $\ast$ {\bfseries allocate\+\_\+padded\+\_\+buffer} (size\+\_\+t length) noexcept
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacesimdjson_aadbf671ebebab27680874886a996f63c}\label{namespacesimdjson_aadbf671ebebab27680874886a996f63c}} 
+const internal\+::available\+\_\+implementation\+\_\+list \hyperlink{namespacesimdjson_aadbf671ebebab27680874886a996f63c}{available\+\_\+implementations}
+\begin{DoxyCompactList}\small\item\em The list of available implementations compiled into simdjson. \end{DoxyCompactList}\item 
+internal\+::atomic\+\_\+ptr$<$ const \hyperlink{classsimdjson_1_1implementation}{implementation} $>$ \hyperlink{namespacesimdjson_a9ed6efb6da2dda95f75256aaf1d0b9b4}{active\+\_\+implementation}
+\begin{DoxyCompactList}\small\item\em The active implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation selection and architecture detection. 
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{namespacesimdjson_a63b494af834917af13120dcd57719bdb}\label{namespacesimdjson_a63b494af834917af13120dcd57719bdb}} 
+\index{simdjson@{simdjson}!Error\+Values@{Error\+Values}}
+\index{Error\+Values@{Error\+Values}!simdjson@{simdjson}}
+\subsubsection{\texorpdfstring{Error\+Values}{ErrorValues}}
+{\footnotesize\ttfamily using \hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{simdjson\+::\+Error\+Values} = typedef \hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000010}{Deprecated}]Use {\ttfamily error\+\_\+code} instead.\end{DoxyRefDesc}
+
+
+Definition at line 45 of file error.\+h.
+
+\mbox{\Hypertarget{namespacesimdjson_af6e1badb302f3bbaa7eb7465b556de3c}\label{namespacesimdjson_af6e1badb302f3bbaa7eb7465b556de3c}} 
+\index{simdjson@{simdjson}!Parsed\+Json@{Parsed\+Json}}
+\index{Parsed\+Json@{Parsed\+Json}!simdjson@{simdjson}}
+\subsubsection{\texorpdfstring{Parsed\+Json}{ParsedJson}}
+{\footnotesize\ttfamily using \hyperlink{namespacesimdjson_af6e1badb302f3bbaa7eb7465b556de3c}{simdjson\+::\+Parsed\+Json} = typedef \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000020}{Deprecated}]Use {\ttfamily \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser}} instead.\end{DoxyRefDesc}
+
+
+Definition at line 13 of file parsedjson.\+h.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacesimdjson_a810c6c6639fd9b8d7f886b2e2529b7e5}\label{namespacesimdjson_a810c6c6639fd9b8d7f886b2e2529b7e5}} 
+\index{simdjson@{simdjson}!build\+\_\+parsed\+\_\+json@{build\+\_\+parsed\+\_\+json}}
+\index{build\+\_\+parsed\+\_\+json@{build\+\_\+parsed\+\_\+json}!simdjson@{simdjson}}
+\subsubsection{\texorpdfstring{build\+\_\+parsed\+\_\+json()}{build\_parsed\_json()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily W\+A\+R\+N\+\_\+\+U\+N\+U\+S\+ED \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} simdjson\+::build\+\_\+parsed\+\_\+json (\begin{DoxyParamCaption}\item[{const char $\ast$}]{buf,  }\item[{size\+\_\+t}]{len,  }\item[{bool}]{realloc\+\_\+if\+\_\+needed = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000017}{Deprecated}]Use {\ttfamily \hyperlink{classsimdjson_1_1document_a6f11cda7c4a06fffdc00fdc97d98ae2b}{document\+::parse()}} instead.\end{DoxyRefDesc}
+
+
+Definition at line 52 of file jsonparser.\+h.
+
+
+\begin{DoxyCode}
+52                                                                                                            
+                    \{
+53   \textcolor{keywordflow}{return} build\_parsed\_json(reinterpret\_cast<const uint8\_t *>(buf), len, realloc\_if\_needed);
+54 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesimdjson_a2a86299a7e61f1c5ee295e8f99752653}\label{namespacesimdjson_a2a86299a7e61f1c5ee295e8f99752653}} 
+\index{simdjson@{simdjson}!build\+\_\+parsed\+\_\+json@{build\+\_\+parsed\+\_\+json}}
+\index{build\+\_\+parsed\+\_\+json@{build\+\_\+parsed\+\_\+json}!simdjson@{simdjson}}
+\subsubsection{\texorpdfstring{build\+\_\+parsed\+\_\+json()}{build\_parsed\_json()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily W\+A\+R\+N\+\_\+\+U\+N\+U\+S\+ED \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} simdjson\+::build\+\_\+parsed\+\_\+json (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s,  }\item[{bool}]{realloc\+\_\+if\+\_\+needed = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000018}{Deprecated}]Use {\ttfamily \hyperlink{classsimdjson_1_1document_a6f11cda7c4a06fffdc00fdc97d98ae2b}{document\+::parse()}} instead.\end{DoxyRefDesc}
+
+
+Definition at line 56 of file jsonparser.\+h.
+
+
+\begin{DoxyCode}
+56                                                                                                            
+           \{
+57   \textcolor{keywordflow}{return} build\_parsed\_json(s.data(), s.length(), realloc\_if\_needed);
+58 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesimdjson_addad9710b2a92f3ecd76bf4e9955fb9d}\label{namespacesimdjson_addad9710b2a92f3ecd76bf4e9955fb9d}} 
+\index{simdjson@{simdjson}!build\+\_\+parsed\+\_\+json@{build\+\_\+parsed\+\_\+json}}
+\index{build\+\_\+parsed\+\_\+json@{build\+\_\+parsed\+\_\+json}!simdjson@{simdjson}}
+\subsubsection{\texorpdfstring{build\+\_\+parsed\+\_\+json()}{build\_parsed\_json()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily W\+A\+R\+N\+\_\+\+U\+N\+U\+S\+ED \hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} simdjson\+::build\+\_\+parsed\+\_\+json (\begin{DoxyParamCaption}\item[{const \hyperlink{structsimdjson_1_1padded__string}{padded\+\_\+string} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000019}{Deprecated}]Use {\ttfamily \hyperlink{classsimdjson_1_1document_a6f11cda7c4a06fffdc00fdc97d98ae2b}{document\+::parse()}} instead.\end{DoxyRefDesc}
+
+
+Definition at line 60 of file jsonparser.\+h.
+
+
+\begin{DoxyCode}
+60                                                                                      \{
+61   \textcolor{keywordflow}{return} build\_parsed\_json(s.data(), s.length(), \textcolor{keyword}{false});
+62 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesimdjson_a4872e460818b01f93d883d184cd0009e}\label{namespacesimdjson_a4872e460818b01f93d883d184cd0009e}} 
+\index{simdjson@{simdjson}!error\+\_\+message@{error\+\_\+message}}
+\index{error\+\_\+message@{error\+\_\+message}!simdjson@{simdjson}}
+\subsubsection{\texorpdfstring{error\+\_\+message()}{error\_message()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const std\+::string\& simdjson\+::error\+\_\+message (\begin{DoxyParamCaption}\item[{\hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code}}]{error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Get the error message for a given error code. 
+
+\mbox{\Hypertarget{namespacesimdjson_a764fbe7ff17a26fd55bf10dcb5b925c8}\label{namespacesimdjson_a764fbe7ff17a26fd55bf10dcb5b925c8}} 
+\index{simdjson@{simdjson}!error\+\_\+message@{error\+\_\+message}}
+\index{error\+\_\+message@{error\+\_\+message}!simdjson@{simdjson}}
+\subsubsection{\texorpdfstring{error\+\_\+message()}{error\_message()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const std\+::string\& simdjson\+::error\+\_\+message (\begin{DoxyParamCaption}\item[{int}]{error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000011}{Deprecated}]Use {\ttfamily \hyperlink{namespacesimdjson_a4872e460818b01f93d883d184cd0009e}{error\+\_\+message(error\+\_\+code)}} instead\+: we no longer traffic in \char`\"{}plain int\char`\"{} errors.\end{DoxyRefDesc}
+
+
+Definition at line 47 of file error.\+h.
+
+
+\begin{DoxyCode}
+47 \{ \textcolor{keywordflow}{return} \hyperlink{namespacesimdjson_a4872e460818b01f93d883d184cd0009e}{error\_message}(\hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\_code}(error)); \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesimdjson_abda111a8c160cd422c8e5e6d2542f1eb}\label{namespacesimdjson_abda111a8c160cd422c8e5e6d2542f1eb}} 
+\index{simdjson@{simdjson}!json\+\_\+parse@{json\+\_\+parse}}
+\index{json\+\_\+parse@{json\+\_\+parse}!simdjson@{simdjson}}
+\subsubsection{\texorpdfstring{json\+\_\+parse()}{json\_parse()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily int simdjson\+::json\+\_\+parse (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{buf,  }\item[{size\+\_\+t}]{len,  }\item[{\hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&}]{parser,  }\item[{bool}]{realloc\+\_\+if\+\_\+needed = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000012}{Deprecated}]Use {\ttfamily parser.\+parse()} instead.\end{DoxyRefDesc}
+
+
+Definition at line 17 of file jsonparser.\+h.
+
+
+\begin{DoxyCode}
+17                                                                                                            
+                 \{
+18   \hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\_code} code = parser.parse(buf, len, realloc\_if\_needed).error;
+19   \textcolor{comment}{// The deprecated json\_parse API is a signal that the user plans to *use* the error code / valid}
+20   \textcolor{comment}{// bits in the parser instead of heeding the result code. The normal parser unsets those in}
+21   \textcolor{comment}{// anticipation of making the error code ephemeral.}
+22   \textcolor{comment}{// Here we put the code back into the parser, until we've removed this method.}
+23   parser.valid = code == SUCCESS;
+24   parser.error = code;
+25   \textcolor{keywordflow}{return} code;
+26 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesimdjson_aaf12ce2bb0a7873455998e5bd8a2f207}\label{namespacesimdjson_aaf12ce2bb0a7873455998e5bd8a2f207}} 
+\index{simdjson@{simdjson}!json\+\_\+parse@{json\+\_\+parse}}
+\index{json\+\_\+parse@{json\+\_\+parse}!simdjson@{simdjson}}
+\subsubsection{\texorpdfstring{json\+\_\+parse()}{json\_parse()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily int simdjson\+::json\+\_\+parse (\begin{DoxyParamCaption}\item[{const char $\ast$}]{buf,  }\item[{size\+\_\+t}]{len,  }\item[{\hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&}]{parser,  }\item[{bool}]{realloc\+\_\+if\+\_\+needed = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000013}{Deprecated}]Use {\ttfamily parser.\+parse()} instead.\end{DoxyRefDesc}
+
+
+Definition at line 28 of file jsonparser.\+h.
+
+
+\begin{DoxyCode}
+28                                                                                                            
+              \{
+29   \textcolor{keywordflow}{return} \hyperlink{namespacesimdjson_abda111a8c160cd422c8e5e6d2542f1eb}{json\_parse}(reinterpret\_cast<const uint8\_t *>(buf), len, parser, realloc\_if\_needed);
+30 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesimdjson_a318618417b19957567c953ffe43532cb}\label{namespacesimdjson_a318618417b19957567c953ffe43532cb}} 
+\index{simdjson@{simdjson}!json\+\_\+parse@{json\+\_\+parse}}
+\index{json\+\_\+parse@{json\+\_\+parse}!simdjson@{simdjson}}
+\subsubsection{\texorpdfstring{json\+\_\+parse()}{json\_parse()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily int simdjson\+::json\+\_\+parse (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s,  }\item[{\hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&}]{parser,  }\item[{bool}]{realloc\+\_\+if\+\_\+needed = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000014}{Deprecated}]Use {\ttfamily parser.\+parse()} instead.\end{DoxyRefDesc}
+
+
+Definition at line 32 of file jsonparser.\+h.
+
+
+\begin{DoxyCode}
+32                                                                                                           \{
+33   \textcolor{keywordflow}{return} \hyperlink{namespacesimdjson_abda111a8c160cd422c8e5e6d2542f1eb}{json\_parse}(s.data(), s.length(), parser, realloc\_if\_needed);
+34 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesimdjson_aae2715d0a12bd296b6e743c0cb346e15}\label{namespacesimdjson_aae2715d0a12bd296b6e743c0cb346e15}} 
+\index{simdjson@{simdjson}!json\+\_\+parse@{json\+\_\+parse}}
+\index{json\+\_\+parse@{json\+\_\+parse}!simdjson@{simdjson}}
+\subsubsection{\texorpdfstring{json\+\_\+parse()}{json\_parse()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily int simdjson\+::json\+\_\+parse (\begin{DoxyParamCaption}\item[{const \hyperlink{structsimdjson_1_1padded__string}{padded\+\_\+string} \&}]{s,  }\item[{\hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&}]{parser }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000015}{Deprecated}]Use {\ttfamily parser.\+parse()} instead.\end{DoxyRefDesc}
+
+
+Definition at line 36 of file jsonparser.\+h.
+
+
+\begin{DoxyCode}
+36                                                                                \{
+37   \textcolor{keywordflow}{return} \hyperlink{namespacesimdjson_abda111a8c160cd422c8e5e6d2542f1eb}{json\_parse}(s.data(), s.length(), parser, \textcolor{keyword}{false});
+38 \}
+\end{DoxyCode}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacesimdjson_a9ed6efb6da2dda95f75256aaf1d0b9b4}\label{namespacesimdjson_a9ed6efb6da2dda95f75256aaf1d0b9b4}} 
+\index{simdjson@{simdjson}!active\+\_\+implementation@{active\+\_\+implementation}}
+\index{active\+\_\+implementation@{active\+\_\+implementation}!simdjson@{simdjson}}
+\subsubsection{\texorpdfstring{active\+\_\+implementation}{active\_implementation}}
+{\footnotesize\ttfamily internal\+::atomic\+\_\+ptr$<$const \hyperlink{classsimdjson_1_1implementation}{implementation}$>$ simdjson\+::active\+\_\+implementation\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The active implementation. 
+
+Automatically initialized on first use to the most advanced implementation supported by this hardware. 
+
+Definition at line 243 of file implementation.\+h.
+

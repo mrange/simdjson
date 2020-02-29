@@ -1,0 +1,459 @@
+\hypertarget{classsimdjson_1_1document_1_1parser}{}\section{simdjson\+:\+:document\+:\+:parser Class Reference}
+\label{classsimdjson_1_1document_1_1parser}\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+
+
+A persistent document parser.  
+
+
+
+
+{\ttfamily \#include $<$document.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{classsimdjson_1_1document_1_1parser_af98e5ba546a37967e0bfee969d1d5f48}{Iterator} = \hyperlink{classsimdjson_1_1document__iterator}{document\+::iterator}
+\item 
+using \hyperlink{classsimdjson_1_1document_1_1parser_a26aa1a76e9ecf5371736aa44b5f6d74a}{Invalid\+J\+S\+ON} = \hyperlink{structsimdjson_1_1invalid__json}{invalid\+\_\+json}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsimdjson_1_1document_1_1parser_a656d0ad716faf5085e885581ec598466}{parser} ()=default
+\begin{DoxyCompactList}\small\item\em Create a J\+S\+ON parser with zero capacity. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1parser_a01e70a75fd87c764982b9e5f4e87eddf}{$\sim$parser} ()=default
+\begin{DoxyCompactList}\small\item\em Deallocate the J\+S\+ON parser. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1parser_a1996defcd55a2bded7e01308fd21ae87}{parser} (\hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&\&other)=default
+\begin{DoxyCompactList}\small\item\em Take another parser\textquotesingle{}s buffers and state. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1parser}{parser} \& \hyperlink{classsimdjson_1_1document_1_1parser_ab59a0096c2192266961b2d1f9f449470}{operator=} (\hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&\&other)=default
+\begin{DoxyCompactList}\small\item\em Take another parser\textquotesingle{}s buffers and state. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1doc__ref__result}{doc\+\_\+ref\+\_\+result} \hyperlink{classsimdjson_1_1document_1_1parser_a3eb1fd46ea0dad62eceed4b1c302b7ad}{parse} (const uint8\+\_\+t $\ast$buf, size\+\_\+t len, bool realloc\+\_\+if\+\_\+needed=true) noexcept
+\begin{DoxyCompactList}\small\item\em Parse a J\+S\+ON document and return a reference to it. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1doc__ref__result}{doc\+\_\+ref\+\_\+result} \hyperlink{classsimdjson_1_1document_1_1parser_a1ce12050358a969596ced70f9786c1cc}{parse} (const char $\ast$buf, size\+\_\+t len, bool realloc\+\_\+if\+\_\+needed=true) noexcept
+\begin{DoxyCompactList}\small\item\em Parse a J\+S\+ON document and return a reference to it. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1doc__ref__result}{doc\+\_\+ref\+\_\+result} \hyperlink{classsimdjson_1_1document_1_1parser_ada490fbaf30ec3df5679b86e9b6914bd}{parse} (const std\+::string \&s) noexcept
+\begin{DoxyCompactList}\small\item\em Parse a J\+S\+ON document and return a reference to it. \end{DoxyCompactList}\item 
+\hyperlink{classsimdjson_1_1document_1_1doc__ref__result}{doc\+\_\+ref\+\_\+result} \hyperlink{classsimdjson_1_1document_1_1parser_a5c062f8ab3f45a5cb144056dde60b993}{parse} (const \hyperlink{structsimdjson_1_1padded__string}{padded\+\_\+string} \&s) noexcept
+\begin{DoxyCompactList}\small\item\em Parse a J\+S\+ON document and return a reference to it. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_a505d0eecc82a63ffc60b6fd6a8765c48}\label{classsimdjson_1_1document_1_1parser_a505d0eecc82a63ffc60b6fd6a8765c48}} 
+\hyperlink{classsimdjson_1_1document_1_1doc__ref__result}{doc\+\_\+ref\+\_\+result} {\bfseries parse} (const char $\ast$buf) noexcept=delete
+\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_af9ea6b75fa9c41c6633fdcf059744cb2}\label{classsimdjson_1_1document_1_1parser_af9ea6b75fa9c41c6633fdcf059744cb2}} 
+size\+\_\+t \hyperlink{classsimdjson_1_1document_1_1parser_af9ea6b75fa9c41c6633fdcf059744cb2}{capacity} ()
+\begin{DoxyCompactList}\small\item\em Current capacity\+: the largest document this parser can support without reallocating. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_ae3ccf7ff0c0aa18d6ba70d3e063461b7}\label{classsimdjson_1_1document_1_1parser_ae3ccf7ff0c0aa18d6ba70d3e063461b7}} 
+size\+\_\+t \hyperlink{classsimdjson_1_1document_1_1parser_ae3ccf7ff0c0aa18d6ba70d3e063461b7}{max\+\_\+depth} ()
+\begin{DoxyCompactList}\small\item\em The maximum level of nested objects and arrays supported by this parser. \end{DoxyCompactList}\item 
+W\+A\+R\+N\+\_\+\+U\+N\+U\+S\+ED bool \hyperlink{classsimdjson_1_1document_1_1parser_af1e347c307036b644ed92f8bb575c4e9}{allocate\+\_\+capacity} (size\+\_\+t \hyperlink{classsimdjson_1_1document_1_1parser_af9ea6b75fa9c41c6633fdcf059744cb2}{capacity}, size\+\_\+t \hyperlink{classsimdjson_1_1document_1_1parser_ae3ccf7ff0c0aa18d6ba70d3e063461b7}{max\+\_\+depth}=D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+X\+\_\+\+D\+E\+P\+TH)
+\begin{DoxyCompactList}\small\item\em Ensure this parser has enough memory to process J\+S\+ON documents up to {\ttfamily capacity} bytes in length and {\ttfamily max\+\_\+depth} depth. \end{DoxyCompactList}\item 
+bool \hyperlink{classsimdjson_1_1document_1_1parser_af8bc0c415446f61d6be1a2e3f60a13ad}{is\+\_\+valid} () const noexcept
+\item 
+int \hyperlink{classsimdjson_1_1document_1_1parser_ae22eec3516e3b91d62b5e275bdb58e71}{get\+\_\+error\+\_\+code} () const noexcept
+\item 
+std\+::string \hyperlink{classsimdjson_1_1document_1_1parser_ab971378e4a9496980632c2cbed66e992}{get\+\_\+error\+\_\+message} () const noexcept
+\item 
+bool \hyperlink{classsimdjson_1_1document_1_1parser_ad6f0ed13d1344e219ba76c491158a05c}{print\+\_\+json} (std\+::ostream \&os) const noexcept
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classsimdjson_1_1document_1_1parser_a1aaf05806149d370d15140125038d3b2}{valid} \{false\}
+\item 
+\hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code} \hyperlink{classsimdjson_1_1document_1_1parser_afa18e48f1df491d56afdfea2fa353e05}{error} \{U\+N\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED\}
+\item 
+\hyperlink{classsimdjson_1_1document}{document} \hyperlink{classsimdjson_1_1document_1_1parser_a689e8f23f1e1b63f9e8a3c68ad9517a2}{doc}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A persistent document parser. 
+
+Use this if you intend to parse more than one document. It holds the internal memory necessary to do parsing, as well as memory for a single document that is overwritten on each parse.
+
+This class cannot be copied, only moved, to avoid unintended allocations.
+
+\begin{DoxyNote}{Note}
+This is not thread safe\+: one parser cannot produce two documents at the same time! 
+\end{DoxyNote}
+
+
+Definition at line 939 of file document.\+h.
+
+
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_a26aa1a76e9ecf5371736aa44b5f6d74a}\label{classsimdjson_1_1document_1_1parser_a26aa1a76e9ecf5371736aa44b5f6d74a}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!Invalid\+J\+S\+ON@{Invalid\+J\+S\+ON}}
+\index{Invalid\+J\+S\+ON@{Invalid\+J\+S\+ON}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{Invalid\+J\+S\+ON}{InvalidJSON}}
+{\footnotesize\ttfamily using \hyperlink{classsimdjson_1_1document_1_1parser_a26aa1a76e9ecf5371736aa44b5f6d74a}{simdjson\+::document\+::parser\+::\+Invalid\+J\+S\+ON} =  \hyperlink{structsimdjson_1_1invalid__json}{invalid\+\_\+json}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000002}{Deprecated}]use \hyperlink{structsimdjson_1_1invalid__json}{invalid\+\_\+json} instead \end{DoxyRefDesc}
+
+
+Definition at line 1062 of file document.\+h.
+
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_af98e5ba546a37967e0bfee969d1d5f48}\label{classsimdjson_1_1document_1_1parser_af98e5ba546a37967e0bfee969d1d5f48}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!Iterator@{Iterator}}
+\index{Iterator@{Iterator}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{Iterator}{Iterator}}
+{\footnotesize\ttfamily using \hyperlink{classsimdjson_1_1document_1_1parser_af98e5ba546a37967e0bfee969d1d5f48}{simdjson\+::document\+::parser\+::\+Iterator} =  \hyperlink{classsimdjson_1_1document__iterator}{document\+::iterator}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000001}{Deprecated}]use \hyperlink{classsimdjson_1_1document__iterator}{document\+\_\+iterator} instead \end{DoxyRefDesc}
+
+
+Definition at line 1060 of file document.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_a656d0ad716faf5085e885581ec598466}\label{classsimdjson_1_1document_1_1parser_a656d0ad716faf5085e885581ec598466}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!parser@{parser}}
+\index{parser@{parser}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{parser()}{parser()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily simdjson\+::document\+::parser\+::parser (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Create a J\+S\+ON parser with zero capacity. 
+
+Call \hyperlink{classsimdjson_1_1document_1_1parser_af1e347c307036b644ed92f8bb575c4e9}{allocate\+\_\+capacity()} to initialize it. \mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_a01e70a75fd87c764982b9e5f4e87eddf}\label{classsimdjson_1_1document_1_1parser_a01e70a75fd87c764982b9e5f4e87eddf}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!````~parser@{$\sim$parser}}
+\index{````~parser@{$\sim$parser}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{$\sim$parser()}{~parser()}}
+{\footnotesize\ttfamily simdjson\+::document\+::parser\+::$\sim$parser (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Deallocate the J\+S\+ON parser. 
+
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_a1996defcd55a2bded7e01308fd21ae87}\label{classsimdjson_1_1document_1_1parser_a1996defcd55a2bded7e01308fd21ae87}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!parser@{parser}}
+\index{parser@{parser}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{parser()}{parser()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily simdjson\+::document\+::parser\+::parser (\begin{DoxyParamCaption}\item[{\hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Take another parser\textquotesingle{}s buffers and state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The parser to take. Its capacity is zeroed. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_af1e347c307036b644ed92f8bb575c4e9}\label{classsimdjson_1_1document_1_1parser_af1e347c307036b644ed92f8bb575c4e9}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!allocate\+\_\+capacity@{allocate\+\_\+capacity}}
+\index{allocate\+\_\+capacity@{allocate\+\_\+capacity}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{allocate\+\_\+capacity()}{allocate\_capacity()}}
+{\footnotesize\ttfamily W\+A\+R\+N\+\_\+\+U\+N\+U\+S\+ED bool simdjson\+::document\+::parser\+::allocate\+\_\+capacity (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{capacity,  }\item[{size\+\_\+t}]{max\+\_\+depth = {\ttfamily DEFAULT\+\_\+MAX\+\_\+DEPTH} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ensure this parser has enough memory to process J\+S\+ON documents up to {\ttfamily capacity} bytes in length and {\ttfamily max\+\_\+depth} depth. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em capacity} & the largest document this parser will need to support. \\
+\hline
+{\em max\+\_\+depth} & the maximum level of nested objects and arrays this parser will need to support. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the capacity was able to be allocated. 
+\end{DoxyReturn}
+
+
+Definition at line 1055 of file document.\+h.
+
+
+\begin{DoxyCode}
+1055                                                                                             \{
+1056     \textcolor{keywordflow}{return} set\_capacity(\hyperlink{classsimdjson_1_1document_1_1parser_af9ea6b75fa9c41c6633fdcf059744cb2}{capacity}) && set\_max\_depth(\hyperlink{classsimdjson_1_1document_1_1parser_ae3ccf7ff0c0aa18d6ba70d3e063461b7}{max\_depth});
+1057   \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_ae22eec3516e3b91d62b5e275bdb58e71}\label{classsimdjson_1_1document_1_1parser_ae22eec3516e3b91d62b5e275bdb58e71}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!get\+\_\+error\+\_\+code@{get\+\_\+error\+\_\+code}}
+\index{get\+\_\+error\+\_\+code@{get\+\_\+error\+\_\+code}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{get\+\_\+error\+\_\+code()}{get\_error\_code()}}
+{\footnotesize\ttfamily int simdjson\+::document\+::parser\+::get\+\_\+error\+\_\+code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000007}{Deprecated}]Use {\ttfamily \hyperlink{classsimdjson_1_1document_1_1parser_a3eb1fd46ea0dad62eceed4b1c302b7ad}{parser.\+parse}(...).error} instead \end{DoxyRefDesc}
+
+
+Definition at line 235 of file document.\+h.
+
+
+\begin{DoxyCode}
+235 \{ \textcolor{keywordflow}{return} \hyperlink{classsimdjson_1_1document_1_1parser_afa18e48f1df491d56afdfea2fa353e05}{error}; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_ab971378e4a9496980632c2cbed66e992}\label{classsimdjson_1_1document_1_1parser_ab971378e4a9496980632c2cbed66e992}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!get\+\_\+error\+\_\+message@{get\+\_\+error\+\_\+message}}
+\index{get\+\_\+error\+\_\+message@{get\+\_\+error\+\_\+message}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{get\+\_\+error\+\_\+message()}{get\_error\_message()}}
+{\footnotesize\ttfamily std\+::string simdjson\+::document\+::parser\+::get\+\_\+error\+\_\+message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000008}{Deprecated}]Use {\ttfamily error\+\_\+message(\hyperlink{classsimdjson_1_1document_1_1parser_a3eb1fd46ea0dad62eceed4b1c302b7ad}{parser.\+parse}(...).error)} instead \end{DoxyRefDesc}
+
+
+Definition at line 236 of file document.\+h.
+
+
+\begin{DoxyCode}
+236 \{ \textcolor{keywordflow}{return} \hyperlink{namespacesimdjson_a4872e460818b01f93d883d184cd0009e}{error\_message}(\hyperlink{classsimdjson_1_1document_1_1parser_afa18e48f1df491d56afdfea2fa353e05}{error}); \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_af8bc0c415446f61d6be1a2e3f60a13ad}\label{classsimdjson_1_1document_1_1parser_af8bc0c415446f61d6be1a2e3f60a13ad}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!is\+\_\+valid@{is\+\_\+valid}}
+\index{is\+\_\+valid@{is\+\_\+valid}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{is\+\_\+valid()}{is\_valid()}}
+{\footnotesize\ttfamily bool simdjson\+::document\+::parser\+::is\+\_\+valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000006}{Deprecated}]Use {\ttfamily if (\hyperlink{classsimdjson_1_1document_1_1parser_a3eb1fd46ea0dad62eceed4b1c302b7ad}{parser.\+parse}(...).error)} instead \end{DoxyRefDesc}
+
+
+Definition at line 234 of file document.\+h.
+
+
+\begin{DoxyCode}
+234 \{ \textcolor{keywordflow}{return} \hyperlink{classsimdjson_1_1document_1_1parser_a1aaf05806149d370d15140125038d3b2}{valid}; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_ab59a0096c2192266961b2d1f9f449470}\label{classsimdjson_1_1document_1_1parser_ab59a0096c2192266961b2d1f9f449470}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!operator=@{operator=}}
+\index{operator=@{operator=}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1parser}{parser}\& simdjson\+::document\+::parser\+::operator= (\begin{DoxyParamCaption}\item[{\hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Take another parser\textquotesingle{}s buffers and state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The parser to take. Its capacity is zeroed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_a3eb1fd46ea0dad62eceed4b1c302b7ad}\label{classsimdjson_1_1document_1_1parser_a3eb1fd46ea0dad62eceed4b1c302b7ad}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!parse@{parse}}
+\index{parse@{parse}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{parse()}{parse()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document_1_1doc__ref__result}{document\+::doc\+\_\+ref\+\_\+result} simdjson\+::document\+::parser\+::parse (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{buf,  }\item[{size\+\_\+t}]{len,  }\item[{bool}]{realloc\+\_\+if\+\_\+needed = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Parse a J\+S\+ON document and return a reference to it. 
+
+The J\+S\+ON document still lives in the parser\+: this is the most efficient way to parse J\+S\+ON documents because it reuses the same buffers, but you {\itshape must} use the document before you destroy the parser or call \hyperlink{classsimdjson_1_1document_1_1parser_a3eb1fd46ea0dad62eceed4b1c302b7ad}{parse()} again.
+
+The buffer must have at least S\+I\+M\+D\+J\+S\+O\+N\+\_\+\+P\+A\+D\+D\+I\+NG extra allocated bytes. It does not matter what those bytes are initialized to, as long as they are allocated. If realloc\+\_\+if\+\_\+needed is true, it is assumed that the buffer does {\itshape not} have enough padding, and it is reallocated, enlarged and copied before parsing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & The J\+S\+ON to parse. Must have at least len + S\+I\+M\+D\+J\+S\+O\+N\+\_\+\+P\+A\+D\+D\+I\+NG allocated bytes, unless realloc\+\_\+if\+\_\+needed is true. \\
+\hline
+{\em len} & The length of the J\+S\+ON. \\
+\hline
+{\em realloc\+\_\+if\+\_\+needed} & Whether to reallocate and enlarge the J\+S\+ON buffer to add padding. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the document, or an error if the J\+S\+ON is invalid. 
+\end{DoxyReturn}
+
+
+Definition at line 249 of file document.\+h.
+
+
+\begin{DoxyCode}
+249                                                                                                            
+              \{
+250   \hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\_code} code = init\_parse(len);
+251   \textcolor{keywordflow}{if} (code) \{ \textcolor{keywordflow}{return} document::doc\_ref\_result(\hyperlink{classsimdjson_1_1document_1_1parser_a689e8f23f1e1b63f9e8a3c68ad9517a2}{doc}, code); \}
+252 
+253   \textcolor{keywordflow}{if} (realloc\_if\_needed) \{
+254     \textcolor{keyword}{const} uint8\_t *tmp\_buf = buf;
+255     buf = (uint8\_t *)allocate\_padded\_buffer(len);
+256     \textcolor{keywordflow}{if} (buf == \textcolor{keyword}{nullptr})
+257       \textcolor{keywordflow}{return} document::doc\_ref\_result(\hyperlink{classsimdjson_1_1document_1_1parser_a689e8f23f1e1b63f9e8a3c68ad9517a2}{doc}, MEMALLOC);
+258     memcpy((\textcolor{keywordtype}{void} *)buf, tmp\_buf, len);
+259   \}
+260 
+261   code = \hyperlink{namespacesimdjson_a9ed6efb6da2dda95f75256aaf1d0b9b4}{simdjson::active\_implementation}->parse(buf, len, *\textcolor{keyword}{this});
+262 
+263   \textcolor{comment}{// We're indicating validity via the doc\_ref\_result, so set the parse state back to invalid}
+264   \hyperlink{classsimdjson_1_1document_1_1parser_a1aaf05806149d370d15140125038d3b2}{valid} = \textcolor{keyword}{false};
+265   \hyperlink{classsimdjson_1_1document_1_1parser_afa18e48f1df491d56afdfea2fa353e05}{error} = UNINITIALIZED;
+266   \textcolor{keywordflow}{if} (realloc\_if\_needed) \{
+267     aligned\_free((\textcolor{keywordtype}{void} *)buf); \textcolor{comment}{// must free before we exit}
+268   \}
+269   \textcolor{keywordflow}{return} document::doc\_ref\_result(\hyperlink{classsimdjson_1_1document_1_1parser_a689e8f23f1e1b63f9e8a3c68ad9517a2}{doc}, code);
+270 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_a1ce12050358a969596ced70f9786c1cc}\label{classsimdjson_1_1document_1_1parser_a1ce12050358a969596ced70f9786c1cc}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!parse@{parse}}
+\index{parse@{parse}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{parse()}{parse()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily really\+\_\+inline \hyperlink{classsimdjson_1_1document_1_1doc__ref__result}{document\+::doc\+\_\+ref\+\_\+result} simdjson\+::document\+::parser\+::parse (\begin{DoxyParamCaption}\item[{const char $\ast$}]{buf,  }\item[{size\+\_\+t}]{len,  }\item[{bool}]{realloc\+\_\+if\+\_\+needed = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Parse a J\+S\+ON document and return a reference to it. 
+
+The J\+S\+ON document still lives in the parser\+: this is the most efficient way to parse J\+S\+ON documents because it reuses the same buffers, but you {\itshape must} use the document before you destroy the parser or call \hyperlink{classsimdjson_1_1document_1_1parser_a3eb1fd46ea0dad62eceed4b1c302b7ad}{parse()} again.
+
+The buffer must have at least S\+I\+M\+D\+J\+S\+O\+N\+\_\+\+P\+A\+D\+D\+I\+NG extra allocated bytes. It does not matter what those bytes are initialized to, as long as they are allocated. If realloc\+\_\+if\+\_\+needed is true, it is assumed that the buffer does {\itshape not} have enough padding, and it is reallocated, enlarged and copied before parsing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & The J\+S\+ON to parse. Must have at least len + S\+I\+M\+D\+J\+S\+O\+N\+\_\+\+P\+A\+D\+D\+I\+NG allocated bytes, unless realloc\+\_\+if\+\_\+needed is true. \\
+\hline
+{\em len} & The length of the J\+S\+ON. \\
+\hline
+{\em realloc\+\_\+if\+\_\+needed} & Whether to reallocate and enlarge the J\+S\+ON buffer to add padding. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the document, or an error if the J\+S\+ON is invalid. 
+\end{DoxyReturn}
+
+
+Definition at line 271 of file document.\+h.
+
+
+\begin{DoxyCode}
+271                                                                                                            
+                  \{
+272   \textcolor{keywordflow}{return} \hyperlink{classsimdjson_1_1document_1_1parser_a3eb1fd46ea0dad62eceed4b1c302b7ad}{parse}((\textcolor{keyword}{const} uint8\_t *)buf, len, realloc\_if\_needed);
+273 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_ada490fbaf30ec3df5679b86e9b6914bd}\label{classsimdjson_1_1document_1_1parser_ada490fbaf30ec3df5679b86e9b6914bd}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!parse@{parse}}
+\index{parse@{parse}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{parse()}{parse()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily really\+\_\+inline \hyperlink{classsimdjson_1_1document_1_1doc__ref__result}{document\+::doc\+\_\+ref\+\_\+result} simdjson\+::document\+::parser\+::parse (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Parse a J\+S\+ON document and return a reference to it. 
+
+The J\+S\+ON document still lives in the parser\+: this is the most efficient way to parse J\+S\+ON documents because it reuses the same buffers, but you {\itshape must} use the document before you destroy the parser or call \hyperlink{classsimdjson_1_1document_1_1parser_a3eb1fd46ea0dad62eceed4b1c302b7ad}{parse()} again.
+
+The buffer must have at least S\+I\+M\+D\+J\+S\+O\+N\+\_\+\+P\+A\+D\+D\+I\+NG extra allocated bytes. It does not matter what those bytes are initialized to, as long as they are allocated. If {\ttfamily str.\+capacity() -\/ str.\+size() $<$ S\+I\+M\+D\+J\+S\+O\+N\+\_\+\+P\+A\+D\+D\+I\+NG}, the string will be copied to a string with larger capacity before parsing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The J\+S\+ON to parse. Must have at least len + S\+I\+M\+D\+J\+S\+O\+N\+\_\+\+P\+A\+D\+D\+I\+NG allocated bytes, or a new string will be created with the extra padding. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the document, or an error if the J\+S\+ON is invalid. 
+\end{DoxyReturn}
+
+
+Definition at line 274 of file document.\+h.
+
+
+\begin{DoxyCode}
+274                                                                                       \{
+275   \textcolor{keywordflow}{return} \hyperlink{classsimdjson_1_1document_1_1parser_a3eb1fd46ea0dad62eceed4b1c302b7ad}{parse}(s.data(), s.length(), s.capacity() - s.length() < SIMDJSON\_PADDING);
+276 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_a5c062f8ab3f45a5cb144056dde60b993}\label{classsimdjson_1_1document_1_1parser_a5c062f8ab3f45a5cb144056dde60b993}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!parse@{parse}}
+\index{parse@{parse}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{parse()}{parse()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily really\+\_\+inline \hyperlink{classsimdjson_1_1document_1_1doc__ref__result}{document\+::doc\+\_\+ref\+\_\+result} simdjson\+::document\+::parser\+::parse (\begin{DoxyParamCaption}\item[{const \hyperlink{structsimdjson_1_1padded__string}{padded\+\_\+string} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Parse a J\+S\+ON document and return a reference to it. 
+
+The J\+S\+ON document still lives in the parser\+: this is the most efficient way to parse J\+S\+ON documents because it reuses the same buffers, but you {\itshape must} use the document before you destroy the parser or call \hyperlink{classsimdjson_1_1document_1_1parser_a3eb1fd46ea0dad62eceed4b1c302b7ad}{parse()} again.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The J\+S\+ON to parse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the document, or an error if the J\+S\+ON is invalid. 
+\end{DoxyReturn}
+
+
+Definition at line 277 of file document.\+h.
+
+
+\begin{DoxyCode}
+277                                                                                           \{
+278   \textcolor{keywordflow}{return} \hyperlink{classsimdjson_1_1document_1_1parser_a3eb1fd46ea0dad62eceed4b1c302b7ad}{parse}(s.data(), s.length(), \textcolor{keyword}{false});
+279 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_ad6f0ed13d1344e219ba76c491158a05c}\label{classsimdjson_1_1document_1_1parser_ad6f0ed13d1344e219ba76c491158a05c}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!print\+\_\+json@{print\+\_\+json}}
+\index{print\+\_\+json@{print\+\_\+json}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{print\+\_\+json()}{print\_json()}}
+{\footnotesize\ttfamily bool simdjson\+::document\+::parser\+::print\+\_\+json (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000009}{Deprecated}]Use {\ttfamily \hyperlink{classsimdjson_1_1document_ad33e6862de5cd09b2a16b10a90768360}{document.\+print\+\_\+json()}} instead \end{DoxyRefDesc}
+
+
+Definition at line 237 of file document.\+h.
+
+
+\begin{DoxyCode}
+237                                                                     \{
+238   \textcolor{keywordflow}{return} \hyperlink{classsimdjson_1_1document_1_1parser_af8bc0c415446f61d6be1a2e3f60a13ad}{is\_valid}() ? \hyperlink{classsimdjson_1_1document_1_1parser_a689e8f23f1e1b63f9e8a3c68ad9517a2}{doc}.\hyperlink{classsimdjson_1_1document_ad33e6862de5cd09b2a16b10a90768360}{print\_json}(os) : \textcolor{keyword}{false};
+239 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_a689e8f23f1e1b63f9e8a3c68ad9517a2}\label{classsimdjson_1_1document_1_1parser_a689e8f23f1e1b63f9e8a3c68ad9517a2}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!doc@{doc}}
+\index{doc@{doc}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{doc}{doc}}
+{\footnotesize\ttfamily \hyperlink{classsimdjson_1_1document}{document} simdjson\+::document\+::parser\+::doc}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000005}{Deprecated}]Use {\ttfamily \hyperlink{classsimdjson_1_1document_1_1parser_a3eb1fd46ea0dad62eceed4b1c302b7ad}{parser.\+parse}(...).doc} instead \end{DoxyRefDesc}
+
+
+Definition at line 1091 of file document.\+h.
+
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_afa18e48f1df491d56afdfea2fa353e05}\label{classsimdjson_1_1document_1_1parser_afa18e48f1df491d56afdfea2fa353e05}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!error@{error}}
+\index{error@{error}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily \hyperlink{namespacesimdjson_a7b735a3a50ba79e3f7f14df5f77d8da9}{error\+\_\+code} simdjson\+::document\+::parser\+::error \{U\+N\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED\}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000004}{Deprecated}]Use {\ttfamily \hyperlink{classsimdjson_1_1document_1_1parser_a3eb1fd46ea0dad62eceed4b1c302b7ad}{parser.\+parse}(...).error} instead \end{DoxyRefDesc}
+
+
+Definition at line 1088 of file document.\+h.
+
+\mbox{\Hypertarget{classsimdjson_1_1document_1_1parser_a1aaf05806149d370d15140125038d3b2}\label{classsimdjson_1_1document_1_1parser_a1aaf05806149d370d15140125038d3b2}} 
+\index{simdjson\+::document\+::parser@{simdjson\+::document\+::parser}!valid@{valid}}
+\index{valid@{valid}!simdjson\+::document\+::parser@{simdjson\+::document\+::parser}}
+\subsubsection{\texorpdfstring{valid}{valid}}
+{\footnotesize\ttfamily bool simdjson\+::document\+::parser\+::valid \{false\}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000003}{Deprecated}]Use {\ttfamily if (\hyperlink{classsimdjson_1_1document_1_1parser_a3eb1fd46ea0dad62eceed4b1c302b7ad}{parser.\+parse}(...).error)} instead \end{DoxyRefDesc}
+
+
+Definition at line 1086 of file document.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/simdjson/document.\+h\end{DoxyCompactItemize}

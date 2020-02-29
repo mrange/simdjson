@@ -1,0 +1,129 @@
+\hypertarget{classsimdjson_1_1_json_stream}{}\section{simdjson\+:\+:Json\+Stream$<$ string\+\_\+container $>$ Class Template Reference}
+\label{classsimdjson_1_1_json_stream}\index{simdjson\+::\+Json\+Stream$<$ string\+\_\+container $>$@{simdjson\+::\+Json\+Stream$<$ string\+\_\+container $>$}}
+
+
+The template parameter (string\+\_\+container) must support the data() and size() methods, returning a pointer to a char$\ast$ and to the number of bytes respectively.  
+
+
+
+
+{\ttfamily \#include $<$jsonstream.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsimdjson_1_1_json_stream_ac7ab1f7dd9d839e155f32aa70ca3826d}{Json\+Stream} (const string\+\_\+container \&s, size\+\_\+t batch\+\_\+size=1000000)
+\begin{DoxyCompactList}\small\item\em Create a \hyperlink{classsimdjson_1_1_json_stream}{Json\+Stream} object that can be used to parse sequentially the valid J\+S\+ON documents found in the buffer \char`\"{}buf\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimdjson_1_1_json_stream_ab386509a4a926e325e90bab1b5a96e5e}\label{classsimdjson_1_1_json_stream_ab386509a4a926e325e90bab1b5a96e5e}} 
+int {\bfseries json\+\_\+parse} (\hyperlink{classsimdjson_1_1document_1_1parser}{document\+::parser} \&parser)
+\item 
+size\+\_\+t \hyperlink{classsimdjson_1_1_json_stream_a01493e28b0606bcef1e03c233214382b}{get\+\_\+current\+\_\+buffer\+\_\+loc} () const
+\begin{DoxyCompactList}\small\item\em Returns the location (index) of where the next document should be in the buffer. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classsimdjson_1_1_json_stream_a160e592d44374cc21c12a58a1648196b}{get\+\_\+n\+\_\+parsed\+\_\+docs} () const
+\begin{DoxyCompactList}\small\item\em Returns the total amount of complete documents parsed by the \hyperlink{classsimdjson_1_1_json_stream}{Json\+Stream}, in the current buffer, at the given time. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classsimdjson_1_1_json_stream_ac63006b60b0446cd20dfc102131e8a98}{get\+\_\+n\+\_\+bytes\+\_\+parsed} () const
+\begin{DoxyCompactList}\small\item\em Returns the total amount of data (in bytes) parsed by the \hyperlink{classsimdjson_1_1_json_stream}{Json\+Stream}, in the current buffer, at the given time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class string\+\_\+container = padded\+\_\+string$>$\newline
+class simdjson\+::\+Json\+Stream$<$ string\+\_\+container $>$}
+
+The template parameter (string\+\_\+container) must support the data() and size() methods, returning a pointer to a char$\ast$ and to the number of bytes respectively. 
+
+The simdjson parser may read up to S\+I\+M\+D\+J\+S\+O\+N\+\_\+\+P\+A\+D\+D\+I\+NG bytes beyond the end of the string, so if you do not use a \hyperlink{structsimdjson_1_1padded__string}{padded\+\_\+string} container, you have the responsability to overallocated. If you fail to do so, your software may crash if you cross a page boundary, and you should expect memory checkers to object. Most users should use a \hyperlink{structsimdjson_1_1padded__string}{simdjson\+::padded\+\_\+string}. 
+
+Definition at line 53 of file jsonstream.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classsimdjson_1_1_json_stream_ac7ab1f7dd9d839e155f32aa70ca3826d}\label{classsimdjson_1_1_json_stream_ac7ab1f7dd9d839e155f32aa70ca3826d}} 
+\index{simdjson\+::\+Json\+Stream@{simdjson\+::\+Json\+Stream}!Json\+Stream@{Json\+Stream}}
+\index{Json\+Stream@{Json\+Stream}!simdjson\+::\+Json\+Stream@{simdjson\+::\+Json\+Stream}}
+\subsubsection{\texorpdfstring{Json\+Stream()}{JsonStream()}}
+{\footnotesize\ttfamily template$<$class string\+\_\+container $>$ \\
+\hyperlink{classsimdjson_1_1_json_stream}{simdjson\+::\+Json\+Stream}$<$ string\+\_\+container $>$\+::\hyperlink{classsimdjson_1_1_json_stream}{Json\+Stream} (\begin{DoxyParamCaption}\item[{const string\+\_\+container \&}]{s,  }\item[{size\+\_\+t}]{batch\+\_\+size = {\ttfamily 1000000} }\end{DoxyParamCaption})}
+
+
+
+Create a \hyperlink{classsimdjson_1_1_json_stream}{Json\+Stream} object that can be used to parse sequentially the valid J\+S\+ON documents found in the buffer \char`\"{}buf\char`\"{}. 
+
+The batch\+\_\+size must be at least as large as the biggest document in the file, but not too large to submerge the cached memory. We found that 1\+MB is somewhat a sweet spot for now.
+
+The user is expected to call the following json\+\_\+parse method to parse the next valid J\+S\+ON document found in the buffer. This method can and is expected to be called in a loop.
+
+Various methods are offered to keep track of the status, like get\+\_\+current\+\_\+buffer\+\_\+loc, get\+\_\+n\+\_\+parsed\+\_\+docs, get\+\_\+n\+\_\+bytes\+\_\+parsed, etc. 
+
+Definition at line 226 of file jsonstream.\+h.
+
+
+\begin{DoxyCode}
+228     : str(s), \_batch\_size(batchSize) \{
+229 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classsimdjson_1_1_json_stream_a01493e28b0606bcef1e03c233214382b}\label{classsimdjson_1_1_json_stream_a01493e28b0606bcef1e03c233214382b}} 
+\index{simdjson\+::\+Json\+Stream@{simdjson\+::\+Json\+Stream}!get\+\_\+current\+\_\+buffer\+\_\+loc@{get\+\_\+current\+\_\+buffer\+\_\+loc}}
+\index{get\+\_\+current\+\_\+buffer\+\_\+loc@{get\+\_\+current\+\_\+buffer\+\_\+loc}!simdjson\+::\+Json\+Stream@{simdjson\+::\+Json\+Stream}}
+\subsubsection{\texorpdfstring{get\+\_\+current\+\_\+buffer\+\_\+loc()}{get\_current\_buffer\_loc()}}
+{\footnotesize\ttfamily template$<$class string\+\_\+container  = padded\+\_\+string$>$ \\
+size\+\_\+t \hyperlink{classsimdjson_1_1_json_stream}{simdjson\+::\+Json\+Stream}$<$ string\+\_\+container $>$\+::get\+\_\+current\+\_\+buffer\+\_\+loc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the location (index) of where the next document should be in the buffer. 
+
+Can be used for debugging, it tells the user the position of the end of the last valid J\+S\+ON document parsed 
+
+Definition at line 117 of file jsonstream.\+h.
+
+
+\begin{DoxyCode}
+117 \{ \textcolor{keywordflow}{return} current\_buffer\_loc; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1_json_stream_ac63006b60b0446cd20dfc102131e8a98}\label{classsimdjson_1_1_json_stream_ac63006b60b0446cd20dfc102131e8a98}} 
+\index{simdjson\+::\+Json\+Stream@{simdjson\+::\+Json\+Stream}!get\+\_\+n\+\_\+bytes\+\_\+parsed@{get\+\_\+n\+\_\+bytes\+\_\+parsed}}
+\index{get\+\_\+n\+\_\+bytes\+\_\+parsed@{get\+\_\+n\+\_\+bytes\+\_\+parsed}!simdjson\+::\+Json\+Stream@{simdjson\+::\+Json\+Stream}}
+\subsubsection{\texorpdfstring{get\+\_\+n\+\_\+bytes\+\_\+parsed()}{get\_n\_bytes\_parsed()}}
+{\footnotesize\ttfamily template$<$class string\+\_\+container  = padded\+\_\+string$>$ \\
+size\+\_\+t \hyperlink{classsimdjson_1_1_json_stream}{simdjson\+::\+Json\+Stream}$<$ string\+\_\+container $>$\+::get\+\_\+n\+\_\+bytes\+\_\+parsed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the total amount of data (in bytes) parsed by the \hyperlink{classsimdjson_1_1_json_stream}{Json\+Stream}, in the current buffer, at the given time. 
+
+
+
+Definition at line 125 of file jsonstream.\+h.
+
+
+\begin{DoxyCode}
+125 \{ \textcolor{keywordflow}{return} n\_bytes\_parsed; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimdjson_1_1_json_stream_a160e592d44374cc21c12a58a1648196b}\label{classsimdjson_1_1_json_stream_a160e592d44374cc21c12a58a1648196b}} 
+\index{simdjson\+::\+Json\+Stream@{simdjson\+::\+Json\+Stream}!get\+\_\+n\+\_\+parsed\+\_\+docs@{get\+\_\+n\+\_\+parsed\+\_\+docs}}
+\index{get\+\_\+n\+\_\+parsed\+\_\+docs@{get\+\_\+n\+\_\+parsed\+\_\+docs}!simdjson\+::\+Json\+Stream@{simdjson\+::\+Json\+Stream}}
+\subsubsection{\texorpdfstring{get\+\_\+n\+\_\+parsed\+\_\+docs()}{get\_n\_parsed\_docs()}}
+{\footnotesize\ttfamily template$<$class string\+\_\+container  = padded\+\_\+string$>$ \\
+size\+\_\+t \hyperlink{classsimdjson_1_1_json_stream}{simdjson\+::\+Json\+Stream}$<$ string\+\_\+container $>$\+::get\+\_\+n\+\_\+parsed\+\_\+docs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the total amount of complete documents parsed by the \hyperlink{classsimdjson_1_1_json_stream}{Json\+Stream}, in the current buffer, at the given time. 
+
+
+
+Definition at line 121 of file jsonstream.\+h.
+
+
+\begin{DoxyCode}
+121 \{ \textcolor{keywordflow}{return} n\_parsed\_docs; \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/simdjson/jsonstream.\+h\end{DoxyCompactItemize}
