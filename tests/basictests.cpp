@@ -720,8 +720,6 @@ namespace dom_api {
 
   bool twitter_count() {
     // Prints the number of results in twitter.json
-    printf(JSON_TEST_PATH);
-    printf("\n");
     document doc = document::parse(get_corpus(JSON_TEST_PATH));
     uint64_t result_count = doc["search_metadata"]["count"];
     if (result_count != 100) { cerr << "Expected twitter.json[metadata_count][count] = 100, got " << result_count << endl; return false; }
