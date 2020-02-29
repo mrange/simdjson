@@ -609,7 +609,6 @@ namespace dom_api {
 
   bool object_iterator_empty() {
     string json(R"({})");
-    uint64_t expected_value[] = {};
     int i = 0;
 
     document doc = document::parse(json);
@@ -617,13 +616,12 @@ namespace dom_api {
       cout << "Unexpected " << key << " = " << uint64_t(value) << endl;
       i++;
     }
-    if (i*sizeof(uint64_t) != sizeof(expected_value)) { cout << "Expected " << sizeof(expected_value) << " values, got " << i << endl; return false; }
+    if (i > 0) { cout << "Expected 0 values, got " << i << endl; return false; }
     return true;
   }
 
   bool array_iterator_empty() {
     string json(R"([])");
-    uint64_t expected_value[] = {};
     int i=0;
 
     document doc = document::parse(json);
@@ -631,7 +629,7 @@ namespace dom_api {
       cout << "Unexpected value " << value << endl;
       i++;
     }
-    if (i*sizeof(uint64_t) != sizeof(expected_value)) { cout << "Expected " << sizeof(expected_value) << " values, got " << i << endl; return false; }
+    if (i > 0) { cout << "Expected 0 values, got " << i << endl; return false; }
     return true;
   }
 
